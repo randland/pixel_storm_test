@@ -49,8 +49,6 @@ type: subject - brief description
 
 - Key change 1
 - Key change 2
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 EOF
 )"
 ```
@@ -71,8 +69,8 @@ EOF
 
 - **Use conversation context**: You know what was just discussed/built
 - **Keep it concise**: 1-2 sentence summary, bullet points for details
-- **Include Co-Author**: Always add the Claude co-author line
 - **Match branch type**: `learn/*` branches get `learn:` commits
+- **No AI attribution**: Do not add co-author lines or reference Claude
 
 ## Examples
 
@@ -83,8 +81,6 @@ feat: add particle system controls - slider for count and speed
 - Added reactive sliders for particle count (100-10000)
 - Speed control affects velocity multiplier
 - Maintains 60fps up to 5000 particles
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 ### After a teaching session
@@ -96,8 +92,6 @@ learn: WebGPU compute shaders - basic workgroup dispatch
 - Visualized thread distribution
 
 Curriculum: Section 08 - TSL & WebGPU
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 ### Checkpoint
@@ -110,6 +104,4 @@ Completed:
 - Basic geometry rendering
 
 Ready for: Phase 2 - GPU Computing Introduction
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
