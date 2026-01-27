@@ -7,8 +7,8 @@
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
-1. **Lesson 01-01**: 3D Graphics Concepts (mental models)
-2. **Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)
+1. ~~**Lesson 01-01**: 3D Graphics Concepts (mental models)~~ ✅ Complete
+2. **Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS) ← **NEXT**
 3. **Lesson 01-03**: Hello Cube (first working demo)
 
 ## Curriculum Location
@@ -17,7 +17,7 @@
 
 ## Skills Status
 - [x] Vue 3 (expert)
-- [x] Three.js (foundation)
+- [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
 - [ ] TresJS integration
 - [ ] WebGPU programming
 - [ ] TSL shaders
@@ -99,4 +99,4 @@
 **Platform architecture**: @docs/context-modules/platform-specs.md
 **Success metrics**: @docs/context-modules/progress-tracking.md
 
-*Updated*: 2026-01-27
+*Updated*: 2026-01-26
