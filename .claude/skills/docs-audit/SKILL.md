@@ -1,6 +1,6 @@
 ---
 name: docs-audit
-description: Audit documentation for broken references, orphaned files, and duplicates
+description: Audit documentation architecture for proper information partitioning
 usage: /docs-audit [scope]
 examples:
   - /docs-audit
@@ -13,106 +13,178 @@ context:
 
 # Documentation Audit Skill
 
-Performs comprehensive audit of project documentation to identify broken references, orphaned content, and maintenance issues.
+Audits the documentation architecture to ensure each context (agent, skill, output style) has access to exactly the information it needs—no more, no less.
 
-## Audit Scope Options
+## Philosophy
 
-| Scope | What It Checks |
-|-------|----------------|
-| (default) | Quick check of main entry points and critical references |
-| `agents` | All files in .claude/agents/ |
-| `skills` | All files in .claude/skills/ |
-| `full` | Complete audit of all documentation |
+Good documentation architecture means:
+- **Each context is self-sufficient** for its specific job
+- **No unnecessary loading** of irrelevant information
+- **Clear hierarchy** where specialized contexts reference authoritative sources
+- **No duplication** that could drift out of sync
+- **Discoverable paths** from entry points to needed information
 
-## Audit Checklist
+## Audit Execution
 
-### 1. Broken References
-Check that all `@path/to/file.md` references point to existing files:
-- CLAUDE.md references
-- Agent file references (Core Reference sections)
-- Skill context frontmatter
-- Cross-references between docs
+**This skill uses subagents** to deeply analyze each context type. Each subagent evaluates a specific domain.
 
-### 2. Orphaned Files
-Find files that exist but aren't reachable from CLAUDE.md:
-- Scan all .md files in docs/ and .claude/
-- Trace reachability from CLAUDE.md
-- Report unreachable files
+### Scope Options
 
-### 3. Duplicate Content
-Identify content that appears in multiple places:
-- Framework definitions (like A.C.G.C.E.)
-- Error recovery procedures
-- File structure listings
-- Workflow descriptions
+| Scope | Subagents Spawned |
+|-------|-------------------|
+| (default) | Entry point analysis only |
+| `agents` | One subagent per agent file |
+| `skills` | One subagent per skill file |
+| `output-styles` | One subagent for output styles |
+| `full` | All of the above + cross-cutting analysis |
 
-### 4. Circular References
-Detect files that reference each other without clear hierarchy:
-- A references B, B references A
-- Long reference chains (A → B → C → D → A)
+## Per-Context Analysis
 
-### 5. Stale Information
-Check for outdated content:
-- File paths that don't match current structure
-- References to removed features
-- Outdated command examples
+For each agent/skill/style, the subagent evaluates:
 
-## Execution Pattern
+### 1. Information Accessibility
+**Question**: Can this context reach everything it needs to do its job?
 
-### Quick Audit (default)
+- What is this context's **purpose**?
+- What **information** does it need to fulfill that purpose?
+- Can it **reach** that information via its references?
+- Are there **gaps** where it needs info but can't access it?
+
+### 2. Information Efficiency
+**Question**: Does this context load only what it needs?
+
+- What does it **actually reference**?
+- Is each reference **necessary** for its purpose?
+- Could any references be **removed** without impacting function?
+- Does it load **broad context** when it only needs **specific info**?
+
+### 3. Source of Truth
+**Question**: Does this context define things it shouldn't, or properly defer?
+
+- Does it **duplicate** content that exists elsewhere?
+- Does it **reference** authoritative sources instead of copying?
+- If it defines something, is it the **right place** for that definition?
+- Could changes elsewhere cause this context to become **stale**?
+
+### 4. Self-Containment
+**Question**: Can this context operate independently or does it have hidden dependencies?
+
+- Are all **required references** declared (in frontmatter or Core Reference)?
+- Does it **assume context** that isn't explicitly loaded?
+- Could a fresh session **use this context** without prior knowledge?
+- Does it reference files that **reference it back** (circular)?
+
+## Subagent Prompts
+
+### For Agent Analysis
 ```
-1. Read CLAUDE.md
-2. Verify all @ references exist
-3. Check critical agent references
-4. Report issues found
+Analyze [agent-file.md] as a context window entry point:
+
+1. PURPOSE: What is this agent supposed to do?
+2. NEEDS: What information does it need to do that job?
+3. HAS: What does it actually reference/load?
+4. GAPS: What's missing that it needs?
+5. EXCESS: What does it load that it doesn't need?
+6. DUPLICATES: What does it define that exists elsewhere?
+7. DEPENDENCIES: What does it assume without declaring?
+
+Provide specific file paths and line numbers for all findings.
 ```
 
-### Full Audit
+### For Skill Analysis
 ```
-1. Glob all .md files in project
-2. Parse all @ references from each file
-3. Build reference graph
-4. Find orphaned nodes
-5. Detect duplicate content patterns
-6. Report comprehensive findings
+Analyze [skill/SKILL.md] as a context window entry point:
+
+1. PURPOSE: What does this skill do when invoked?
+2. CONTEXT FRONTMATTER: What files does it declare loading?
+3. BODY REFERENCES: What files does it reference in the body?
+4. MISMATCH: Are body references not in frontmatter (hidden deps)?
+5. UNUSED: Are frontmatter items never used in the body?
+6. COMPLETENESS: Can this skill execute with only declared context?
+
+Provide specific findings with line numbers.
+```
+
+### For Cross-Cutting Analysis
+```
+Analyze the overall documentation architecture:
+
+1. ENTRY POINTS: List all context entry points (CLAUDE.md, agents, skills, styles)
+2. REFERENCE GRAPH: Map what references what
+3. ORPHANS: Files not reachable from any entry point
+4. HOTSPOTS: Files referenced by many contexts (risk of change impact)
+5. PARTITIONING: Is information properly separated by concern?
+6. HIERARCHY: Is there clear authority (who defines what)?
+
+Provide a visual graph and specific recommendations.
 ```
 
 ## Output Format
 
 ```markdown
-## Documentation Audit Report
+## Documentation Architecture Audit
 
-### Summary
-- Files checked: X
-- Broken references: X
-- Orphaned files: X
-- Duplicates found: X
+### Executive Summary
+- Contexts analyzed: X
+- Well-partitioned: X
+- Needs attention: X
+- Critical issues: X
 
-### Broken References
-| File | Line | Reference | Issue |
-|------|------|-----------|-------|
-| path/file.md | 12 | @docs/missing.md | File not found |
+### Per-Context Findings
 
-### Orphaned Files
-- docs/forgotten-file.md (not linked from anywhere)
+#### [context-name]
+**Purpose**: [what it does]
+**Verdict**: ✅ Well-partitioned | ⚠️ Needs attention | ❌ Critical issues
 
-### Duplicate Content
-| Content | Location 1 | Location 2 | Recommendation |
-|---------|-----------|-----------|----------------|
-| Error recovery | git-manager.md | git-guide.md | Consolidate |
+| Aspect | Status | Finding |
+|--------|--------|---------|
+| Accessibility | ✅/⚠️/❌ | [can reach what it needs?] |
+| Efficiency | ✅/⚠️/❌ | [loads only what it needs?] |
+| Source of Truth | ✅/⚠️/❌ | [defers appropriately?] |
+| Self-Containment | ✅/⚠️/❌ | [declares all dependencies?] |
 
-### Recommendations
-1. Priority fixes...
-2. ...
+**Issues**:
+1. [specific issue with file:line]
+
+**Recommendations**:
+1. [specific fix]
+
+### Architecture-Wide Findings
+
+#### Information Hotspots
+Files referenced by 3+ contexts (high change impact):
+- [file] → referenced by [list of contexts]
+
+#### Orphaned Content
+Files not reachable from any entry point:
+- [file]
+
+#### Partitioning Issues
+Information that should be separated but isn't:
+- [description]
+
+### Priority Fixes
+1. [Critical] ...
+2. [High] ...
+3. [Medium] ...
 ```
 
 ## When to Run
 
-- **Monthly**: Full audit for comprehensive maintenance
-- **After major changes**: Quick audit to verify nothing broke
-- **Before milestones**: Ensure documentation is clean
+| Trigger | Scope | Why |
+|---------|-------|-----|
+| Monthly maintenance | `full` | Catch drift before it accumulates |
+| After adding agent/skill | `agents` or `skills` | Verify new context is well-integrated |
+| After major refactor | `full` | Ensure partitioning wasn't broken |
+| Before milestone | (default) | Quick sanity check |
 
-## Integration with Other Skills
+## Context Types Explained
 
-- Run `/docs-audit` before `/commit-learning` for major doc changes
-- Combine with git-manager for documentation cleanup commits
+| Type | Location | Purpose | Entry Point? |
+|------|----------|---------|--------------|
+| **Agent** | `.claude/agents/` | Specialized delegation target | Yes (via Task tool) |
+| **Skill** | `.claude/skills/` | User/Claude-invokable command | Yes (via /command) |
+| **Output Style** | `.claude/output-styles/` | Communication personality | Loaded into main context |
+| **Reference Doc** | `docs/reference/` | Technical patterns | Loaded on-demand |
+| **Context Module** | `docs/context-modules/` | Project state/specs | Loaded on-demand |
+| **Rules** | `.claude/rules/` | Behavior protocols | Loaded into main context |
