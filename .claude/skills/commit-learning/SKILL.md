@@ -59,16 +59,28 @@ Learning: [Key takeaway]
 
 ## Commit Workflow
 
-### 1. Review Changes
+### 1. Pre-Commit Checks (REQUIRED)
+```bash
+# Run these before every commit
+npm run lint      # Fix code style issues
+npm run test:run  # Verify tests pass
+```
+
+If either fails, fix the issues before proceeding.
+
+### 2. Review Changes
 ```bash
 git status
 git diff --staged
 ```
 
-### 2. Verify Testing
-Ensure /demo-test has been run with zero errors.
+### 3. Visual Testing (if applicable)
+If changes include demos or visual components:
+```bash
+/demo-test  # Check for console errors
+```
 
-### 3. Compose Message
+### 4. Compose Message
 Follow the appropriate format based on commit type.
 
 ### 4. Create Commit

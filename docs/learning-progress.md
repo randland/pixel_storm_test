@@ -1,16 +1,19 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Demo Platform Setup - STARTING
+- **Phase**: Section 01 - Getting Started
 - **Branch**: `learn/fresh-architecture`
 - **Focus**: WebGPU + TresJS integration
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
-1. Install TresJS dependencies
-2. Create demo navigation structure
-3. Build first WebGPU demo component
-4. Establish control panel patterns
+1. **Lesson 01-01**: 3D Graphics Concepts (mental models)
+2. **Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)
+3. **Lesson 01-03**: Hello Cube (first working demo)
+
+## Curriculum Location
+**Full outline**: `docs/lessons/00-curriculum-outline.md`
+**Tangent parking lot**: `docs/lessons/tangents-queue.md`
 
 ## Skills Status
 - [x] Vue 3 (expert)
