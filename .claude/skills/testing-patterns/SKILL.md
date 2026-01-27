@@ -24,26 +24,17 @@ Provides testing patterns and quality standards for educational graphics develop
 - During WebGPU/shader development
 
 ### Testing Command
-```bash
-# Ensure dev server is running: npm run dev
-node test-demos.js
+
+Use the `/demo-test` skill for automated Playwright-based testing:
+```
+/demo-test
 ```
 
-### Expected Results
-```
-Testing LayeredNoiseArt.vue...
-Testing PerlinRGBDemo.vue...
-
-=== TEST RESULTS ===
-
-LayeredNoiseArt.vue:
-  No errors detected
-
-PerlinRGBDemo.vue:
-  No errors detected
-
-Total errors: 0
-```
+This skill:
+1. Ensures the dev server is running
+2. Opens demos in headless browser
+3. Captures console errors and warnings
+4. Reports results with file locations
 
 ## Common Graphics Testing Patterns
 ```javascript

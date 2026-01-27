@@ -77,6 +77,10 @@ git tag "checkpoint-phase-1"
 - Maintain clean commit history that tells the learning story
 
 ## Error Recovery
+
+> **Detailed recovery procedures**: See @docs/git-complete-guide.md#error-recovery
+
+Quick reference:
 - Keep experimental work in separate branches
 - Use git stash for temporary work-in-progress
 - Create backup branches before major refactoring

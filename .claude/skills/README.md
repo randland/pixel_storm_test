@@ -13,6 +13,7 @@
 | Graphics Teaching | `/graphics-teaching` | Three.js/WebGPU teaching patterns |
 | Testing Patterns | `/testing-patterns` | Testing standards reference |
 | Educational Workflow | `/educational-workflow` | Structured workflow for sessions |
+| Docs Audit | `/docs-audit` | Audit documentation for broken references and orphans |
 
 ## Skill Descriptions
 
@@ -54,6 +55,12 @@
 **Usage**: `/educational-workflow`
 **Does**: Provides session structure, checkpoint patterns, progress tracking
 
+### /docs-audit
+**Purpose**: Audit documentation for broken references, orphaned files, and duplicates
+**Usage**: `/docs-audit [scope]`
+**Examples**: `/docs-audit`, `/docs-audit agents`, `/docs-audit full`
+**Does**: Checks @ references exist, finds orphaned files, identifies duplicate content
+
 ## Proactive Skill Usage
 
 Claude can invoke these skills proactively when:
@@ -61,3 +68,4 @@ Claude can invoke these skills proactively when:
 - After code changes to demos → `/demo-test`
 - Before committing → `/commit-learning`
 - When reviewing older concepts → `/progress-review`
+- Monthly or after major doc changes → `/docs-audit`
