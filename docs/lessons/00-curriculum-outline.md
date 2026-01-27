@@ -3,6 +3,13 @@
 > **Progress**: Section 01 - Getting Started (in progress)
 > **Last Updated**: 2026-01-26
 
+## Learning Philosophy
+
+- **Project-driven**: Each concept taught through practical projects
+- **Progressive complexity**: Simple scenes to GPU-accelerated art
+- **Visual feedback**: Immediate results maintain engagement
+- **Modular approach**: Projects can be extended based on interest
+
 ## How to Use This Document
 
 - **Status markers**: `[ ]` Planned | `[>]` In Progress | `[x]` Complete
@@ -147,3 +154,53 @@ Lessons suggested during learning that need to be placed in the outline.
 | Date | Section | Lesson | Notes |
 |------|---------|--------|-------|
 | 2026-01-26 | 01 | 01-3D Graphics Concepts | Completed mental models, corrected misconceptions about Groups and lighting |
+
+---
+
+## Appendix A: Decision Guidelines
+
+### JS vs GPU Performance Thresholds
+
+**GPU Becomes Beneficial:**
+- Particle Systems: >10,000 particles
+- LED Grids: >1,000 with complex calculations
+- Vertices: >100,000 with per-vertex calculations
+- Noise Functions: Any requiring >60fps updates
+
+**JavaScript Remains Optimal:**
+- Small Arrays: <500 elements with simple updates
+- Simple Animations: Basic transitions, fades
+- Interactive Elements: Mouse/keyboard handlers
+- State Management: Application logic
+- Prototyping: Rapid development
+
+### Complexity Scale (for project ideas)
+- ⭐ Beginner: Basic concepts, minimal math
+- ⭐⭐ Intermediate: Advanced features, moderate math
+- ⭐⭐⭐ Advanced: Custom shaders, complex algorithms
+- ⭐⭐⭐⭐ Expert: WebGPU compute, advanced math
+- ⭐⭐⭐⭐⭐ Master: Cutting-edge techniques
+
+---
+
+## Appendix B: Project Ideas
+
+Future projects for exploration after completing core curriculum.
+
+| Project | Complexity | Description |
+|---------|------------|-------------|
+| Animated Geometric Art Studio | ⭐ | Three.js scene management, materials, lighting, animation loops |
+| Interactive Particle Gallery | ⭐⭐ | Instanced rendering, BufferGeometry, mouse interaction |
+| Procedural Landscape Generator | ⭐⭐ | Height maps, noise functions, texture blending |
+| Perlin Noise Art Generator | ⭐⭐ | Multi-octave noise, flow fields, vertex displacement |
+| Fractal Explorer | ⭐⭐⭐ | Mandelbrot, Julia sets, 3D fractals, infinite zoom |
+| Reaction-Diffusion Simulator | ⭐⭐⭐ | Differential equations, pattern emergence |
+| Shader Playground | ⭐⭐⭐ | GLSL fundamentals, live editing, uniform management |
+| Animated Shader Gallery | ⭐⭐⭐ | Time-based animations, wave functions |
+| Interactive Shader Composer | ⭐⭐⭐⭐ | Node-based visual programming, dynamic shader generation |
+| GPU-Accelerated Particles | ⭐⭐⭐⭐ | 100K+ particles, physics simulation, boids |
+| Cellular Automata Art | ⭐⭐⭐⭐ | Conway's Life, custom rules, million+ cells |
+| Fluid Dynamics Simulator | ⭐⭐⭐⭐⭐ | Navier-Stokes equations, interactive manipulation |
+| Ray Tracing Experiments | ⭐⭐⭐⭐⭐ | Path tracing, global illumination, BVH acceleration |
+
+**Target Project**: GPU-Enhanced Logic Gate Simulator (see `docs/learning-progress.md`)

@@ -8,7 +8,7 @@ examples:
   - /progress-review shaders
 context:
   - docs/learning-progress.md
-  - docs/curriculum.md
+  - docs/lessons/00-curriculum-outline.md
   - docs/context-modules/progress-tracking.md
 ---
 

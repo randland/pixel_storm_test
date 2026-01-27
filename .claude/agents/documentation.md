@@ -18,14 +18,11 @@ Specialized agent responsible for maintaining comprehensive, up-to-date project 
 - Maintain architectural decision records for educational choices
 
 ### Documentation Structure Management
-- **docs/curriculum.md**: Learning phases and project progression
-- **docs/projects-catalog.md**: Available learning projects with objectives
+- **docs/lessons/00-curriculum-outline.md**: Lesson progression and status tracking
 - **docs/learning-progress.md**: Current skill level and next steps
-- **docs/implementation-strategies.md**: Technical decision frameworks
-- **docs/architecture.md**: System design and technology choices
-- **docs/setup.md**: Development environment configuration
-- **docs/project-decisions.md**: Historical decision log with rationale
-- **docs/teaching-personality.md**: Agent behavior and teaching style
+- **docs/context-modules/**: Platform specs, learning phases, progress tracking
+- **docs/reference/**: Technical reference documentation
+- **.claude/output-styles/teaching-mentor.md**: Agent behavior and teaching style
 
 ### Teaching Support Documentation
 - Track which concepts have been taught and mastered

@@ -8,8 +8,8 @@ examples:
   - /lesson-start webgpu-compute
 context:
   - docs/learning-progress.md
-  - docs/curriculum.md
-  - docs/teaching-personality.md
+  - docs/lessons/00-curriculum-outline.md
+  - .claude/output-styles/teaching-mentor.md
 ---
 
 # Lesson Start Skill
