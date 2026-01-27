@@ -6,16 +6,23 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint ."
   },
   "dependencies": {
+    "@tresjs/cientos": "^5.2.5",
+    "@tresjs/core": "^5.3.3",
     "@vueuse/core": "^14.1.0",
     "lodash-es": "^4.17.22",
-    "three": "^0.159.0",
+    "three": "^0.182.0",
     "vue": "^3.4.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@vitejs/plugin-vue": "^4.5.2",
+    "eslint": "^9.39.2",
+    "eslint-plugin-vue": "^10.7.0",
     "sass": "^1.97.2",
     "vite": "^5.0.8"
   }
