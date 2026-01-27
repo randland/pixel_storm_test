@@ -1,8 +1,24 @@
-# Graphics Teaching Skills
+---
+name: graphics-teaching
+description: Three.js and WebGPU teaching patterns for Vue 3 graphics education
+usage: /graphics-teaching [topic]
+examples:
+  - /graphics-teaching scene-setup
+  - /graphics-teaching vue-integration
+  - /graphics-teaching webgpu
+context:
+  - docs/teaching-personality.md
+  - docs/curriculum.md
+---
+
+# Graphics Teaching Skill
+
+Provides teaching patterns for Three.js, WebGPU, and Vue 3 graphics integration.
 
 ## Three.js Teaching Patterns
 
 ### Scene Setup Template
+When teaching scene setup, always start with the foundational trio:
 ```js
 // Always start with: scene, camera, renderer
 const scene = new THREE.Scene()
@@ -39,3 +55,14 @@ const renderer = new THREE.WebGLRenderer({ canvas: canvasElement })
 - Creative parameter exploration
 - Connect math concepts to artistic outcomes
 - Build portfolio-worthy demonstrations
+
+## Topic-Specific Guidance
+
+### scene-setup
+Walk through the fundamental Three.js scene components with immediate visual results.
+
+### vue-integration
+Demonstrate reactive data binding between Vue refs and Three.js objects with proper lifecycle management.
+
+### webgpu
+Introduce WebGPU concepts starting from Three.js WebGL limitations, progressing to compute shaders.

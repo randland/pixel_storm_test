@@ -1,302 +1,236 @@
-# Vue 3 + Three.js + WebGPU Digital Art Learning Curriculum
+# Vue 3 + Three.js + WebGPU Digital Art Curriculum
 
 ## Overview
 
-This curriculum is designed for developers with strong Vue 3 skills who are new to Three.js, WebGPU, and shader programming. The focus is on creating digital art through hands-on projects, progressing from basic 3D concepts to advanced GPU computing and custom shaders.
+Progressive skill development from Vue 3 expertise to WebGPU mastery through hands-on digital art projects.
 
 ## Learning Philosophy
+- **Project-driven**: Each concept taught through practical projects
+- **Progressive complexity**: Simple scenes to GPU-accelerated art
+- **Visual feedback**: Immediate results maintain engagement
+- **Modular approach**: Projects can be extended based on interest
 
-- **Project-driven**: Each concept is taught through practical digital art projects
-- **Progressive complexity**: Building from simple scenes to complex GPU-accelerated art
-- **Visual feedback**: Immediate visual results to maintain engagement
-- **Modular approach**: Each project can be extended or modified based on interest
+---
 
 ## Curriculum Phases
 
-### Phase 1: Foundation (4-6 weeks)
-**Goal**: Establish Three.js fundamentals within Vue 3 architecture
+### Phase 1: TresJS + WebGPU Foundation (2-3 weeks)
+- [ ] TresJS Basics: Scene setup, components, reactivity
+- [ ] WebGPU Detection: Browser support and fallbacks
+- [ ] Basic Rendering: First WebGPU-powered graphics
+- [ ] Demo Architecture: Reusable patterns for learning demos
 
-#### Skills Developed
-- [ ] Vue 3 + Three.js integration patterns
-- [ ] Basic 3D scene setup and rendering
-- [ ] Geometry, materials, and lighting fundamentals
-- [ ] Animation and interactivity
-- [ ] Asset loading and management
+### Phase 2: GPU Computing Introduction (3-4 weeks)
+- [ ] Compute Shaders: Basic parallel computing concepts
+- [ ] Buffer Management: GPU memory and data transfer
+- [ ] Pipeline Setup: WebGPU rendering and compute pipelines
+- [ ] Performance Profiling: GPU measurement
 
-#### Project Timeline
-- **Week 1-2**: Animated Geometric Art Studio
-- **Week 3-4**: Interactive Particle Gallery
-- **Week 5-6**: Procedural Landscape Generator
+### Phase 3: Advanced WebGPU Graphics (4-6 weeks)
+- [ ] TSL Integration: Three Shading Language for modern shaders
+- [ ] Complex Shaders: Advanced visual effects
+- [ ] Multi-pass Rendering: Sophisticated graphics pipelines
+- [ ] Interactive Graphics: User-driven GPU-powered visuals
 
-### Phase 2: Advanced Graphics (6-8 weeks)
-**Goal**: Master advanced Three.js features and mathematical concepts for art
+### Phase 4: Creative Applications (4-6 weeks)
+- [ ] Generative Art: Procedural graphics and animation
+- [ ] Particle Systems: Large-scale GPU-accelerated effects
+- [ ] Fluid Dynamics: Physics simulation on GPU
+- [ ] Portfolio Pieces: Professional-quality WebGPU projects
 
-#### Skills Developed
-- [ ] Advanced geometries and custom meshes
-- [ ] Texture manipulation and UV mapping
-- [ ] Post-processing effects
-- [ ] Mathematical art concepts (noise, fractals)
-- [ ] Performance optimization
+---
 
-#### Project Timeline
-- **Week 1-2**: Perlin Noise Art Generator
-- **Week 3-4**: Fractal Explorer
-- **Week 5-6**: Reaction-Diffusion Simulator
-- **Week 7-8**: Advanced Post-Processing Art Suite
+## Implementation Strategies
 
-### Phase 3: Shader Programming (6-8 weeks)
-**Goal**: Create custom visual effects through shader programming
+### Decision Framework
+1. **WebGPU First**: Prefer GPU acceleration when available
+2. **Progressive Enhancement**: Fallback to WebGL when needed
+3. **Component Isolation**: Each demo as self-contained Vue component
+4. **Performance Priority**: Real-time rendering over visual complexity
+5. **Learning Focus**: Clear educational progression
 
-#### Skills Developed
-- [ ] GLSL fundamentals (vertex and fragment shaders)
-- [ ] Mathematical operations in shaders
-- [ ] Uniform and attribute management
-- [ ] Custom material creation
-- [ ] Shader debugging techniques
+### JS vs GPU Performance Thresholds
 
-#### Project Timeline
-- **Week 1-2**: Shader Playground (basic effects)
-- **Week 3-4**: Animated Shader Gallery
-- **Week 5-6**: Interactive Shader Composer
-- **Week 7-8**: Advanced Shader Art Collection
+**GPU Becomes Beneficial:**
+- Particle Systems: >10,000 particles
+- LED Grids: >1,000 with complex calculations
+- Vertices: >100,000 with per-vertex calculations
+- Noise Functions: Any requiring >60fps updates
 
-### Phase 4: WebGPU Computing (8-10 weeks)
-**Goal**: Leverage GPU compute power for advanced digital art
+**JavaScript Remains Optimal:**
+- Small Arrays: <500 elements with simple updates
+- Simple Animations: Basic transitions, fades
+- Interactive Elements: Mouse/keyboard handlers
+- State Management: Application logic
+- Prototyping: Rapid development
 
-#### Skills Developed
-- [ ] WebGPU compute shader fundamentals
-- [ ] Buffer management and data flow
-- [ ] Parallel processing concepts
-- [ ] Three.js + WebGPU integration
-- [ ] Advanced simulation techniques
+### Key Implementation Patterns
 
-#### Project Timeline
-- **Week 1-2**: Compute Shader Introduction
-- **Week 3-4**: GPU-Accelerated Particle Systems
-- **Week 5-6**: Fluid Dynamics Simulator
-- **Week 7-8**: Cellular Automata Art
-- **Week 9-10**: Ray Tracing Experiments
-
-## Project Dependencies
-
-```mermaid
-graph TD
-    A[Animated Geometric Art] --> B[Interactive Particle Gallery]
-    B --> C[Procedural Landscape]
-    C --> D[Perlin Noise Art]
-    D --> E[Fractal Explorer]
-    D --> F[Reaction-Diffusion]
-    E --> G[Shader Playground]
-    F --> G
-    G --> H[Animated Shader Gallery]
-    H --> I[Shader Composer]
-    I --> J[Compute Shader Intro]
-    J --> K[GPU Particle Systems]
-    K --> L[Fluid Dynamics]
-    K --> M[Cellular Automata]
-    L --> N[Ray Tracing]
-    M --> N
+**Demo Template Structure:**
+```vue
+<template>
+  <TresCanvas><!-- Three.js scene --></TresCanvas>
+  <ControlPanel><!-- Demo controls --></ControlPanel>
+</template>
 ```
 
-## Prerequisites by Phase
+**Control Panels**: Reactive Vue controls -> Three.js updates
+**Error Handling**: Console monitoring and graceful degradation
+**Testing**: Playwright-based console error detection
 
-### Phase 1 Prerequisites
-- Strong Vue 3 composition API knowledge
-- Basic JavaScript ES6+ features
-- Understanding of HTML5 Canvas (helpful but not required)
-- Basic trigonometry concepts
+---
 
-### Phase 2 Prerequisites
-- Completed Phase 1 projects
-- Comfort with mathematical concepts (vectors, matrices)
-- Understanding of JavaScript modules and async programming
+## Projects Catalog
 
-### Phase 3 Prerequisites
-- Completed Phase 2 projects
-- Basic understanding of graphics pipeline
-- Willingness to learn mathematical concepts as needed
+### Complexity Scale
+- One Star: Beginner - Basic concepts, minimal math
+- Two Stars: Intermediate - Advanced features, moderate math
+- Three Stars: Advanced - Custom shaders, complex algorithms
+- Four Stars: Expert - WebGPU compute, advanced math
+- Five Stars: Master - Cutting-edge techniques
 
-### Phase 4 Prerequisites
-- Completed Phase 3 projects
-- Understanding of parallel computing concepts
-- Comfort with advanced JavaScript and GPU concepts
+### Time Scale
+- Quick: 1-3 days
+- Short: 1 week
+- Medium: 2 weeks
+- Long: 3+ weeks
 
-## Skills Assessment Framework
+### Current Focus Projects
 
-### Technical Skills Tracking
+1. **Demo Platform Setup** (Beginner | Quick)
+   - Navigation, routing, controls architecture
 
-#### Vue 3 Integration (Pre-existing)
+2. **First WebGPU Demo** (Intermediate | Short)
+   - Basic GPU-accelerated graphics
+
+3. **TresJS Integration** (Beginner | Short)
+   - Vue 3 + Three.js via TresJS framework
+
+### Foundation Projects (Phase 1)
+
+4. **Animated Geometric Art Studio** (Beginner | Short)
+   - Three.js scene management, materials, lighting
+   - Animation loops, Vue reactive controls
+
+5. **Interactive Particle Gallery** (Intermediate | Short)
+   - Instanced rendering, BufferGeometry
+   - Mouse interaction, performance optimization
+
+6. **Procedural Landscape Generator** (Intermediate | Medium)
+   - Height maps, noise functions, texture blending
+
+### Advanced Graphics Projects (Phase 2)
+
+7. **Perlin Noise Art Generator** (Intermediate | Short)
+   - Multi-octave noise, flow fields
+   - Noise-based vertex displacement
+
+8. **Fractal Explorer** (Advanced | Medium)
+   - Mandelbrot, Julia sets, 3D fractals
+   - Complex number math, infinite zoom
+
+9. **Reaction-Diffusion Simulator** (Advanced | Medium)
+   - Differential equations, texture computation
+   - Pattern emergence simulation
+
+### Shader Projects (Phase 3)
+
+10. **Shader Playground** (Advanced | Short)
+    - GLSL fundamentals, live editing
+    - Uniform management, error handling
+
+11. **Animated Shader Gallery** (Advanced | Medium)
+    - Time-based animations, wave functions
+    - Mathematical visualizations
+
+12. **Interactive Shader Composer** (Expert | Medium)
+    - Node-based visual programming
+    - Dynamic shader generation
+
+### WebGPU Computing Projects (Phase 4)
+
+13. **Compute Shader Introduction** (Advanced | Short)
+    - WebGPU API, buffer management
+    - Parallel algorithm design
+
+14. **GPU-Accelerated Particles** (Expert | Medium)
+    - 100K+ particles, physics simulation
+    - Boids, gravitational systems
+
+15. **Fluid Dynamics Simulator** (Master | Long)
+    - Navier-Stokes equations
+    - Interactive fluid manipulation
+
+16. **Cellular Automata Art** (Expert | Medium)
+    - Conway's Life, custom rules
+    - Million+ cell simulations
+
+17. **Ray Tracing Experiments** (Master | Long)
+    - Path tracing, global illumination
+    - BVH acceleration structures
+
+---
+
+## Skills Tracking
+
+### Vue 3 Integration (Pre-existing)
 - [x] Composition API mastery
 - [x] Reactive state management
 - [x] Component architecture
 - [x] Lifecycle management
 
-#### Three.js Core (Phase 1)
+### Three.js Core (Phase 1)
 - [ ] Scene, camera, renderer setup
 - [ ] Geometry and material basics
 - [ ] Lighting and shadows
 - [ ] Animation loops
 - [ ] Asset loading
-- [ ] Event handling
 
-#### Mathematical Concepts (Phase 2)
+### Mathematical Concepts (Phase 2)
 - [ ] Vector mathematics
 - [ ] Matrix transformations
 - [ ] Noise functions
 - [ ] Fractal geometry
 - [ ] Color theory
-- [ ] UV coordinate systems
 
-#### Shader Programming (Phase 3)
+### Shader Programming (Phase 3)
 - [ ] GLSL syntax and structure
 - [ ] Vertex shader concepts
 - [ ] Fragment shader concepts
-- [ ] Uniform variables
 - [ ] Texture sampling
-- [ ] Mathematical functions in shaders
 
-#### WebGPU Computing (Phase 4)
+### WebGPU Computing (Phase 4)
 - [ ] Compute shader basics
 - [ ] Buffer operations
 - [ ] Workgroup concepts
 - [ ] Memory management
-- [ ] Synchronization
-- [ ] Pipeline optimization
 
-## Customization Guidelines
-
-### For Visual Arts Focus
-- Emphasize color theory and composition
-- Include more abstract and generative art projects
-- Add projects focusing on visual storytelling
-
-### For Technical Focus
-- Include performance profiling projects
-- Add advanced optimization techniques
-- Emphasize debugging and development tools
-
-### For Mathematical Focus
-- Include deeper mathematical theory
-- Add projects exploring mathematical visualizations
-- Emphasize algorithm implementation
+---
 
 ## Progress Milestones
 
-### Foundation Milestone (End of Phase 1)
-Student can create a complete Vue 3 application with Three.js that includes:
-- Interactive 3D scenes
-- Animated elements
-- User controls
-- Asset loading
+### Foundation Milestone
+Complete Vue 3 + Three.js app with:
+- Interactive 3D scenes, animated elements
+- User controls, asset loading
 - Basic lighting and materials
 
-### Intermediate Milestone (End of Phase 2)
-Student can create complex mathematical visualizations including:
-- Procedural generation techniques
-- Advanced geometric manipulations
-- Post-processing effects
-- Performance-optimized scenes
+### Intermediate Milestone
+Complex mathematical visualizations:
+- Procedural generation, geometric manipulations
+- Post-processing effects, optimized scenes
 
-### Advanced Milestone (End of Phase 3)
-Student can write custom shaders for:
-- Unique visual effects
-- Interactive materials
-- Mathematical visualizations
+### Advanced Milestone
+Custom shaders for:
+- Unique visual effects, interactive materials
 - Optimized rendering techniques
 
-### Expert Milestone (End of Phase 4)
-Student can implement GPU compute solutions for:
-- Complex simulations
-- Real-time processing
+### Expert Milestone
+GPU compute solutions for:
+- Complex simulations, real-time processing
 - Advanced art generation
-- Optimized parallel algorithms
 
-## Resource Requirements
+---
 
-### Development Environment
-- Node.js 18+ with npm/yarn
-- Vue 3 CLI or Vite
-- Modern browser with WebGL 2.0 and WebGPU support
-- Code editor with GLSL syntax highlighting
-
-### Hardware Recommendations
-- Dedicated GPU (recommended for Phase 4)
-- 8GB+ RAM
-- Modern CPU for development builds
-
-### External Resources
-- Three.js documentation
-- WebGPU specifications
-- GLSL reference materials
-- Mathematical visualization resources
-
-## Assessment Methods
-
-### Project-Based Assessment
-- Each project includes specific deliverables
-- Code quality and organization evaluation
-- Creative and technical innovation scoring
-- Performance optimization assessment
-
-### Skill Demonstrations
-- Live coding sessions
-- Problem-solving challenges
-- Code review and explanation
-- Teaching-back sessions
-
-### Portfolio Development
-- Building a comprehensive portfolio
-- Documentation and presentation skills
-- Technical writing and explanation
-- Creative project showcase
-
-## Adaptation Strategies
-
-### For Different Learning Speeds
-- **Fast learners**: Additional challenge projects and extensions
-- **Slower pace**: Break projects into smaller milestones
-- **Deep dive**: Focus on fewer projects with more depth
-
-### For Different Interests
-- **Art focus**: Emphasize visual creativity and composition
-- **Technical focus**: Deep dive into optimization and algorithms
-- **Mathematical focus**: Explore underlying mathematical concepts
-
-### For Different Time Commitments
-- **Full-time**: Complete curriculum in 6-8 months
-- **Part-time**: Extended timeline with weekend projects
-- **Casual**: Pick specific projects of interest
-
-## Success Metrics
-
-### Quantitative Measures
-- Projects completed per phase
-- Code quality scores
-- Performance benchmarks achieved
-- Portfolio pieces created
-
-### Qualitative Measures
-- Understanding of concepts demonstrated
-- Creative problem-solving approach
-- Code organization and maintainability
-- Ability to explain and teach concepts
-
-## Next Steps After Curriculum
-
-### Advanced Topics
-- Machine learning integration (TensorFlow.js)
-- Virtual/Augmented Reality (WebXR)
-- Advanced physics simulations
-- Real-time multiplayer art experiences
-
-### Specialization Paths
-- **Generative Art**: Focus on algorithmic art creation
-- **Interactive Installations**: Large-scale interactive projects
-- **Game Development**: Transition to game development
-- **Scientific Visualization**: Data visualization and simulation
-
-### Community Engagement
-- Contributing to open source projects
-- Sharing knowledge through tutorials
-- Participating in digital art communities
-- Mentoring other learners
+**Detailed project specifications**: @docs/context-modules/detailed-projects-catalog.md
+**Full technical strategies**: @docs/context-modules/detailed-implementation-strategies.md

@@ -2,21 +2,48 @@
 
 ## Technical Proficiency Targets
 ```
-TresJS Integration:    ░░░░░░░░░░░░░░░░░░░░░ 0%
-WebGPU Fundamentals:   ░░░░░░░░░░░░░░░░░░░░░ 0%
-TSL Shader Programming: ░░░░░░░░░░░░░░░░░░░░ 0%
-GPU Computing:         ░░░░░░░░░░░░░░░░░░░░░ 0%
-Demo Architecture:     ░░░░░░░░░░░░░░░░░░░░░ 0%
+TresJS Integration:     [                    ] 0%
+WebGPU Fundamentals:    [                    ] 0%
+TSL Shader Programming: [                    ] 0%
+GPU Computing:          [                    ] 0%
+Demo Architecture:      [                    ] 0%
 ```
 
 ## Platform Development
 ```
-Navigation System:     ░░░░░░░░░░░░░░░░░░░░░ 0%
-Demo Framework:        ░░░░░░░░░░░░░░░░░░░░░ 0%
-URL Routing:           ░░░░░░░░░░░░░░░░░░░░░ 0%
-Control Panels:        ░░░░░░░░░░░░░░░░░░░░░ 0%
-Code Display:          ░░░░░░░░░░░░░░░░░░░░░ 0%
+Navigation System:      [                    ] 0%
+Demo Framework:         [                    ] 0%
+URL Routing:            [                    ] 0%
+Control Panels:         [                    ] 0%
+Code Display:           [                    ] 0%
 ```
+
+---
+
+## Spaced Repetition Tracking
+
+| Concept | Last Review | Next Review | Confidence | Notes |
+|---------|-------------|-------------|------------|-------|
+| Vue 3 Composition API | - | - | Expert | Pre-existing |
+| Vue 3 Reactivity | - | - | Expert | Pre-existing |
+| Three.js Scene Setup | - | - | Foundation | Completed |
+| Three.js Materials | - | - | Foundation | Completed |
+| TresJS Components | - | Pending | New | Phase 1 |
+| WebGPU Detection | - | Pending | New | Phase 1 |
+| Compute Shaders | - | Pending | New | Phase 2 |
+| Buffer Management | - | Pending | New | Phase 2 |
+| TSL Basics | - | Pending | New | Phase 3 |
+
+### Confidence Levels
+- **Expert**: Can explain and teach concept
+- **Proficient**: Can apply independently
+- **Foundation**: Understand basics, need practice
+- **New**: Not yet learned
+
+### Review Intervals
+- Day 1, Day 3, Day 7, Day 14, Day 30, Day 90
+
+---
 
 ## Assessment Criteria
 
@@ -27,15 +54,62 @@ Code Display:          ░░░░░░░░░░░░░░░░░░░
 - **Conceptual Connections**: Does student see patterns across different projects?
 
 ### Skill Mastery Indicators
-- **Three.js Fundamentals**: Scene setup, geometry, materials, lighting
-- **Vue Integration**: Reactive data binding, composables, component architecture
-- **Performance Optimization**: Profiling, memory management, rendering efficiency
-- **Shader Programming**: Vertex/fragment shaders, custom materials
-- **WebGPU Computing**: Compute shaders, parallel processing, GPU memory management
 
-## Next Review Criteria
+**Three.js Fundamentals**
+- [ ] Scene setup, geometry, materials, lighting
+- [ ] Animation loops and render cycles
+- [ ] Asset loading and texture management
+
+**Vue Integration**
+- [ ] Reactive data binding with 3D scenes
+- [ ] Composables for reusable graphics logic
+- [ ] Component architecture for demos
+
+**Performance Optimization**
+- [ ] Profiling and bottleneck identification
+- [ ] Memory management strategies
+- [ ] Rendering efficiency techniques
+
+**Shader Programming**
+- [ ] Vertex/fragment shader concepts
+- [ ] Custom materials and effects
+- [ ] TSL integration
+
+**WebGPU Computing**
+- [ ] Compute shaders for parallel processing
+- [ ] GPU memory management
+- [ ] Pipeline optimization
+
+---
+
+## Review Triggers
+
 Review progress after:
 - Initial platform setup completion
 - First demo implementation
 - Navigation system establishment
 - Control panel pattern creation
+- Each phase milestone completion
+
+---
+
+## Session Notes Template
+
+```markdown
+### Session: [Date]
+**Duration**: X hours
+**Focus**: [Topic]
+**Accomplished**:
+- Item 1
+- Item 2
+
+**Challenges**:
+- Challenge 1
+
+**Next Session**:
+- Goal 1
+- Goal 2
+
+**Concepts to Review**:
+- Concept 1 (confidence: X)
+```

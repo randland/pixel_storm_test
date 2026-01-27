@@ -1,4 +1,19 @@
-# Educational Workflow Skills
+---
+name: educational-workflow
+description: Structured workflow patterns for educational graphics sessions
+usage: /educational-workflow [phase]
+examples:
+  - /educational-workflow start
+  - /educational-workflow implement
+  - /educational-workflow close
+context:
+  - docs/learning-progress.md
+  - docs/operations/context-management.md
+---
+
+# Educational Workflow Skill
+
+Provides structured patterns for managing educational graphics development sessions.
 
 ## Quick Teaching Patterns
 
@@ -11,8 +26,8 @@
 ### Implementation Cycle
 1. Explain concept with immediate visual example
 2. Build working prototype step-by-step
-3. Test for console errors: `node test-demos.js`
-4. Git commit with educational context via git-manager
+3. Test for console errors using /demo-test skill
+4. Git commit with educational context via /commit-learning
 5. Extend example to show variation/complexity
 
 ### Session Close
@@ -34,8 +49,19 @@
 - Keep CLAUDE.md as single source of truth
 
 ## Testing Integration
-**MANDATORY**: Run `node test-demos.js` after:
+**MANDATORY**: Run /demo-test after:
 - Three.js feature additions
 - Vue reactivity changes
 - Shader implementations
 - WebGPU integrations
+
+## Phase-Specific Instructions
+
+### start
+Initialize a new learning session by checking progress status and preparing the development environment.
+
+### implement
+Execute the core implementation cycle with testing and commits at each milestone.
+
+### close
+Properly close the session with testing, documentation updates, and milestone tags.

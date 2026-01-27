@@ -1,4 +1,18 @@
-# Testing Skills for Educational Graphics
+---
+name: testing-patterns
+description: Testing patterns and standards for educational graphics projects
+usage: /testing-patterns [type]
+examples:
+  - /testing-patterns console
+  - /testing-patterns canvas
+  - /testing-patterns webgl
+context:
+  - docs/learning-progress.md
+---
+
+# Testing Patterns Skill
+
+Provides testing patterns and quality standards for educational graphics development.
 
 ## Console Error Testing (MANDATORY)
 
@@ -23,23 +37,15 @@ Testing PerlinRGBDemo.vue...
 === TEST RESULTS ===
 
 LayeredNoiseArt.vue:
-✅ No errors detected
+  No errors detected
 
 PerlinRGBDemo.vue:
-✅ No errors detected
+  No errors detected
 
 Total errors: 0
 ```
 
-## MCP Playwright Integration
-
-### Browser Testing via MCP Tools
-- Use MCP Playwright tools for interactive testing
-- Test canvas rendering and user interactions
-- Validate WebGL context initialization
-- Verify responsive design behavior
-
-### Common Graphics Testing Patterns
+## Common Graphics Testing Patterns
 ```javascript
 // Canvas validation
 const canvas = await page.$('canvas.threejs-canvas')
@@ -65,3 +71,14 @@ await page.waitForTimeout(3000) // Allow Three.js init
 - Test before creating educational milestones
 - Document test failures as learning opportunities
 - Use testing as professional development demonstration
+
+## Type-Specific Patterns
+
+### console
+Focus on capturing and resolving JavaScript console errors and warnings.
+
+### canvas
+Validate Three.js canvas rendering, WebGL context, and visual output.
+
+### webgl
+Verify WebGL context initialization, shader compilation, and GPU resource management.
