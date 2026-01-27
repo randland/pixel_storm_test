@@ -25,7 +25,7 @@ Foundation for everything that follows. No code artifacts - focus on mental mode
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
 | 01 | 3D Graphics Concepts | `[x]` | What Three.js is, scene graph mental model, how rendering works |
-| 02 | Project Setup & Tooling | `[ ]` | TresJS installation, ESLint, Vitest, dev workflow |
+| 02 | Project Setup & Tooling | `[x]` | TresJS installation, ESLint, Vitest, dev workflow |
 | 03 | Hello Cube | `[ ]` | First working demo - spinning cube, understanding the render loop |
 
 ---
@@ -154,6 +154,7 @@ Lessons suggested during learning that need to be placed in the outline.
 | Date | Section | Lesson | Notes |
 |------|---------|--------|-------|
 | 2026-01-26 | 01 | 01-3D Graphics Concepts | Completed mental models, corrected misconceptions about Groups and lighting |
+| 2026-01-27 | 01 | 02-Project Setup & Tooling | TresJS 5.3.3, Three.js 0.182, ESLint flat config, Vitest with happy-dom |
 
 ---
 

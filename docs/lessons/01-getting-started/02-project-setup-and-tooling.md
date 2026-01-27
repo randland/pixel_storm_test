@@ -1,17 +1,17 @@
 # Lesson 01-02: Project Setup & Tooling
 
 > **Section**: Getting Started
-> **Status**: `[ ]` Planned
+> **Status**: `[x]` Complete
 > **Estimated Time**: 1-2 hours
 
 ## Learning Objectives
 
 By the end of this lesson, you will:
-- [ ] Have TresJS and dependencies installed and working
-- [ ] Understand the project structure for a graphics learning platform
-- [ ] Have ESLint configured for Vue 3 code quality
-- [ ] Have Vitest ready for testing composables
-- [ ] Know the development workflow: code → lint → test → commit
+- [x] Have TresJS and dependencies installed and working
+- [x] Understand the project structure for a graphics learning platform
+- [x] Have ESLint configured for Vue 3 code quality
+- [x] Have Vitest ready for testing composables
+- [x] Know the development workflow: code → lint → test → commit
 
 ## Prerequisites
 

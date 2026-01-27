@@ -8,8 +8,8 @@
 
 ## Immediate Next Steps
 1. ~~**Lesson 01-01**: 3D Graphics Concepts (mental models)~~ ✅ Complete
-2. **Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS) ← **NEXT**
-3. **Lesson 01-03**: Hello Cube (first working demo)
+2. ~~**Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)~~ ✅ Complete
+3. **Lesson 01-03**: Hello Cube (first working demo) ← **NEXT**
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -24,7 +24,8 @@
 
 ## Platform Requirements
 - [x] Vue 3 + Vite foundation
-- [ ] TresJS integration
+- [x] TresJS integration
+- [x] ESLint + Vitest tooling
 - [ ] Navigation system
 - [ ] Demo routing
 - [ ] Control panels
