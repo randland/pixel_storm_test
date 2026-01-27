@@ -3,6 +3,7 @@
 > **Section**: Getting Started
 > **Status**: `[x]` Complete
 > **Completed**: 2026-01-26
+> **Actual Time**: ~1.5 hours (vs 1-2 hours estimated)
 
 ## Learning Objectives
 
@@ -12,6 +13,12 @@ By the end of this lesson, you will:
 - [x] Know the three essential components: Scene, Camera, Renderer
 - [x] Understand how TresJS wraps Three.js for Vue developers
 - [x] Have a mental model of the render loop (request frame → update → render)
+
+### Extended Objectives (added during lesson)
+- [x] Understand Camera types: Perspective vs Orthographic
+- [x] Grasp transform hierarchy: position, rotation, scale in parent/child relationships
+- [x] Distinguish between Geometry, Material, and Mesh
+- [x] Know when the render loop runs vs when it can be paused
 
 ## Prerequisites
 
@@ -74,4 +81,17 @@ Scene (container for everything)
 - Abstraction stack analogy (Vue:DOM :: Three.js:WebGL :: TresJS:Three.js) was effective
 - Scene graph as tree structure connected well to Vue component thinking
 - Corrected misconceptions: Groups don't improve performance, BasicMaterial is unlit
-- Student ready for hands-on setup work
+
+**Teaching approaches that worked:**
+- Interactive Q&A throughout, not lecture-then-quiz
+- Probing "why did you think that?" when misconceptions appeared
+- Re-asking corrected concepts later with different framing to verify understanding
+- Synthesis questions at the end combining multiple concepts
+- Connecting examples to the student's LED grid project
+- Going deeper than the original lesson plan specified
+
+**Misconceptions encountered:**
+1. "Groups improve performance" → Actually organizational, not performance
+2. "Mesh without light = invisible" → Actually black (for lit materials) or normal (BasicMaterial)
+
+**For future sessions**: This lesson plan was too sparse. Extended objectives were added mid-lesson. Consider pre-expanding lesson plans before teaching.

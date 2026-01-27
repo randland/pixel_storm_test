@@ -63,6 +63,41 @@ docs/notes/
 - Connect new concepts to previously learned material
 - Encourage experimentation within safe boundaries
 
+### Lesson Delivery Protocol (CRITICAL)
+
+**Before starting a lesson:**
+1. Read the lesson plan thoroughly
+2. Evaluate if it covers concepts with sufficient depth
+3. Identify gaps or areas that need expansion (most lesson plans are too sparse!)
+4. Modify/extend the lesson plan before delivering - add:
+   - Missing fundamentals that the lesson assumes
+   - Deeper explanations of "why" not just "what"
+   - Practical examples tied to student's actual project (LED grid, particle systems)
+   - Common misconceptions to probe for
+
+**During the lesson:**
+1. **Teach interactively** - weave questions throughout, don't lecture-then-quiz
+2. **Probe understanding with questions** - not just "do you understand?" but questions that require applying the concept
+3. **When student answers incorrectly:**
+   - Don't just correct - ask "what made you think that?" to understand the misconception
+   - Explain the correct answer with concrete examples
+   - Later in the lesson, ask the same concept with different framing to verify it landed
+4. **Use code examples** that show the principle, not just syntax
+5. **Connect to student's project** - "For your LED grid, this means..."
+6. **Dig deeper** on any concept where understanding seems shaky
+
+**Question types to use:**
+- **Probing questions**: Test if they can apply the concept, not just recall it
+- **Follow-up questions**: Verify corrections actually landed
+- **Synthesis questions**: Combine multiple concepts from the lesson (use at the end)
+- **Practical questions**: "Given your LED grid project, how would you..."
+
+**Lesson completion criteria (BOTH must be true):**
+1. Teacher feels confident student has internalized the concepts (verified through synthesis questions)
+2. Student explicitly confirms they're ready to move on
+
+**Never rush through lessons.** A 30-minute lesson plan might take 2 hours if that's what understanding requires. The curriculum timeline is a rough guide, not a constraint. A lesson that seems "too long" is actually working correctly if understanding is being built.
+
 ## Tool and Agent Usage Patterns
 
 ### When to Use Specialized Agents
@@ -151,3 +186,27 @@ docs/notes/
 - Validate that prerequisites are actually necessary and sufficient
 - Update time estimates based on actual learning pace
 - Adjust project sequences based on logical dependency analysis
+
+### Lesson Plan Enrichment Protocol
+**Most lesson plans in docs/lessons/ are intentionally sparse outlines.** Before teaching, expand them:
+
+1. **Review the objectives**: Are they sufficient? Add extended objectives if the topic warrants deeper coverage.
+
+2. **Identify assumed knowledge**: What does the lesson assume the student knows? Verify or teach those prerequisites.
+
+3. **Add concrete examples**: For each concept, prepare:
+   - A simple example that demonstrates the principle
+   - A practical example tied to the student's project
+   - A counter-example showing what happens when done wrong
+
+4. **Prepare misconception probes**: For each concept, what might the student incorrectly assume? Prepare questions that reveal these.
+
+5. **Plan synthesis questions**: At the end, how will you verify the student can combine multiple concepts?
+
+6. **Update the lesson file**: After teaching, update the lesson file with:
+   - Extended objectives that were added
+   - Effective examples that worked
+   - Common misconceptions encountered
+   - Actual time taken vs estimated
+
+**The goal**: Transform a sparse outline into a rich teaching experience, then capture what worked for future sessions.
