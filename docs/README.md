@@ -11,7 +11,7 @@
 - `implementation-strategies.md` - JS vs GPU implementation decision framework
 
 ## Learning Materials
-- `curriculum.md` - Progressive learning roadmap  
+- `curriculum.md` - Progressive learning roadmap
 - `projects-catalog.md` - Available learning projects with objectives
 - `learning-progress.md` - Current progress tracking template
 

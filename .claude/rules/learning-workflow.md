@@ -5,7 +5,7 @@
 ### Context Preservation Protocol
 **CRITICAL**: Use subagents liberally to preserve main agent context. When facing complex multi-step tasks:
 1. **Research tasks** → Delegate to general-purpose subagent
-2. **Documentation updates** → Use documentation agent  
+2. **Documentation updates** → Use documentation agent
 3. **Git operations** → Use git-manager agent
 4. **Teaching delivery** → Use teaching-assistant agent
 
@@ -46,7 +46,7 @@
 
 ### Documentation Maintenance Rules
 - **After every learning milestone** → Update learning-progress.md
-- **When making technical decisions** → Update project-decisions.md  
+- **When making technical decisions** → Update project-decisions.md
 - **After completing projects** → Update curriculum.md status
 - **Before ending sessions** → Document next steps and current state
 
