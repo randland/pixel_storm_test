@@ -47,7 +47,7 @@
 ### Documentation Maintenance Rules
 - **After every learning milestone** → Update learning-progress.md
 - **When making technical decisions** → Update project-decisions.md
-- **After completing projects** → Update curriculum.md status
+- **After completing projects** → Update 00-curriculum-outline.md status
 - **Before ending sessions** → Document next steps and current state
 
 ### Code Quality Standards

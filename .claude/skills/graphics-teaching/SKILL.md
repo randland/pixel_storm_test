@@ -7,8 +7,8 @@ examples:
   - /graphics-teaching vue-integration
   - /graphics-teaching webgpu
 context:
-  - docs/teaching-personality.md
-  - docs/curriculum.md
+  - .claude/output-styles/teaching-mentor.md
+  - docs/lessons/00-curriculum-outline.md
 ---
 
 # Graphics Teaching Skill

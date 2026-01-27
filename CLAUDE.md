@@ -4,7 +4,7 @@
 
 ## Context Loading (On-Demand Only)
 **Status**: @docs/learning-progress.md
-**Curriculum**: @docs/curriculum.md
+**Curriculum**: @docs/lessons/00-curriculum-outline.md
 **Git Guide**: @docs/git-complete-guide.md
 
 ## Agent Delegation (MANDATORY)

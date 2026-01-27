@@ -278,7 +278,7 @@ git commit -m "learn: [topic] - [insight gained]
 ```
 
 ### With Curriculum
-Reference `docs/curriculum.md` for:
+Reference `docs/lessons/00-curriculum-outline.md` for:
 - Current position in learning progression
 - Prerequisites for upcoming topics
 - Difficulty calibration based on stated levels
