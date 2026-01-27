@@ -2,8 +2,7 @@
 </script>
 
 <template>
-  <div class="app">
-  </div>
+  <div class="app" />
 </template>
 
 <style lang="sass" scoped>
