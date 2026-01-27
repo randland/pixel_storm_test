@@ -8,7 +8,6 @@ examples:
   - /educational-workflow close
 context:
   - docs/learning-progress.md
-  - docs/operations/context-management.md
 ---
 
 # Educational Workflow Skill

@@ -33,11 +33,11 @@ Specialized agent responsible for maintaining comprehensive, up-to-date project 
 ## Automated Update Triggers
 
 ### When to Update Documentation
-- **After completing any learning milestone** → Update progress tracking
-- **When making technology decisions** → Log in project-decisions.md
-- **After discovering new teaching approaches** → Update teaching notes
-- **When project scope changes** → Update architecture and curriculum
-- **Before starting new learning phases** → Update setup requirements
+- **After completing any learning milestone** → Update @docs/learning-progress.md and @docs/lessons/00-curriculum-outline.md
+- **When making technology decisions** → Log in Decisions Log section of @docs/learning-progress.md
+- **After discovering new teaching approaches** → Update @docs/notes/ with session notes
+- **When project scope changes** → Update @docs/context-modules/platform-specs.md
+- **Before starting new learning phases** → Update @docs/context-modules/learning-phases.md
 
 ### Documentation Coordination Patterns
 - **With Git Agent**: Ensure documentation commits align with code changes

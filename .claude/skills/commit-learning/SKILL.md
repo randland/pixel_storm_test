@@ -59,14 +59,14 @@ Learning: [Key takeaway]
 
 ## Commit Workflow
 
-### 1. Pre-Commit Checks (REQUIRED)
+### 1. Pre-Commit Checks (if configured)
 ```bash
-# Run these before every commit
-npm run lint      # Fix code style issues
-npm run test:run  # Verify tests pass
+# Run if project has these scripts configured
+npm run lint      # Fix code style issues (if available)
+npm run test:run  # Verify tests pass (if available)
 ```
 
-If either fails, fix the issues before proceeding.
+Check `package.json` scripts section. Skip checks that aren't configured.
 
 ### 2. Review Changes
 ```bash
