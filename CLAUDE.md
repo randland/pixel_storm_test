@@ -10,9 +10,9 @@
 ## Agent Delegation (MANDATORY)
 **Index**: @.claude/agents/README.md (selection guide)
 **Git**: @.claude/agents/git-manager.md (ALL changes)
-**Teaching**: @.claude/agents/teaching-assistant.md (Socratic guidance)
 **Docs**: @.claude/agents/documentation.md
 **Output Style**: @.claude/output-styles/teaching-mentor.md
+**Teaching Rules**: @.claude/rules/learning-workflow.md (always active)
 
 ## Expert Consultants (Implementation Advice)
 **Vue Expert**: @.claude/agents/vue-expert.md (composables, reactivity)
@@ -47,7 +47,8 @@
 | `/commit-learning` | Educational git commit |
 | `/graphics-teaching` | Three.js/WebGPU teaching patterns |
 | `/testing-patterns` | Testing standards reference |
-| `/docs-audit` | Audit documentation for broken references |
+| `/educational-workflow` | Session structure and checkpoint patterns |
+| `/docs-audit` | Audit documentation architecture |
 
 ## Stack & Patterns
 **Tech**: Vue 3 + TresJS + Three.js + WebGPU + TSL
@@ -57,8 +58,8 @@
 ## Context Management
 - Use subagents liberally to preserve main context
 - Git operations → git-manager agent (ALL changes)
-- Teaching guidance → teaching-assistant agent
 - Documentation → documentation agent
+- Teaching protocols → rules (learning-workflow.md, always active)
 - Load context modules only as needed
 
 ### Automated Workflow

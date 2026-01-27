@@ -149,6 +149,20 @@ Provide a visual graph and specific recommendations.
 **Recommendations**:
 1. [specific fix]
 
+### Registration Validation
+
+#### Skills
+| Skill | Directory | README | CLAUDE.md | Frontmatter |
+|-------|-----------|--------|-----------|-------------|
+| lesson-start | ✅ | ✅ | ✅ | ✅ |
+| [name] | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+
+#### Agents
+| Agent | File | README | CLAUDE.md | References Valid |
+|-------|------|--------|-----------|------------------|
+| git-manager | ✅ | ✅ | ✅ | ✅ |
+| [name] | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+
 ### Architecture-Wide Findings
 
 #### Information Hotspots
@@ -178,6 +192,52 @@ Information that should be separated but isn't:
 | After major refactor | `full` | Ensure partitioning wasn't broken |
 | Before milestone | (default) | Quick sanity check |
 
+## Registration Validation
+
+A critical part of the audit is verifying that all skills and agents are properly registered.
+
+### Skills Validation Checklist
+
+For each skill directory in `.claude/skills/*/SKILL.md`:
+
+1. **File exists**: Does `SKILL.md` exist in the directory?
+2. **Frontmatter valid**: Does it have `name`, `description`, `usage` fields?
+3. **Registered in README**: Is it listed in `.claude/skills/README.md`?
+4. **Registered in CLAUDE.md**: Is it listed in the Skills table?
+5. **Context files exist**: Do all files in `context:` frontmatter exist?
+
+### Agents Validation Checklist
+
+For each agent file in `.claude/agents/*.md` (excluding README.md):
+
+1. **Has Core Reference section**: Does it declare what files it loads?
+2. **Registered in README**: Is it listed in `.claude/agents/README.md`?
+3. **Registered in CLAUDE.md**: Is it listed in Agent Delegation section?
+4. **Referenced files exist**: Do all `@path` references point to real files?
+
+### Validation Commands
+
+```bash
+# List all skill directories
+ls -d .claude/skills/*/
+
+# List all agent files
+ls .claude/agents/*.md
+
+# Compare against CLAUDE.md registrations
+grep -E "^\\| \`/" CLAUDE.md  # Skills
+grep -E "^\\*\\*" CLAUDE.md   # Agents
+```
+
+### Common Registration Issues
+
+| Issue | Symptom | Fix |
+|-------|---------|-----|
+| Skill exists but not in CLAUDE.md | Users can't discover it | Add to Skills table |
+| Agent exists but not in README | Delegation unclear | Add to agents/README.md |
+| CLAUDE.md lists non-existent skill | `/command` fails | Remove from table or create skill |
+| Frontmatter missing context | Hidden dependencies | Add required files to `context:` |
+
 ## Context Types Explained
 
 | Type | Location | Purpose | Entry Point? |
@@ -188,3 +248,49 @@ Information that should be separated but isn't:
 | **Reference Doc** | `docs/reference/` | Technical patterns | Loaded on-demand |
 | **Context Module** | `docs/context-modules/` | Project state/specs | Loaded on-demand |
 | **Rules** | `.claude/rules/` | Behavior protocols | Loaded into main context |
+
+## Agent vs Skill Classification Audit
+
+### Decision Criteria
+
+**Should be an AGENT when:**
+- Task requires **fresh context** (deep research, complex multi-step work)
+- Work should be **offloaded** to preserve main conversation focus
+- Output is a **single result** returned to main conversation
+- Task is **self-contained** and doesn't need conversation history
+- Benefits from **parallel execution** with other work
+
+**Should be a SKILL when:**
+- Task is a **repeatable workflow** (checklist, procedure)
+- Needs **conversation context** to work properly
+- Provides **formatting templates** or consistent structure
+- Is **quick** and doesn't need deep exploration
+- User should be able to **invoke by command**
+
+**Should be RULES/OUTPUT STYLE when:**
+- Defines **behavior patterns** that apply throughout conversation
+- Describes **how to communicate**, not what to do
+- Should be **always active**, not invoked on demand
+
+### Classification Audit Questions
+
+For each agent, ask:
+1. Does it actually get delegated via Task tool, or just referenced?
+2. Does it do multi-step work, or mainly provide advice?
+3. Does it need fresh context, or does it need conversation history?
+4. Is the output a result, or is the interaction itself the value?
+
+For each skill, ask:
+1. Is it a workflow/checklist, or complex exploration?
+2. Does it need conversation context?
+3. Could it benefit from fresh context instead?
+
+### Red Flags
+
+| Pattern | Suggests Wrong Classification |
+|---------|------------------------------|
+| Agent never actually spawned via Task | Should be rules/style or skill |
+| Agent needs conversation history to work | Should be skill or rules |
+| Skill does deep multi-step research | Should be agent |
+| Skill output is advice, not formatted result | May be better as agent |
+| "Agent" is really just guidelines | Should be rules or output style |

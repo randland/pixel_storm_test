@@ -7,14 +7,40 @@
 1. **Research tasks** → Delegate to general-purpose subagent
 2. **Documentation updates** → Use documentation agent
 3. **Git operations** → Use git-manager agent
-4. **Teaching delivery** → Use teaching-assistant agent
 
 ### Learning Session Structure
 1. **Start**: Check learning-progress.md for current status
 2. **Plan**: Update todo list with session objectives
 3. **Teach**: Deliver concepts through hands-on projects
-4. **Document**: Update progress and curriculum status
-5. **Commit**: Create educational git commits showing progression
+4. **Take Notes**: Create student-perspective notes for each lesson (see Note-Taking Protocol)
+5. **Document**: Update progress and curriculum status
+6. **Commit**: Create educational git commits showing progression
+
+### Note-Taking Protocol (MANDATORY)
+**Purpose**: Reinforce learning through active engagement and create reusable reference material
+
+**Structure**: Notes live in `docs/notes/` mirroring the lesson structure:
+```
+docs/notes/
+├── 01-getting-started/
+│   ├── 01-3d-graphics-concepts.md
+│   ├── 02-project-setup-and-tooling.md
+│   └── 03-hello-cube.md
+├── 02-scene-fundamentals/
+│   └── ...
+```
+
+**Note Format**: Each lesson note should include:
+- **Date and session focus**
+- **Key insights** - the "aha" moments that made concepts click
+- **Mental models** - visual diagrams or explanations in student's own words
+- **Misconceptions corrected** - what was initially misunderstood and why
+- **Questions generated** - things to explore later
+- **Ready for** - what the student is prepared to learn next
+
+**Timing**: Create or update notes **during** the lesson, not after. This forces active engagement with the material.
+
+**Voice**: Write notes from the student's perspective ("I learned...", "This clicked when...") not the teacher's perspective.
 
 ### Project Development Workflow
 - **Experiment safely**: Use branches for all new concepts
@@ -36,13 +62,58 @@
 - Connect new concepts to previously learned material
 - Encourage experimentation within safe boundaries
 
+### Lesson Delivery Protocol (CRITICAL)
+
+**Before starting a lesson:**
+1. Read the lesson plan thoroughly
+2. Evaluate if it covers concepts with sufficient depth
+3. Identify gaps or areas that need expansion (most lesson plans are too sparse!)
+4. Modify/extend the lesson plan before delivering - add:
+   - Missing fundamentals that the lesson assumes
+   - Deeper explanations of "why" not just "what"
+   - Practical examples tied to student's actual project (LED grid, particle systems)
+   - Common misconceptions to probe for
+
+**During the lesson:**
+1. **Teach interactively** - weave questions throughout, don't lecture-then-quiz
+2. **Probe understanding with questions** - not just "do you understand?" but questions that require applying the concept
+3. **When student answers incorrectly:**
+   - Don't just correct - ask "what made you think that?" to understand the misconception
+   - Explain the correct answer with concrete examples
+   - Later in the lesson, ask the same concept with different framing to verify it landed
+4. **Use code examples** that show the principle, not just syntax
+5. **Connect to student's project** - "For your LED grid, this means..."
+6. **Dig deeper** on any concept where understanding seems shaky
+
+**Question types by depth level:**
+
+| Level | Purpose | Example |
+|-------|---------|---------|
+| **L1: General** | Understand intent, assess starting point | "What are you trying to accomplish?" |
+| **L2: Specific** | Ground in observable facts | "What happens when you run this?" |
+| **L3: Applied** | Test ability to use concepts | "How would you approach this without a loop?" |
+| **L4: Integrative** | Connect to prior learning | "How does this relate to what we learned about compute shaders?" |
+| **L5: Critical** | Challenge assumptions, find limits | "When would this approach break down?" |
+
+**Question sequencing:**
+- **New concepts**: L1 → L2 → L3 → L4 → L5 (build up)
+- **Review**: L4 → L3 → L5 (activate prior knowledge, verify, challenge)
+- **Struggling**: L2 → L1 → L2 → L3 (ground in reality, reset, rebuild)
+
+**Domain-specific question banks**: See @docs/reference/teaching-question-banks.md
+
+**Lesson completion criteria (BOTH must be true):**
+1. Teacher feels confident student has internalized the concepts (verified through synthesis questions)
+2. Student explicitly confirms they're ready to move on
+
+**Never rush through lessons.** A 30-minute lesson plan might take 2 hours if that's what understanding requires. The curriculum timeline is a rough guide, not a constraint. A lesson that seems "too long" is actually working correctly if understanding is being built.
+
 ## Tool and Agent Usage Patterns
 
 ### When to Use Specialized Agents
 - **Git operations requiring branch strategy** → git-manager
 - **Documentation that needs coordinated updates** → documentation agent
 - **Complex research requiring multiple sources** → general-purpose subagent
-- **Teaching decision requiring curriculum knowledge** → teaching-assistant
 
 ### Documentation Maintenance Rules
 - **After every learning milestone** → Update learning-progress.md
@@ -124,3 +195,27 @@
 - Validate that prerequisites are actually necessary and sufficient
 - Update time estimates based on actual learning pace
 - Adjust project sequences based on logical dependency analysis
+
+### Lesson Plan Enrichment Protocol
+**Most lesson plans in docs/lessons/ are intentionally sparse outlines.** Before teaching, expand them:
+
+1. **Review the objectives**: Are they sufficient? Add extended objectives if the topic warrants deeper coverage.
+
+2. **Identify assumed knowledge**: What does the lesson assume the student knows? Verify or teach those prerequisites.
+
+3. **Add concrete examples**: For each concept, prepare:
+   - A simple example that demonstrates the principle
+   - A practical example tied to the student's project
+   - A counter-example showing what happens when done wrong
+
+4. **Prepare misconception probes**: For each concept, what might the student incorrectly assume? Prepare questions that reveal these.
+
+5. **Plan synthesis questions**: At the end, how will you verify the student can combine multiple concepts?
+
+6. **Update the lesson file**: After teaching, update the lesson file with:
+   - Extended objectives that were added
+   - Effective examples that worked
+   - Common misconceptions encountered
+   - Actual time taken vs estimated
+
+**The goal**: Transform a sparse outline into a rich teaching experience, then capture what worked for future sessions.
