@@ -37,6 +37,20 @@
 **Student**: Vue 3 expert progressing to WebGPU/TSL focus
 **Pattern**: Structured demos with navigation, individual controls, progressive complexity
 
+### Target Project: GPU-Enhanced Logic Gate Simulator
+**Inspiration**: Turing Complete (the game)
+**Goal**: Web-based circuit simulation with GPU-accelerated gate computation
+**Why this is perfect for WebGPU**:
+- Logic gates are embarrassingly parallel (each gate computes independently)
+- Large circuits (1000s of gates) benefit massively from GPU compute
+- Visual feedback (signal propagation, state changes) ties into rendering
+- Progressive complexity: AND/OR/NOT → flip-flops → ALU → CPU
+
+**Teaching examples to use**:
+- When learning compute shaders: simulate a grid of logic gates
+- When learning buffer management: circuit state as GPU buffers
+- When learning synchronization: signal propagation through circuit layers
+
 ### Core Rules
 - Build first, explain through code
 - Git-manager agent for ALL changes
