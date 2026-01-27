@@ -2,6 +2,19 @@
 
 ## Automatic Behavior Patterns
 
+### Non-Destructive Tasks (NEVER ASK, JUST DO)
+These common tasks should be executed automatically without asking permission:
+
+| Task | When | Command |
+|------|------|---------|
+| **Lint** | After writing/editing code | `npm run lint` |
+| **Run tests** | After writing code, before commits | `npm run test:run` |
+| **Check versions** | When installing packages | `npm ls <package>` |
+| **Git status** | Before commits, when assessing state | `git status` |
+| **Read files** | When context is needed | Use Read tool |
+
+**Rationale**: These are non-destructive, frequent operations. Asking permission adds friction without adding safety. Just do them and report results.
+
 ### Context Preservation Protocol
 **CRITICAL**: Use subagents liberally to preserve main agent context. When facing complex multi-step tasks:
 1. **Research tasks** → Delegate to general-purpose subagent
