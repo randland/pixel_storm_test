@@ -9,8 +9,10 @@ Execute multi-step workflows in fresh context. Use when work should be **offload
 
 | Agent | Delegate When | How |
 |-------|---------------|-----|
-| `git-manager.md` | ANY git operation (commits, branches, PRs) | Task tool (MANDATORY) |
+| `git-manager.md` | Complex git (conflicts, rebase, PRs, branch strategy) | Task tool |
 | `documentation.md` | Updating docs, maintaining learning progress | Task tool |
+
+> **Git Routing**: Simple commits use `/commit` skill (has conversation context). Only delegate to git-manager for complex operations.
 
 ### Consultants (Load inline for advice)
 Decision guides that provide expert advice within the main conversation. Use when you need **guidance** but want to stay in current context.
@@ -26,7 +28,12 @@ Decision guides that provide expert advice within the main conversation. Use whe
 
 ```
 Need to do git operations?
-  └─> DELEGATE to git-manager.md (MANDATORY for all git changes)
+  ├─> Read-only (status/log/diff)?
+  │     └─> Execute directly
+  ├─> Simple commit?
+  │     └─> /commit skill (keeps conversation context)
+  └─> Complex (conflicts/rebase/PRs)?
+        └─> DELEGATE to git-manager.md
 
 Need to update documentation?
   └─> DELEGATE to documentation.md
@@ -57,12 +64,20 @@ Need teaching guidance?
 
 ### git-manager.md
 **Type**: Agent (delegate via Task tool)
-**Why Agent**: Executes stateful git workflows (branch creation, commits, merges)
+**Why Agent**: Complex git operations need focused attention and fresh context
 
-- All git commits, branches, tags
-- GitHub integration (PRs, issues)
-- Educational commit message formatting
-- **Mandatory** - never do git operations without delegating to this agent
+**Use for** (complex operations):
+- Merge conflict resolution
+- Rebase/history rewriting
+- Branch strategy decisions
+- PR creation and management
+- Repository initialization
+
+**Don't use for** (use `/commit` skill instead):
+- Simple commits after work
+- Checkpoint/milestone commits
+
+See `.claude/rules/learning-workflow.md` for complete git routing logic.
 
 ### documentation.md
 **Type**: Agent (delegate via Task tool)

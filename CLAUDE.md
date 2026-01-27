@@ -9,7 +9,7 @@
 
 ## Agents (Delegate via Task tool)
 **Index**: @.claude/agents/README.md (selection guide)
-**Git**: @.claude/agents/git-manager.md (ALL git changes - MANDATORY)
+**Git**: @.claude/agents/git-manager.md (complex: conflicts, rebase, PRs)
 **Docs**: @.claude/agents/documentation.md (progress updates)
 
 ## Consultants (Load inline for advice)
@@ -46,7 +46,7 @@
 | `/lesson-start` | Full session initialization |
 | `/demo-test` | Test demos for console errors (Playwright) |
 | `/progress-review` | Spaced repetition review |
-| `/commit-learning` | Educational git commit |
+| `/commit` | Quick git commits with conversation context |
 | `/graphics-teaching` | Three.js/WebGPU teaching patterns |
 | `/testing-patterns` | Testing standards reference |
 | `/educational-workflow` | Session structure and checkpoint patterns |
@@ -59,7 +59,10 @@
 
 ## Context Management
 - Use subagents liberally to preserve main context
-- Git operations → git-manager agent (ALL changes)
+- **Git routing** (see rules/learning-workflow.md):
+  - Read-only (status/log/diff) → Direct execution
+  - Simple commits → `/commit` skill (has conversation context)
+  - Complex (conflicts/rebase/PRs) → git-manager agent
 - Documentation → documentation agent
 - Teaching protocols → rules (learning-workflow.md, always active)
 - Load context modules only as needed
