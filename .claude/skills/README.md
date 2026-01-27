@@ -6,7 +6,7 @@
 
 | Type | Purpose | Examples |
 |------|---------|----------|
-| **Workflow** | Execute a multi-step procedure | `/lesson-start`, `/commit-learning`, `/demo-test` |
+| **Workflow** | Execute a multi-step procedure | `/lesson-start`, `/commit`, `/demo-test` |
 | **Reference** | Load patterns/guidance for use in conversation | `/graphics-teaching`, `/testing-patterns` |
 | **Audit** | Analyze and report on project state | `/docs-audit`, `/progress-review` |
 
@@ -17,7 +17,7 @@
 | Lesson Start | `/lesson-start` | Workflow | Beginning a learning session |
 | Demo Test | `/demo-test` | Workflow | Testing demos for console errors (Playwright) |
 | Progress Review | `/progress-review` | Audit | Spaced repetition review of learned concepts |
-| Commit Learning | `/commit-learning` | Workflow | Creating educational git commits |
+| Commit | `/commit` | Workflow | Quick git commits with conversation context |
 | Graphics Teaching | `/graphics-teaching` | Reference | Three.js/WebGPU teaching patterns |
 | Testing Patterns | `/testing-patterns` | Reference | Testing standards reference |
 | Educational Workflow | `/educational-workflow` | Workflow | Structured workflow for sessions |
@@ -42,11 +42,12 @@
 **Usage**: `/progress-review`
 **Does**: Checks progress-tracking.md for concepts due for review, generates questions
 
-### /commit-learning
-**Purpose**: Create educational git commits with learning context
-**Usage**: `/commit-learning [milestone-type]`
-**Examples**: `/commit-learning`, `/commit-learning checkpoint`, `/commit-learning experiment`
-**Does**: Runs lint/test, stages changes, creates properly formatted commit
+### /commit
+**Purpose**: Quick git commits that leverage conversation context
+**Usage**: `/commit [type]`
+**Examples**: `/commit`, `/commit checkpoint`, `/commit experiment`
+**Does**: Checks status, runs pre-commit if available, stages and commits with context-aware message
+**Note**: For complex git operations (conflicts, rebase), delegate to git-manager agent instead
 
 ### /graphics-teaching
 **Type**: Reference
@@ -76,6 +77,6 @@
 Claude can invoke these skills proactively when:
 - Starting a session → `/lesson-start`
 - After code changes to demos → `/demo-test`
-- Before committing → `/commit-learning`
+- Before committing → `/commit`
 - When reviewing older concepts → `/progress-review`
 - Monthly or after major doc changes → `/docs-audit`

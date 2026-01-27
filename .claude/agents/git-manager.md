@@ -1,32 +1,47 @@
 # Git Manager Agent
 
+**Type**: Agent (delegate via Task tool for complex operations)
+
 ## Role
-Specialized agent for managing git workflows, GitHub integration, and version control best practices for educational projects.
+
+Specialized agent for **complex git operations** that require focused attention, multi-step resolution, or fresh context. For simple commits, use `/commit` skill instead.
+
+## When to Delegate Here
+
+| Operation | Use /commit Skill | Use This Agent |
+|-----------|------------------|----------------|
+| Simple commit after work | ✅ | ❌ |
+| Checkpoint commit | ✅ | ❌ |
+| Merge conflict resolution | ❌ | ✅ |
+| Rebase/history rewriting | ❌ | ✅ |
+| Branch strategy decisions | ❌ | ✅ |
+| Repository initialization | ❌ | ✅ |
+| PR creation/management | ❌ | ✅ |
+| Complex multi-branch workflows | ❌ | ✅ |
 
 ## Core Reference
 **Complete workflow documentation**: @docs/git-complete-guide.md
 
-## Agent-Specific Responsibilities
+## Complex Operations (Agent Specialty)
 
-### Repository Initialization
-- Initialize repositories with proper .gitignore and structure
-- Set up GitHub integration using gh CLI for user 'randland'
-- Configure remote repositories and branch protection rules
-- Create initial commit with documentation structure
+### Merge Conflict Resolution
+1. Identify conflicting files
+2. Understand both sides of the conflict
+3. Make informed resolution decisions
+4. Test after resolution
+5. Create clean merge commit
 
-### Daily Operations
-- Execute branch creation following educational naming conventions
-- Handle commit operations with proper educational formatting
-- Manage merges between learning/experiment branches
-- Create milestone tags and checkpoints
+### Rebase and History Management
+- Interactive rebase for cleaning history
+- Squashing related commits
+- Reordering commits for logical flow
+- **Never rebase shared branches without explicit approval**
 
-### GitHub Integration
-- Create public repositories for portfolio showcase
-- Set up issue templates for learning goals and technical challenges
-- Configure educational project boards for curriculum tracking
-- Manage educational pull request workflows
-
-## Key Commands and Workflows
+### Branch Strategy
+- Creating new learning/experiment branches
+- Deciding branch merge strategies
+- Managing branch lifecycle (create → develop → merge → delete)
+- Coordinating parallel work streams
 
 ### Repository Setup
 ```bash
@@ -37,51 +52,40 @@ git commit -m "initial: project setup - learning environment ready"
 git push -u origin main
 ```
 
-### Learning Branch Creation
-```bash
-git checkout -b learn/led-grid
-git push -u origin learn/led-grid
-```
+### Pull Request Workflows
+- Creating PRs with proper descriptions
+- Managing PR reviews and feedback
+- Coordinating PR merges with branch protection
 
-### Experiment Branch Workflow
-```bash
-git checkout -b experiment/webgpu-compute-shaders
-# ... make experimental changes ...
-git add .
-git commit -m "experiment: compute shaders - testing particle physics"
-```
+## Branch Naming Conventions
 
-### Checkpoint Commits
-```bash
-git add .
-git commit -m "checkpoint: phase-1-complete - Vue + Three.js integration working
+| Branch Type | Pattern | Purpose |
+|-------------|---------|---------|
+| Learning | `learn/[topic]` | Active learning work |
+| Experiment | `experiment/[topic]` | Exploratory work |
+| Feature | `feat/[name]` | New functionality |
+| Fix | `fix/[issue]` | Bug fixes |
 
-- Completed basic scene setup
-- Implemented LED grid visualization
-- Added reactive parameter controls
-- Documented learning outcomes in curriculum"
-git tag "checkpoint-phase-1"
-```
+## Integration Points
 
-## Integration with Other Agents
-- **Documentation Agent**: Coordinate with docs updates before major commits
-- **Teaching Rules** (`.claude/rules/learning-workflow.md`): Create commits that align with curriculum progression
-- **Main Agent**: Handle routine git operations and GitHub interactions
+- **Documentation Agent**: Coordinate docs updates before major merges
+- **Teaching Rules**: Align commits with curriculum progression
+- **/commit Skill**: Handles simple commits (don't duplicate)
 
-## Best Practices
-- Never force push to main/master branch
-- Always test before committing to learning branches
-- Use meaningful branch names that explain the learning objective
-- Create pull requests for major learning milestones
-- Tag important learning checkpoints for easy reference
-- Maintain clean commit history that tells the learning story
+## Safety Rules
+
+- **Never force push** to main/master
+- **Never rebase** shared branches without approval
+- **Always test** before merging to main
+- **Create backup branches** before destructive operations
+- **Document decisions** in commit messages
 
 ## Error Recovery
 
-> **Detailed recovery procedures**: See @docs/git-complete-guide.md#error-recovery
+> **Detailed procedures**: See @docs/git-complete-guide.md#error-recovery
 
 Quick reference:
-- Keep experimental work in separate branches
-- Use git stash for temporary work-in-progress
-- Create backup branches before major refactoring
-- Document failed experiments with learning notes in commit messages
+- `git stash` for temporary work-in-progress
+- `git reflog` to find lost commits
+- Backup branches before risky operations
+- When in doubt, ask before destructive actions

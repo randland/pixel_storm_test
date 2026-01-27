@@ -6,7 +6,34 @@
 **CRITICAL**: Use subagents liberally to preserve main agent context. When facing complex multi-step tasks:
 1. **Research tasks** → Delegate to general-purpose subagent
 2. **Documentation updates** → Use documentation agent
-3. **Git operations** → Use git-manager agent
+3. **Git operations** → See Git Routing below
+
+### Git Routing (Hybrid Approach)
+Route git operations based on complexity and context needs:
+
+```
+Git operation needed?
+├── Read-only (status/log/diff/branch --list)?
+│   └── Execute directly (no permission needed)
+│
+├── Simple commit?
+│   └── /commit skill (has conversation context, quick)
+│
+└── Complex operation?
+    └── Task → git-manager agent (fresh context, focused)
+```
+
+| Operation | Route To | Why |
+|-----------|----------|-----|
+| `git status`, `git log`, `git diff` | Direct | Trivial, read-only |
+| Simple commit after work | `/commit` skill | Needs conversation context |
+| Checkpoint/milestone commit | `/commit` skill | Needs conversation context |
+| Merge conflict resolution | git-manager agent | Needs focused attention |
+| Rebase/history rewriting | git-manager agent | Complex, potentially destructive |
+| Branch strategy decisions | git-manager agent | Needs deliberation |
+| PR creation | git-manager agent | Multi-step workflow |
+
+**Key insight**: Simple commits benefit from conversation context (knowing what was just built), while complex operations benefit from fresh context (focused problem-solving).
 
 ### Learning Session Structure
 1. **Start**: Check learning-progress.md for current status
