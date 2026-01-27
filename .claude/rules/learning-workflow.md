@@ -13,8 +13,35 @@
 1. **Start**: Check learning-progress.md for current status
 2. **Plan**: Update todo list with session objectives
 3. **Teach**: Deliver concepts through hands-on projects
-4. **Document**: Update progress and curriculum status
-5. **Commit**: Create educational git commits showing progression
+4. **Take Notes**: Create student-perspective notes for each lesson (see Note-Taking Protocol)
+5. **Document**: Update progress and curriculum status
+6. **Commit**: Create educational git commits showing progression
+
+### Note-Taking Protocol (MANDATORY)
+**Purpose**: Reinforce learning through active engagement and create reusable reference material
+
+**Structure**: Notes live in `docs/notes/` mirroring the lesson structure:
+```
+docs/notes/
+├── 01-getting-started/
+│   ├── 01-3d-graphics-concepts.md
+│   ├── 02-project-setup-and-tooling.md
+│   └── 03-hello-cube.md
+├── 02-scene-fundamentals/
+│   └── ...
+```
+
+**Note Format**: Each lesson note should include:
+- **Date and session focus**
+- **Key insights** - the "aha" moments that made concepts click
+- **Mental models** - visual diagrams or explanations in student's own words
+- **Misconceptions corrected** - what was initially misunderstood and why
+- **Questions generated** - things to explore later
+- **Ready for** - what the student is prepared to learn next
+
+**Timing**: Create or update notes **during** the lesson, not after. This forces active engagement with the material.
+
+**Voice**: Write notes from the student's perspective ("I learned...", "This clicked when...") not the teacher's perspective.
 
 ### Project Development Workflow
 - **Experiment safely**: Use branches for all new concepts

@@ -1,6 +1,6 @@
 # Curriculum Outline
 
-> **Progress**: Section 01 - Getting Started (not started)
+> **Progress**: Section 01 - Getting Started (in progress)
 > **Last Updated**: 2026-01-26
 
 ## How to Use This Document
@@ -17,7 +17,7 @@ Foundation for everything that follows. No code artifacts - focus on mental mode
 
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
-| 01 | 3D Graphics Concepts | `[ ]` | What Three.js is, scene graph mental model, how rendering works |
+| 01 | 3D Graphics Concepts | `[x]` | What Three.js is, scene graph mental model, how rendering works |
 | 02 | Project Setup & Tooling | `[ ]` | TresJS installation, ESLint, Vitest, dev workflow |
 | 03 | Hello Cube | `[ ]` | First working demo - spinning cube, understanding the render loop |
 
@@ -146,4 +146,4 @@ Lessons suggested during learning that need to be placed in the outline.
 
 | Date | Section | Lesson | Notes |
 |------|---------|--------|-------|
-| | | | |
+| 2026-01-26 | 01 | 01-3D Graphics Concepts | Completed mental models, corrected misconceptions about Groups and lighting |

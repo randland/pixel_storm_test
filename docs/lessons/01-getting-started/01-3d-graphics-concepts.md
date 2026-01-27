@@ -1,17 +1,17 @@
 # Lesson 01-01: 3D Graphics Concepts
 
 > **Section**: Getting Started
-> **Status**: `[ ]` Planned
-> **Estimated Time**: 1-2 hours
+> **Status**: `[x]` Complete
+> **Completed**: 2026-01-26
 
 ## Learning Objectives
 
 By the end of this lesson, you will:
-- [ ] Understand what Three.js is and why it exists (WebGL abstraction)
-- [ ] Grasp the scene graph mental model (scene → objects → children)
-- [ ] Know the three essential components: Scene, Camera, Renderer
-- [ ] Understand how TresJS wraps Three.js for Vue developers
-- [ ] Have a mental model of the render loop (request frame → update → render)
+- [x] Understand what Three.js is and why it exists (WebGL abstraction)
+- [x] Grasp the scene graph mental model (scene → objects → children)
+- [x] Know the three essential components: Scene, Camera, Renderer
+- [x] Understand how TresJS wraps Three.js for Vue developers
+- [x] Have a mental model of the render loop (request frame → update → render)
 
 ## Prerequisites
 
@@ -68,4 +68,10 @@ Scene (container for everything)
 
 ## Notes
 
-*Space for observations during the lesson*
+**Session notes**: See `docs/notes/01-getting-started/01-3d-graphics-concepts.md`
+
+**Key takeaways from session:**
+- Abstraction stack analogy (Vue:DOM :: Three.js:WebGL :: TresJS:Three.js) was effective
+- Scene graph as tree structure connected well to Vue component thinking
+- Corrected misconceptions: Groups don't improve performance, BasicMaterial is unlit
+- Student ready for hands-on setup work
