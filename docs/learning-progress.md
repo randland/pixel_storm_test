@@ -2,7 +2,7 @@
 
 ## Current Status
 - **Phase**: Section 01 - Getting Started
-- **Branch**: `learn/fresh-architecture`
+- **Branch**: `main` (template) or `learn/[name]` (implementation)
 - **Focus**: WebGPU + TresJS integration
 - **Pattern**: Three.js examples-style demos
 
