@@ -2,18 +2,26 @@
 
 > **Load this first** to see available skills and when to use them.
 
+## Skill Types
+
+| Type | Purpose | Examples |
+|------|---------|----------|
+| **Workflow** | Execute a multi-step procedure | `/lesson-start`, `/commit-learning`, `/demo-test` |
+| **Reference** | Load patterns/guidance for use in conversation | `/graphics-teaching`, `/testing-patterns` |
+| **Audit** | Analyze and report on project state | `/docs-audit`, `/progress-review` |
+
 ## Available Skills
 
-| Skill | Command | When to Use |
-|-------|---------|-------------|
-| Lesson Start | `/lesson-start` | Beginning a learning session |
-| Demo Test | `/demo-test` | Testing demos for console errors (Playwright) |
-| Progress Review | `/progress-review` | Spaced repetition review of learned concepts |
-| Commit Learning | `/commit-learning` | Creating educational git commits |
-| Graphics Teaching | `/graphics-teaching` | Three.js/WebGPU teaching patterns |
-| Testing Patterns | `/testing-patterns` | Testing standards reference |
-| Educational Workflow | `/educational-workflow` | Structured workflow for sessions |
-| Docs Audit | `/docs-audit` | Audit documentation for broken references and orphans |
+| Skill | Command | Type | When to Use |
+|-------|---------|------|-------------|
+| Lesson Start | `/lesson-start` | Workflow | Beginning a learning session |
+| Demo Test | `/demo-test` | Workflow | Testing demos for console errors (Playwright) |
+| Progress Review | `/progress-review` | Audit | Spaced repetition review of learned concepts |
+| Commit Learning | `/commit-learning` | Workflow | Creating educational git commits |
+| Graphics Teaching | `/graphics-teaching` | Reference | Three.js/WebGPU teaching patterns |
+| Testing Patterns | `/testing-patterns` | Reference | Testing standards reference |
+| Educational Workflow | `/educational-workflow` | Workflow | Structured workflow for sessions |
+| Docs Audit | `/docs-audit` | Audit | Audit documentation for broken references and orphans |
 
 ## Skill Descriptions
 
@@ -41,14 +49,16 @@
 **Does**: Runs lint/test, stages changes, creates properly formatted commit
 
 ### /graphics-teaching
+**Type**: Reference
 **Purpose**: Three.js and WebGPU teaching patterns for Vue 3 graphics education
-**Usage**: `/graphics-teaching`
-**Does**: Loads teaching patterns, provides A.C.G.C.E. framework
+**Usage**: `/graphics-teaching [topic]`
+**Does**: Loads teaching patterns, provides templates for scene setup, Vue integration, WebGPU
 
 ### /testing-patterns
+**Type**: Reference
 **Purpose**: Testing patterns and standards for educational graphics projects
-**Usage**: `/testing-patterns`
-**Does**: Loads testing standards, provides patterns for visual testing
+**Usage**: `/testing-patterns [type]`
+**Does**: Loads testing standards, provides patterns for console/canvas/webgl testing
 
 ### /educational-workflow
 **Purpose**: Structured workflow patterns for educational graphics sessions

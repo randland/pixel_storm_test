@@ -10,6 +10,12 @@ context:
   - docs/learning-progress.md
   - docs/lessons/00-curriculum-outline.md
   - .claude/output-styles/teaching-mentor.md
+allowed-tools:
+  - Read
+  - Glob
+  - Bash(curl:*)
+  - Bash(npm run dev:*)
+  - Task
 ---
 
 # Lesson Start Skill

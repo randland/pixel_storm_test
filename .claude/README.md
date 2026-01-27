@@ -6,9 +6,8 @@
 
 | Directory | Purpose | Index |
 |-----------|---------|-------|
-| `agents/` | Specialized agents for delegation | `agents/README.md` |
+| `agents/` | Agents & consultants for delegation | `agents/README.md` |
 | `skills/` | Invokable skills (slash commands) | `skills/README.md` |
-| `hooks/` | Automation hooks (session start, pre-commit) | See below |
 | `output-styles/` | Response style configurations | `teaching-mentor.md` |
 | `rules/` | Workflow rules and patterns | `learning-workflow.md` |
 
@@ -18,13 +17,17 @@
 **Need to invoke a skill?** → `skills/README.md`
 **Need reference docs?** → `../docs/reference/README.md`
 
-## Hooks (Automated)
+## Hooks (Configured in settings.json)
 
-| Hook | Trigger | Purpose |
-|------|---------|---------|
-| `session-init.sh` | SessionStart | Loads learning progress at session start |
-| `auto-test-reminder.sh` | PostToolUse (Edit/Write) | Reminds to test after Vue/shader changes |
-| `pre-commit-guard.sh` | PreToolUse (Bash git commit) | Reminds to lint/test before commits |
+These are Claude Code hook system features, not separate script files:
+
+| Hook Event | Trigger | Purpose |
+|------------|---------|---------|
+| `SessionStart` | Session begins | Loads learning progress automatically |
+| `PostToolUse` | After Edit/Write on Vue/shader files | Reminds to run `/demo-test` |
+| `PreToolUse` | Before `git commit` commands | Reminds to lint/test before commits |
+
+> **Note**: Hooks are configured in `settings.json` or `settings.local.json`, not as standalone shell scripts.
 
 ## Configuration
 

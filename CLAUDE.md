@@ -7,16 +7,18 @@
 **Curriculum**: @docs/lessons/00-curriculum-outline.md
 **Git Guide**: @docs/git-complete-guide.md
 
-## Agent Delegation (MANDATORY)
+## Agents (Delegate via Task tool)
 **Index**: @.claude/agents/README.md (selection guide)
-**Git**: @.claude/agents/git-manager.md (ALL changes)
-**Docs**: @.claude/agents/documentation.md
-**Output Style**: @.claude/output-styles/teaching-mentor.md
-**Teaching Rules**: @.claude/rules/learning-workflow.md (always active)
+**Git**: @.claude/agents/git-manager.md (ALL git changes - MANDATORY)
+**Docs**: @.claude/agents/documentation.md (progress updates)
 
-## Expert Consultants (Implementation Advice)
+## Consultants (Load inline for advice)
 **Vue Expert**: @.claude/agents/vue-expert.md (composables, reactivity)
 **Graphics Expert**: @.claude/agents/graphics-expert.md (Three.js, shaders, WebGPU)
+
+## Always Active
+**Output Style**: @.claude/output-styles/teaching-mentor.md
+**Teaching Rules**: @.claude/rules/learning-workflow.md
 
 ## Reference Documentation (Load On-Demand)
 **Index**: @docs/reference/README.md (load FIRST to pick correct reference)

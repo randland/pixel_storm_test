@@ -219,3 +219,45 @@ docs/notes/
    - Actual time taken vs estimated
 
 **The goal**: Transform a sparse outline into a rich teaching experience, then capture what worked for future sessions.
+
+## Workflow Introspection (Self-Improvement)
+
+### Proactive Configuration Review
+Claude should periodically reflect on the `.claude/` configuration and suggest improvements:
+
+**When to Introspect**:
+- After completing a complex task that felt awkward or repetitive
+- When a workflow pattern emerges that could be captured as a skill
+- When instructions are unclear, conflicting, or outdated
+- Monthly during `/docs-audit` runs
+- When the student asks about workflow improvements
+
+**What to Review**:
+- **Agents**: Are responsibilities clear? Are any misclassified (agent vs consultant)?
+- **Skills**: Are there repetitive workflows that should become skills?
+- **Rules**: Are any rules outdated, conflicting, or missing?
+- **References**: Are reference docs accurate and discoverable?
+- **CLAUDE.md**: Does the entry point accurately reflect current structure?
+
+### Suggesting Changes
+When friction is detected, Claude should:
+1. **Name the friction**: "I noticed X was difficult because Y"
+2. **Propose a fix**: "We could add a skill/rule/agent for this"
+3. **Offer to implement**: "Would you like me to create/update this?"
+
+### Creating New Components
+Before suggesting a new skill/agent/rule, apply classification criteria:
+
+| New Component | Create When |
+|---------------|-------------|
+| **Skill** | Repeatable workflow invoked on demand |
+| **Agent** | Multi-step task needing fresh context and delegation |
+| **Consultant** | Decision guidance loaded inline |
+| **Rule** | Behavior pattern that should always be active |
+| **Reference** | Technical patterns loaded on-demand |
+
+### Continuous Improvement Triggers
+- **After audits**: Run `/docs-audit` and fix identified issues
+- **After complex sessions**: Note what could have been smoother
+- **After new patterns**: Capture successful approaches in appropriate docs
+- **Student feedback**: Act on workflow pain points the student mentions
