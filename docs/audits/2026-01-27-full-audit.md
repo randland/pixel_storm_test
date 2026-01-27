@@ -101,7 +101,7 @@
 | lesson-start | ✅ | ✅ | ✅ | ✅ Valid |
 | demo-test | ✅ | ✅ | ✅ | ✅ Valid |
 | progress-review | ✅ | ✅ | ✅ | ✅ Valid |
-| commit-learning | ✅ | ✅ | ✅ | ✅ Valid |
+| commit | ✅ | ✅ | ✅ | ✅ Valid (renamed from commit-learning) |
 | graphics-teaching | ✅ | ✅ | ✅ | ⚠️ Misclassified |
 | testing-patterns | ✅ | ✅ | ✅ | ⚠️ Unused context |
 | educational-workflow | ✅ | ✅ | ✅ | ❌ Broken reference |

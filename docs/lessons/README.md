@@ -33,7 +33,7 @@ lessons/
 1. Verify all learning objectives are checked
 2. Ensure artifact tests pass (if applicable)
 3. Update `00-curriculum-outline.md` status
-4. Commit with `/commit-learning`
+4. Commit with `/commit`
 
 ### Adding a Lesson Request
 If during learning you realize "we should cover X":
@@ -62,7 +62,7 @@ git checkout learn/fresh-architecture
 # After completing a lesson
 npm run lint && npm run test
 /demo-test
-/commit-learning
+/commit
 ```
 
 ## Progress Tracking

@@ -58,7 +58,7 @@ npm install @tresjs/cientos  # Helpful abstractions
 │  2. npm run lint (fix issues)        │
 │  3. npm run test (verify behavior)   │
 │  4. /demo-test (check visuals)       │
-│  5. /commit-learning (document)      │
+│  5. /commit (document progress)      │
 └──────────────────────────────────────┘
 ```
 

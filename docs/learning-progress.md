@@ -53,7 +53,7 @@
 
 ### Core Rules
 - Build first, explain through code
-- Git-manager agent for ALL changes
+- Simple commits → `/commit` skill; complex git → git-manager agent
 - Subagents preserve context
 - Never create files unless essential
 - Edit existing over new

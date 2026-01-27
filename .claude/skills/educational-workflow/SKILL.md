@@ -32,7 +32,7 @@ Provides structured patterns for managing educational graphics development sessi
 1. Explain concept with immediate visual example
 2. Build working prototype step-by-step
 3. Test for console errors using /demo-test skill
-4. Git commit with educational context via /commit-learning
+4. Git commit with educational context via /commit
 5. Extend example to show variation/complexity
 
 ### Session Close
@@ -42,7 +42,8 @@ Provides structured patterns for managing educational graphics development sessi
 4. Preview next session objectives
 
 ## Agent Coordination
-- **All code changes**: git-manager agent (no exceptions)
+- **Simple commits**: `/commit` skill (has conversation context)
+- **Complex git ops**: git-manager agent (conflicts, rebase, PRs)
 - **Progress updates**: documentation agent
 - **Complex research**: Task tool with Explore subagent
 - **Teaching delivery**: Handled by main agent following `.claude/rules/learning-workflow.md`
