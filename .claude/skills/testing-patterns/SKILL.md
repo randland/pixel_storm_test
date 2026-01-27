@@ -6,8 +6,6 @@ examples:
   - /testing-patterns console
   - /testing-patterns canvas
   - /testing-patterns webgl
-context:
-  - docs/learning-progress.md
 ---
 
 # Testing Patterns Skill

@@ -12,6 +12,11 @@ context:
   - docs/learning-progress.md
 allowed-tools:
   - Bash(git:*)
+  - Bash(npm run lint:*)
+  - Bash(npm run test:*)
+  - Bash(npm run build:*)
+  - Read
+  - Task
 ---
 
 # Commit Learning Skill

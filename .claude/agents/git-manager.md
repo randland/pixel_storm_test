@@ -65,7 +65,7 @@ git tag "checkpoint-phase-1"
 
 ## Integration with Other Agents
 - **Documentation Agent**: Coordinate with docs updates before major commits
-- **Teaching Agent**: Create commits that align with curriculum progression
+- **Teaching Rules** (`.claude/rules/learning-workflow.md`): Create commits that align with curriculum progression
 - **Main Agent**: Handle routine git operations and GitHub interactions
 
 ## Best Practices

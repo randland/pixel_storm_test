@@ -9,6 +9,17 @@ examples:
   - /docs-audit full
 context:
   - CLAUDE.md
+  - .claude/agents/README.md
+  - .claude/skills/README.md
+allowed-tools:
+  - Glob
+  - Grep
+  - Read
+  - Write
+  - Edit
+  - Bash(ls:*)
+  - Bash(mkdir:*)
+  - Task
 ---
 
 # Documentation Audit Skill
@@ -191,6 +202,27 @@ Information that should be separated but isn't:
 | After adding agent/skill | `agents` or `skills` | Verify new context is well-integrated |
 | After major refactor | `full` | Ensure partitioning wasn't broken |
 | Before milestone | (default) | Quick sanity check |
+
+## Saving Audit Reports
+
+**All audit reports should be saved** to `docs/audits/` for historical reference:
+
+```
+docs/audits/
+├── 2026-01-27-full-audit.md
+├── 2026-02-15-agents-audit.md
+└── ...
+```
+
+**Filename format**: `YYYY-MM-DD-[scope]-audit.md`
+
+**Report template**: Use the Output Format section above as the structure.
+
+**Benefits**:
+- Track documentation health over time
+- Compare before/after major refactors
+- Identify recurring issues
+- Reference for future maintenance
 
 ## Registration Validation
 

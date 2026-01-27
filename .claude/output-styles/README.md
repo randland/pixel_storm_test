@@ -28,7 +28,7 @@ The active style for this project. Key characteristics:
 
 Output styles are referenced by:
 - **CLAUDE.md** - Sets project-wide style
-- **Agents** - teaching-assistant.md references for personality
+- **Skills** - lesson-start, graphics-teaching reference for teaching context
 - **Rules** - learning-workflow.md applies style guidelines
 
 ## Creating New Styles

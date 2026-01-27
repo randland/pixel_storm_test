@@ -8,6 +8,12 @@ examples:
   - /educational-workflow close
 context:
   - docs/learning-progress.md
+allowed-tools:
+  - Read
+  - Edit
+  - Glob
+  - Task
+  - Skill
 ---
 
 # Educational Workflow Skill
@@ -36,10 +42,10 @@ Provides structured patterns for managing educational graphics development sessi
 4. Preview next session objectives
 
 ## Agent Coordination
-- **All code changes**: git-manager (no exceptions)
+- **All code changes**: git-manager agent (no exceptions)
 - **Progress updates**: documentation agent
-- **Complex research**: research agent
-- **Teaching delivery**: teaching-assistant agent
+- **Complex research**: Task tool with Explore subagent
+- **Teaching delivery**: Handled by main agent following `.claude/rules/learning-workflow.md`
 
 ## Context Management
 - Load modules **on-demand only**

@@ -8,12 +8,13 @@ examples:
   - /graphics-teaching webgpu
 context:
   - .claude/output-styles/teaching-mentor.md
-  - docs/lessons/00-curriculum-outline.md
 ---
 
 # Graphics Teaching Skill
 
-Provides teaching patterns for Three.js, WebGPU, and Vue 3 graphics integration.
+**Type**: Reference skill (provides teaching patterns, not a workflow)
+
+Provides teaching patterns for Three.js, WebGPU, and Vue 3 graphics integration. Invoke this skill to get guidance on how to teach specific graphics topics effectively.
 
 ## Three.js Teaching Patterns
 

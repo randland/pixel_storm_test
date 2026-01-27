@@ -41,7 +41,7 @@ Specialized agent responsible for maintaining comprehensive, up-to-date project 
 
 ### Documentation Coordination Patterns
 - **With Git Agent**: Ensure documentation commits align with code changes
-- **With Teaching Agent**: Coordinate curriculum updates with lesson delivery
+- **With Teaching Rules** (`.claude/rules/learning-workflow.md`): Coordinate curriculum updates with lesson delivery
 - **With Main Agent**: Sync project evolution with documentation updates
 
 ## Update Procedures

@@ -10,6 +10,10 @@ context:
   - docs/learning-progress.md
   - docs/lessons/00-curriculum-outline.md
   - docs/context-modules/progress-tracking.md
+allowed-tools:
+  - Read
+  - Edit
+  - Glob
 ---
 
 # Progress Review Skill
