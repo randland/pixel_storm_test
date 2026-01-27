@@ -10,7 +10,7 @@ if echo "$COMMAND" | grep -q "git commit"; then
 {
   "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
-    "additionalContext": "📝 **Pre-Commit Checklist:**\n1. \`npm run lint\` - Did linting pass?\n2. \`npm run test:run\` - Did tests pass?\n3. \`/demo-test\` - Any console errors in demos?\n4. Should learning progress be updated?\n5. Use \`/commit-learning\` for educational commit format."
+    "additionalContext": "📝 **Pre-Commit Checklist:**\n1. \`npm run lint\` - Did linting pass?\n2. \`npm run test:run\` - Did tests pass?\n3. \`/demo-test\` - Any console errors in demos?\n4. Should learning progress be updated?\n5. Use \`/commit\` skill for simple commits (has conversation context)."
   }
 }
 EOF
