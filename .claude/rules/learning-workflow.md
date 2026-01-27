@@ -7,7 +7,6 @@
 1. **Research tasks** → Delegate to general-purpose subagent
 2. **Documentation updates** → Use documentation agent
 3. **Git operations** → Use git-manager agent
-4. **Teaching delivery** → Use teaching-assistant agent
 
 ### Learning Session Structure
 1. **Start**: Check learning-progress.md for current status
@@ -86,11 +85,22 @@ docs/notes/
 5. **Connect to student's project** - "For your LED grid, this means..."
 6. **Dig deeper** on any concept where understanding seems shaky
 
-**Question types to use:**
-- **Probing questions**: Test if they can apply the concept, not just recall it
-- **Follow-up questions**: Verify corrections actually landed
-- **Synthesis questions**: Combine multiple concepts from the lesson (use at the end)
-- **Practical questions**: "Given your LED grid project, how would you..."
+**Question types by depth level:**
+
+| Level | Purpose | Example |
+|-------|---------|---------|
+| **L1: General** | Understand intent, assess starting point | "What are you trying to accomplish?" |
+| **L2: Specific** | Ground in observable facts | "What happens when you run this?" |
+| **L3: Applied** | Test ability to use concepts | "How would you approach this without a loop?" |
+| **L4: Integrative** | Connect to prior learning | "How does this relate to what we learned about compute shaders?" |
+| **L5: Critical** | Challenge assumptions, find limits | "When would this approach break down?" |
+
+**Question sequencing:**
+- **New concepts**: L1 → L2 → L3 → L4 → L5 (build up)
+- **Review**: L4 → L3 → L5 (activate prior knowledge, verify, challenge)
+- **Struggling**: L2 → L1 → L2 → L3 (ground in reality, reset, rebuild)
+
+**Domain-specific question banks**: See @docs/reference/teaching-question-banks.md
 
 **Lesson completion criteria (BOTH must be true):**
 1. Teacher feels confident student has internalized the concepts (verified through synthesis questions)
@@ -104,7 +114,6 @@ docs/notes/
 - **Git operations requiring branch strategy** → git-manager
 - **Documentation that needs coordinated updates** → documentation agent
 - **Complex research requiring multiple sources** → general-purpose subagent
-- **Teaching decision requiring curriculum knowledge** → teaching-assistant
 
 ### Documentation Maintenance Rules
 - **After every learning milestone** → Update learning-progress.md

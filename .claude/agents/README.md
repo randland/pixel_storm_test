@@ -7,19 +7,17 @@
 | Agent | Delegate When |
 |-------|---------------|
 | `git-manager.md` | ANY git operation (commits, branches, PRs) |
-| `teaching-assistant.md` | Socratic teaching, concept explanation, spaced repetition |
 | `documentation.md` | Updating docs, maintaining learning progress |
 | `vue-expert.md` | Composable design, reactivity questions, Vue patterns |
 | `graphics-expert.md` | Three.js, TresJS, shaders, WebGPU, performance |
+
+> **Note**: Teaching protocols are in `.claude/rules/learning-workflow.md` (always active), not an agent.
 
 ## Decision Tree
 
 ```
 Need to do git operations?
   └─> git-manager.md (MANDATORY for all git changes)
-
-Need to teach/explain a concept?
-  └─> teaching-assistant.md
 
 Need to update documentation?
   └─> documentation.md
@@ -29,6 +27,9 @@ Need implementation advice for Vue code?
 
 Need implementation advice for graphics code?
   └─> graphics-expert.md
+
+Need teaching guidance?
+  └─> NOT an agent. Use rules in .claude/rules/learning-workflow.md
 ```
 
 ## Agent Responsibilities
@@ -38,12 +39,6 @@ Need implementation advice for graphics code?
 - GitHub integration (PRs, issues)
 - Educational commit message formatting
 - **Mandatory** - never do git operations without this agent
-
-### teaching-assistant.md
-- Socratic questioning for concept discovery
-- Spaced repetition review scheduling
-- Adaptive difficulty based on student progress
-- A.C.G.C.E. teaching framework
 
 ### documentation.md
 - Updating learning-progress.md

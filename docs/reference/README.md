@@ -23,6 +23,11 @@
 | `webgpu-compute-patterns.md` | Compute shaders, particle systems, GPU algorithms |
 | `webgl-patterns.md` | WebGL fallback, GLSL shaders, draw call optimization |
 
+### Teaching
+| File | Load When |
+|------|-----------|
+| `teaching-question-banks.md` | Domain-specific questions for probing student understanding |
+
 ---
 
 ## Decision Tree
@@ -50,6 +55,9 @@ GPU compute (particles, simulation)?
 
 WebGL fallback or GLSL?
   └─> webgl-patterns.md
+
+Teaching/probing questions?
+  └─> teaching-question-banks.md
 ```
 
 ---
@@ -99,3 +107,8 @@ WebGL fallback or GLSL?
 - Three.js ShaderMaterial and InstancedMesh
 - Common pitfalls (precision, context loss)
 - WebGPU fallback strategy
+
+### teaching-question-banks.md
+- Domain-specific questions (TresJS, WebGPU, TSL, GPU computing)
+- Question patterns for correct/incorrect/uncertain responses
+- Adaptive question strategies
