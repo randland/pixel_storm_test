@@ -13,6 +13,23 @@
 **Docs**: @.claude/agents/documentation.md
 **Output Style**: @.claude/output-styles/teaching-mentor.md
 
+## Expert Consultants (Implementation Advice)
+**Vue Expert**: @.claude/agents/vue-expert.md (composables, reactivity)
+**Graphics Expert**: @.claude/agents/graphics-expert.md (Three.js, shaders, WebGPU)
+
+## Reference Documentation (Load On-Demand)
+**Index**: @docs/reference/README.md (load FIRST to pick correct reference)
+
+| Reference | When to Load |
+|-----------|--------------|
+| `vue-composition-patterns.md` | Composable design, reactivity debugging |
+| `vueuse-patterns.md` | VueUse-style utilities, animation patterns |
+| `threejs-patterns.md` | Memory management, performance, disposal |
+| `tresjs-patterns.md` | Vue + Three.js integration, TresJS composables |
+| `tsl-patterns.md` | TSL shaders, custom materials |
+| `webgpu-compute-patterns.md` | Compute shaders, particle systems |
+| `webgl-patterns.md` | WebGL fallback, GLSL shaders |
+
 ## Automation (Hooks)
 **SessionStart**: Learning progress auto-loaded at session start
 **PostToolUse**: Test reminder after Vue/Three.js file edits
