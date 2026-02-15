@@ -14,7 +14,7 @@ const { ambientLight } = useControls()
         <Experience />
       </TresCanvas>
     </div>
-    <div class="w-64 p-4">
+    <div class="w-80 p-4">
       <SliderControl
         :param="ambientLight"
       />
