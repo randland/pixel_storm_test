@@ -23,14 +23,20 @@ defineProps({
           :min="param.min"
           :max="param.max"
           :step="param.step"
-          class="control-input w-20"
+          class="control-input w-20 text-right"
         >
       </label>
     </div>
 
     <!-- Row 2: min [---slider---] max  step -->
     <div class="flex items-center gap-2 mb-1">
-      <span class="control-label w-10 text-right">{{ param.min }}</span>
+      <input
+        v-model.number="param.min"
+        type="number"
+        :max="param.max"
+        :step="param.step"
+        class="control-inline w-10 text-right"
+      >
       <input
         v-model.number="param.value"
         type="range"
@@ -39,41 +45,24 @@ defineProps({
         :step="param.step"
         class="flex-1"
       >
-      <span class="control-label w-10">{{ param.max }}</span>
-    </div>
-
-    <!-- Row 3: min/max/step editors -->
-    <div class="flex items-end gap-2">
-      <label class="control-label">
-        min
-        <input
-          v-model.number="param.min"
-          type="number"
-          :max="param.max"
-          :step="param.step"
-          class="control-input w-16"
-        >
-      </label>
-      <label class="control-label">
-        max
-        <input
-          v-model.number="param.max"
-          type="number"
-          :min="param.min"
-          :step="param.step"
-          class="control-input w-16"
-        >
-      </label>
-      <label class="control-label">
-        step
-        <input
-          v-model.number="param.step"
-          type="number"
-          :min="0"
-          :step="0.01"
-          class="control-input w-16"
-        >
-      </label>
+      <input
+        v-model.number="param.max"
+        type="number"
+        :min="param.min"
+        :step="param.step"
+        class="control-inline w-10"
+      >
     </div>
   </div>
 </template>
+
+<style scoped>
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+</style>
