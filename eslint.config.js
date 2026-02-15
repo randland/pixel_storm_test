@@ -14,6 +14,7 @@ export default [
     rules: {
       // Vue rules
       'vue/multi-word-component-names': 'off', // Allow single-word names for demos
+      'vue/no-mutating-props': 'off', // Shared reactive params are intentionally mutated
       'vue/no-unused-vars': 'error',
 
       // JS rules for graphics code

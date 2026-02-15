@@ -1,7 +1,7 @@
 <script setup>
 import useControls from './useControls'
 
-const { ambientLightIntensity } = useControls();
+const { ambientLight } = useControls();
 </script>
 
 <template>
@@ -10,7 +10,7 @@ const { ambientLightIntensity } = useControls();
     :look-at="[0, 0, 0]"
   />
   <TresAmbientLight 
-    :intensity="ambientLightIntensity"
+    :intensity="ambientLight.value"
   />
   <TresDirectionalLight 
     :position="[5, 4, 3]"
