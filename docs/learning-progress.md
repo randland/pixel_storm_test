@@ -1,15 +1,16 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Section 01 - Getting Started
-- **Branch**: `learn/fresh-architecture`
-- **Focus**: WebGPU + TresJS integration
+- **Phase**: Section 01 - Getting Started / Section 04 - Platform Architecture
+- **Branch**: `learn/nick`
+- **Focus**: WebGPU + TresJS integration, demo platform framework
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
 1. ~~**Lesson 01-01**: 3D Graphics Concepts (mental models)~~ ✅ Complete
 2. ~~**Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)~~ ✅ Complete
-3. **Lesson 01-03**: Hello Cube (first working demo) ← **NEXT**
+3. ~~**Lesson 01-03**: Hello Cube (first working demo)~~ ✅ Complete
+4. **Continue Section 02**: Scene Fundamentals (Scene & Renderer, Cameras & Controls) ← **NEXT**
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -18,7 +19,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [ ] TresJS integration
+- [~] TresJS integration (started: hello-cube demo built with Experience pattern)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -26,9 +27,9 @@
 - [x] Vue 3 + Vite foundation
 - [x] TresJS integration
 - [x] ESLint + Vitest tooling
-- [ ] Navigation system
-- [ ] Demo routing
-- [ ] Control panels
+- [x] Navigation system
+- [x] Demo routing
+- [x] Control panels (basic: SliderControl + useParam pattern)
 
 ---
 
@@ -98,6 +99,22 @@
 3. Phase 3: Advanced WebGPU Graphics (4-6 weeks)
 4. Phase 4: Creative Applications (4-6 weeks)
 
+### Demo Platform Framework (2026-02-12)
+
+**UnoCSS (preset-wind4) for Utility CSS**
+- Lightweight, performant utility-first CSS framework
+- Chosen over SASS for demo platform styling
+
+**Convention-Based Demo Discovery**
+- Demos live at `src/demos/{name}/index.vue`, auto-discovered via `import.meta.glob`
+- `useDemoRegistry` composable provides demo list and metadata
+- `useDemoRouter` composable handles URL-based demo selection via VueUse `useUrlSearchParams`
+
+**Experience Pattern for Demo Architecture**
+- UI and 3D scene separated: `index.vue` (UI + controls) wraps `Experience.vue` (TresCanvas scene)
+- Shared reactive params via `useParam` composable (co-located with demo)
+- Enables clean separation of concerns between DOM controls and 3D rendering
+
 ### Historical Context
 
 **Previous Phase Completed**: LED demo projects with Perlin noise
@@ -114,4 +131,4 @@
 **Platform architecture**: @docs/context-modules/platform-specs.md
 **Success metrics**: @docs/context-modules/progress-tracking.md
 
-*Updated*: 2026-01-26
+*Updated*: 2026-02-12

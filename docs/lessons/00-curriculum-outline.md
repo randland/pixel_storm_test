@@ -1,7 +1,7 @@
 # Curriculum Outline
 
-> **Progress**: Section 01 - Getting Started (in progress)
-> **Last Updated**: 2026-01-26
+> **Progress**: Section 01 complete, Section 04 partially complete (platform framework built)
+> **Last Updated**: 2026-02-12
 
 ## Learning Philosophy
 
@@ -26,7 +26,7 @@ Foundation for everything that follows. No code artifacts - focus on mental mode
 |---|--------|--------|-------------|
 | 01 | 3D Graphics Concepts | `[x]` | What Three.js is, scene graph mental model, how rendering works |
 | 02 | Project Setup & Tooling | `[x]` | TresJS installation, ESLint, Vitest, dev workflow |
-| 03 | Hello Cube | `[ ]` | First working demo - spinning cube, understanding the render loop |
+| 03 | Hello Cube | `[x]` | First working demo - spinning cube, understanding the render loop |
 
 ---
 
@@ -67,9 +67,9 @@ Building the demo platform infrastructure.
 | # | Lesson | Status | Artifact |
 |---|--------|--------|----------|
 | 01 | WebGPU Detection | `[ ]` | `useWebGPU` capability composable |
-| 02 | Demo Component Pattern | `[ ]` | `BaseDemo` template component |
-| 03 | Control Panels | `[ ]` | `useControls`, `ControlPanel` component |
-| 04 | Navigation & Routing | `[ ]` | `DemoNav`, router configuration |
+| 02 | Demo Component Pattern | `[>]` | `BaseDemo` template component (Experience pattern established) |
+| 03 | Control Panels | `[>]` | `useControls`, `ControlPanel` component (SliderControl + useParam built) |
+| 04 | Navigation & Routing | `[>]` | `DemoNav`, router configuration (DemoSelector + useDemoRouter built) |
 
 ---
 
@@ -155,6 +155,7 @@ Lessons suggested during learning that need to be placed in the outline.
 |------|---------|--------|-------|
 | 2026-01-26 | 01 | 01-3D Graphics Concepts | Completed mental models, corrected misconceptions about Groups and lighting |
 | 2026-01-27 | 01 | 02-Project Setup & Tooling | TresJS 5.3.3, Three.js 0.182, ESLint flat config, Vitest with happy-dom |
+| 2026-02-12 | 01, 04 | 01-03 Hello Cube + Platform Framework | Built demo platform: UnoCSS, convention-based demo discovery (import.meta.glob), URL routing (useUrlSearchParams), dark/light mode. Composables: useDemoRegistry, useDemoRouter, useParam. Components: DemoSelector, SliderControl. Hello-cube demo with Experience pattern (UI/scene separation). Co-located demo-specific composables. |
 
 ---
 
