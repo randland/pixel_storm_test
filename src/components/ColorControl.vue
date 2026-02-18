@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  color: { type: Object, required: true }
+  param: { type: Object, required: true }
 })
 </script>
 
@@ -9,24 +9,24 @@ defineProps({
     <div class="flex items-center gap-2">
       <label class="control-label flex-1">
         <input
-          :value="color.label"
+          :value="param.label"
           type="text"
           readonly
           class="control-input w-full"
         >
       </label>
       <input
-        :value="color.hex"
+        :value="param.hex"
         type="text"
         maxlength="7"
         class="control-input w-20 text-right font-mono"
-        @change="color.hex = $event.target.value"
+        @change="param.hex = $event.target.value"
       >
       <input
         type="color"
-        :value="color.hex"
+        :value="param.hex"
         class="h-7 w-7 cursor-pointer rounded border-0 p-0"
-        @input="color.hex = $event.target.value"
+        @input="param.hex = $event.target.value"
       >
     </div>
   </div>
