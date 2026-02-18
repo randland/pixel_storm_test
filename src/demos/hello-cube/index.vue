@@ -1,10 +1,11 @@
 <script setup>
 import { TresCanvas } from '@tresjs/core'
 import SliderControl from '@/components/SliderControl.vue'
+import ColorControl from '@/components/ColorControl.vue'
 import Experience from './Experience.vue'
 import useControls from './useControls'
 
-const { ambientLight } = useControls()
+const controls = useControls()
 </script>
 
 <template>
@@ -16,7 +17,19 @@ const { ambientLight } = useControls()
     </div>
     <div class="w-80 p-4">
       <SliderControl
-        :param="ambientLight"
+        :param="controls.ambientLight"
+      />
+      <SliderControl
+        :param="controls.rotationSpeedX"
+      />
+      <SliderControl
+        :param="controls.rotationSpeedY"
+      />
+      <SliderControl
+        :param="controls.rotationSpeedZ"
+      />
+      <ColorControl
+        :color="controls.cubeColor"
       />
     </div>
   </div>

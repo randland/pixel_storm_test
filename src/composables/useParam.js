@@ -3,6 +3,7 @@ import { reactive } from 'vue'
 export default function useParam(value = 0, opts = {}) {
   const defaults = {
     value,
+    type: 'number',
     min: 0.0,
     max: 1.0,
     step: 0.01,

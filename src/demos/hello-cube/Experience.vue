@@ -1,7 +1,20 @@
 <script setup>
+import { ref } from 'vue'
+import { useLoop } from '@tresjs/core'
 import useControls from './useControls'
 
-const { ambientLight } = useControls();
+const { ambientLight, rotationSpeedX, rotationSpeedY, rotationSpeedZ, cubeColor } = useControls();
+const cube = ref(null);
+
+const { onBeforeRender } = useLoop();
+
+onBeforeRender(({ delta }) => {
+  if (cube.value) {
+    cube.value.rotation.x += delta * rotationSpeedX.value;
+    cube.value.rotation.y += delta * rotationSpeedY.value;
+    cube.value.rotation.z += delta * rotationSpeedZ.value;
+  }
+})
 </script>
 
 <template>
@@ -15,8 +28,10 @@ const { ambientLight } = useControls();
   <TresDirectionalLight 
     :position="[5, 4, 3]"
   />
-  <TresMesh>
+  <TresMesh ref="cube">
     <TresBoxGeometry />
-    <TresMeshStandardMaterial />
+    <TresMeshStandardMaterial
+      :color="cubeColor.hex"
+    />
   </TresMesh>
 </template>
