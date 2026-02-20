@@ -39,6 +39,9 @@ Thumbs.db
 *.log
 .cache/
 
+# Playwright MCP screenshots
+.playwright-mcp/
+
 # Three.js / WebGPU specific
 *.obj
 *.mtl
