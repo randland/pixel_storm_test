@@ -2,19 +2,19 @@
 
 ## Technical Proficiency Targets
 ```
-TresJS Integration:     [##                  ] 10%
+TresJS Integration:     [####                ] 20%
 WebGPU Fundamentals:    [                    ] 0%
 TSL Shader Programming: [                    ] 0%
 GPU Computing:          [                    ] 0%
-Demo Architecture:      [########            ] 40%
+Demo Architecture:      [############        ] 60%
 ```
 
 ## Platform Development
 ```
 Navigation System:      [####################] 100%
-Demo Framework:         [################    ] 80%
+Demo Framework:         [##################  ] 90%
 URL Routing:            [####################] 100%
-Control Panels:         [########            ] 40%
+Control Panels:         [################    ] 80%
 Code Display:           [                    ] 0%
 ```
 
@@ -28,7 +28,9 @@ Code Display:           [                    ] 0%
 | Vue 3 Reactivity | - | - | Expert | Pre-existing |
 | Three.js Scene Setup | - | - | Foundation | Completed |
 | Three.js Materials | - | - | Foundation | Completed |
-| TresJS Components | 2026-02-12 | 2026-02-15 | Foundation | Hello-cube demo built with TresCanvas |
+| TresJS Components | 2026-02-19 | 2026-02-22 | Foundation | Hello-cube demo, animation loop, color controls |
+| TresJS useLoop | 2026-02-19 | 2026-02-22 | Foundation | Delta-based animation on all 3 axes |
+| Composable Design (useColorParam) | 2026-02-19 | 2026-02-22 | Proficient | Hex/RGB reactive conversion, type-driven rendering |
 | WebGPU Detection | - | Pending | New | Phase 1 |
 | Compute Shaders | - | Pending | New | Phase 2 |
 | Buffer Management | - | Pending | New | Phase 2 |
@@ -57,7 +59,7 @@ Code Display:           [                    ] 0%
 
 **Three.js Fundamentals**
 - [ ] Scene setup, geometry, materials, lighting
-- [ ] Animation loops and render cycles
+- [x] Animation loops and render cycles
 - [ ] Asset loading and texture management
 
 **Vue Integration**

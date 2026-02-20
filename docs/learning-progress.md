@@ -1,16 +1,17 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Section 01 - Getting Started / Section 04 - Platform Architecture
+- **Phase**: Section 01 complete, Section 04 nearly complete, ready for Section 02
 - **Branch**: `learn/nick`
-- **Focus**: WebGPU + TresJS integration, demo platform framework
+- **Focus**: Animation loops, color controls, auto-rendering control panels
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
 1. ~~**Lesson 01-01**: 3D Graphics Concepts (mental models)~~ ✅ Complete
 2. ~~**Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)~~ ✅ Complete
 3. ~~**Lesson 01-03**: Hello Cube (first working demo)~~ ✅ Complete
-4. **Continue Section 02**: Scene Fundamentals (Scene & Renderer, Cameras & Controls) ← **NEXT**
+4. ~~**Section 04**: Platform Architecture (animation, color controls, auto-rendering ControlPanel)~~ ✅ Substantial progress
+5. **Start Section 02**: Scene Fundamentals (Scene & Renderer, Cameras & Controls) ← **NEXT**
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -19,7 +20,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (started: hello-cube demo built with Experience pattern)
+- [~] TresJS integration (hello-cube demo, useLoop animation, color/slider controls)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -29,7 +30,7 @@
 - [x] ESLint + Vitest tooling
 - [x] Navigation system
 - [x] Demo routing
-- [x] Control panels (basic: SliderControl + useParam pattern)
+- [x] Control panels (SliderControl, ColorControl, auto-rendering ControlPanel, useParam, useColorParam)
 
 ---
 
@@ -115,6 +116,18 @@
 - Shared reactive params via `useParam` composable (co-located with demo)
 - Enables clean separation of concerns between DOM controls and 3D rendering
 
+### Animation & Control Panel Patterns (2026-02-19)
+
+**useLoop for Animation**
+- TresJS `useLoop` with delta-based rotation on all 3 axes
+- Frame-rate independent animation via delta time
+
+**Type-Driven Control Panel**
+- `useParam` extended with `type: 'number'`, `useColorParam` with `type: 'color'`
+- `ControlPanel.vue` auto-renders controls based on param type ('number' -> SliderControl, 'color' -> ColorControl)
+- `useColorParam` composable with hex/RGB reactive conversion via `colorUtils.js`
+- New files: `ControlPanel.vue`, `ColorControl.vue`, `useColorParam.js`, `colorUtils.js`
+
 ### Historical Context
 
 **Previous Phase Completed**: LED demo projects with Perlin noise
@@ -131,4 +144,4 @@
 **Platform architecture**: @docs/context-modules/platform-specs.md
 **Success metrics**: @docs/context-modules/progress-tracking.md
 
-*Updated*: 2026-02-12
+*Updated*: 2026-02-19

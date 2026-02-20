@@ -1,7 +1,7 @@
 # Curriculum Outline
 
-> **Progress**: Section 01 complete, Section 04 partially complete (platform framework built)
-> **Last Updated**: 2026-02-12
+> **Progress**: Section 01 complete, Section 04 nearly complete (animation, controls, auto-rendering panel)
+> **Last Updated**: 2026-02-19
 
 ## Learning Philosophy
 
@@ -68,8 +68,8 @@ Building the demo platform infrastructure.
 |---|--------|--------|----------|
 | 01 | WebGPU Detection | `[ ]` | `useWebGPU` capability composable |
 | 02 | Demo Component Pattern | `[>]` | `BaseDemo` template component (Experience pattern established) |
-| 03 | Control Panels | `[>]` | `useControls`, `ControlPanel` component (SliderControl + useParam built) |
-| 04 | Navigation & Routing | `[>]` | `DemoNav`, router configuration (DemoSelector + useDemoRouter built) |
+| 03 | Control Panels | `[x]` | `ControlPanel` auto-renders by type, `SliderControl`, `ColorControl`, `useParam`, `useColorParam` |
+| 04 | Navigation & Routing | `[x]` | `DemoSelector` + `useDemoRouter` built, URL routing working |
 
 ---
 
@@ -156,6 +156,7 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-01-26 | 01 | 01-3D Graphics Concepts | Completed mental models, corrected misconceptions about Groups and lighting |
 | 2026-01-27 | 01 | 02-Project Setup & Tooling | TresJS 5.3.3, Three.js 0.182, ESLint flat config, Vitest with happy-dom |
 | 2026-02-12 | 01, 04 | 01-03 Hello Cube + Platform Framework | Built demo platform: UnoCSS, convention-based demo discovery (import.meta.glob), URL routing (useUrlSearchParams), dark/light mode. Composables: useDemoRegistry, useDemoRouter, useParam. Components: DemoSelector, SliderControl. Hello-cube demo with Experience pattern (UI/scene separation). Co-located demo-specific composables. |
+| 2026-02-19 | 04, 05 | Animation + Control Panel System | Animation loop via TresJS `useLoop` with delta-based rotation. Built `useColorParam` composable with hex/RGB reactive conversion. `ControlPanel.vue` auto-renders controls by param type. Added `type` field to `useParam` ('number') and `useColorParam` ('color'). New files: ControlPanel.vue, ColorControl.vue, useColorParam.js, colorUtils.js. Section 04 Control Panels and Navigation now complete. |
 
 ---
 
