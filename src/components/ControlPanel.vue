@@ -1,10 +1,14 @@
 <script setup>
-import SliderControl from '@/components/SliderControl.vue'
+import BooleanControl from '@/components/BooleanControl.vue'
 import ColorControl from '@/components/ColorControl.vue'
+import OptionControl from '@/components/OptionControl.vue'
+import SliderControl from '@/components/SliderControl.vue'
 
 const controlMap = {
-  number: SliderControl,
+  boolean: BooleanControl,
   color: ColorControl,
+  number: SliderControl,
+  option: OptionControl,
 }
 
 defineProps({
