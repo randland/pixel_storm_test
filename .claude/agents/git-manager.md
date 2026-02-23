@@ -22,6 +22,20 @@ Specialized agent for **complex git operations** that require focused attention,
 ## Core Reference
 **Complete workflow documentation**: @docs/git-complete-guide.md
 
+## Branch Divergence Warning
+
+`learn/` branches intentionally diverge far from `main` (main is a clean template; learn branches accumulate all real work). This means:
+
+- **Never `git merge main`** into a `learn/` branch — produces massive conflicts
+- **Never `git rebase main`** on a `learn/` branch — same problem
+- **Always cherry-pick** when bringing a specific commit from `main` to a `learn/` branch:
+
+```bash
+git log main --oneline          # find the commit
+git checkout learn/[branch]
+git cherry-pick [commit-hash]   # apply just that commit
+```
+
 ## Complex Operations (Agent Specialty)
 
 ### Merge Conflict Resolution

@@ -42,6 +42,7 @@ This guide outlines the git workflow specifically designed for the pixel_storm_t
 - **Scope**: Single learning module or concept area
 - **Duration**: 1-2 weeks typically
 - **Merge Target**: main (after completion and review)
+- **⚠️ Divergence Warning**: These branches intentionally diverge far from `main`. Never merge or rebase `main` into a `learn/` branch — use cherry-pick instead (see below).
 
 #### `experiment/[topic]`
 **Examples**: `experiment/webgpu-compute-shaders`, `experiment/particle-physics`
@@ -129,6 +130,20 @@ git cherry-pick [experiment-commit-hash]
 # OR for full merge:
 git merge experiment/[topic]
 ```
+
+### Bringing a Main Change into a Learning Branch
+`learn/` branches diverge significantly from `main` by design. Merging or rebasing `main` into a `learn/` branch will always produce large numbers of conflicts. Use cherry-pick instead:
+
+```bash
+# Find the commit hash on main
+git log main --oneline
+
+# Cherry-pick just that commit onto the learning branch
+git checkout learn/[module-name]
+git cherry-pick [commit-hash]
+```
+
+This applies cleanly when the commit touches files that don't conflict (e.g. a new config file). Only reach for merge/rebase if you genuinely need the full history reconciled.
 
 ### Creating Learning Checkpoint
 ```bash
