@@ -16,10 +16,18 @@ These common tasks should be executed automatically without asking permission:
 **Rationale**: These are non-destructive, frequent operations. Asking permission adds friction without adding safety. Just do them and report results.
 
 ### Context Preservation Protocol
-**CRITICAL**: Use subagents liberally to preserve main agent context. When facing complex multi-step tasks:
-1. **Research tasks** → Delegate to general-purpose subagent
-2. **Documentation updates** → Use documentation agent
-3. **Git operations** → See Git Routing below
+**CRITICAL**: Main context fills fast. **Default to delegation** — only do work inline if it's trivial (1-2 tool calls). For anything else, spawn an agent or teammate.
+
+| Task Type | Delegate To |
+|-----------|-------------|
+| Research / codebase exploration | Explore subagent |
+| Documentation updates | documentation agent |
+| Complex git operations | git-manager agent |
+| 3D math / camera problems | 3d-math-expert agent |
+| Multi-step debugging | Spawn debugging teammate |
+| Multi-file code changes | Spawn general-purpose teammate |
+
+**Rule of thumb**: If you're about to make 3+ tool calls for a sub-task, delegate it instead.
 
 ### Git Routing (Hybrid Approach)
 Route git operations based on complexity and context needs:
