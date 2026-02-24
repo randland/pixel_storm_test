@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 
-export default function useParam(value = 0, opts = {}) {
+export default function useNumericParam(value = 0, opts = {}) {
   const defaults = {
     value,
     type: 'number',

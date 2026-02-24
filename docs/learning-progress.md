@@ -30,7 +30,7 @@
 - [x] ESLint + Vitest tooling
 - [x] Navigation system
 - [x] Demo routing
-- [x] Control panels (SliderControl, ColorControl, auto-rendering ControlPanel, useParam, useColorParam)
+- [x] Control panels (SliderControl, ColorControl, auto-rendering ControlPanel, useNumericParam, useColorParam)
 
 ---
 
@@ -113,7 +113,7 @@
 
 **Experience Pattern for Demo Architecture**
 - UI and 3D scene separated: `index.vue` (UI + controls) wraps `Experience.vue` (TresCanvas scene)
-- Shared reactive params via `useParam` composable (co-located with demo)
+- Shared reactive params via `useNumericParam` composable (co-located with demo)
 - Enables clean separation of concerns between DOM controls and 3D rendering
 
 ### Animation & Control Panel Patterns (2026-02-19)
@@ -123,7 +123,7 @@
 - Frame-rate independent animation via delta time
 
 **Type-Driven Control Panel**
-- `useParam` extended with `type: 'number'`, `useColorParam` with `type: 'color'`
+- `useNumericParam` extended with `type: 'number'`, `useColorParam` with `type: 'color'`
 - `ControlPanel.vue` auto-renders controls based on param type ('number' -> SliderControl, 'color' -> ColorControl)
 - `useColorParam` composable with hex/RGB reactive conversion via `colorUtils.js`
 - New files: `ControlPanel.vue`, `ColorControl.vue`, `useColorParam.js`, `colorUtils.js`
