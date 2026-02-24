@@ -1,9 +1,9 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Section 01 complete, Section 04 nearly complete, ready for Section 02
+- **Phase**: Section 01 complete, Section 04 nearly complete, Section 02 in progress
 - **Branch**: `learn/nick`
-- **Focus**: Animation loops, color controls, auto-rendering control panels
+- **Focus**: Scene fundamentals — renderer/scene/camera configuration, dolly zoom effect
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
@@ -11,7 +11,8 @@
 2. ~~**Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)~~ ✅ Complete
 3. ~~**Lesson 01-03**: Hello Cube (first working demo)~~ ✅ Complete
 4. ~~**Section 04**: Platform Architecture (animation, color controls, auto-rendering ControlPanel)~~ ✅ Substantial progress
-5. **Start Section 02**: Scene Fundamentals (Scene & Renderer, Cameras & Controls) ← **NEXT**
+5. ~~**Section 02-01**: Scene & Renderer (scene-config demo, renderer/scene controls)~~ ✅ Complete
+6. **Section 02-02**: Cameras & Controls (FOV/near/far sliders, OrbitControls, dolly zoom in progress) ← **IN PROGRESS**
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -20,7 +21,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube demo, useLoop animation, color/slider controls)
+- [~] TresJS integration (hello-cube, scene-config demos; useLoop animation; renderer/scene/camera controls; OrbitControls)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -30,7 +31,7 @@
 - [x] ESLint + Vitest tooling
 - [x] Navigation system
 - [x] Demo routing
-- [x] Control panels (SliderControl, ColorControl, auto-rendering ControlPanel, useNumericParam, useColorParam)
+- [x] Control panels (SliderControl, ColorControl, BooleanControl, OptionControl, auto-rendering ControlPanel, useNumericParam, useColorParam, useBooleanParam, useOptionParam)
 
 ---
 
@@ -128,6 +129,29 @@
 - `useColorParam` composable with hex/RGB reactive conversion via `colorUtils.js`
 - New files: `ControlPanel.vue`, `ColorControl.vue`, `useColorParam.js`, `colorUtils.js`
 
+### Scene Configuration & Camera Patterns (2026-02-24)
+
+**useTres() Access Patterns**
+- `renderer` is a plain object — direct property access (`renderer.toneMappingExposure`)
+- `scene` is a ShallowRef — needs `.value` (`scene.value.background`, `scene.value.fog`)
+- `camera` is a ref — empty during setup, requires lazy init or watchers
+
+**Named Setter + Immediate Watcher Pattern**
+- Define `const setX = () => { /* apply to Three.js object */ }` then `watch(param, setX, { immediate: true })`
+- Ensures initial sync and ongoing reactivity for Three.js objects that can't use template bindings
+
+**TresJS Component Resolution**
+- `Tres*` components auto-resolve from THREE namespace (TresMesh, TresBoxGeometry, etc.)
+- Cientos components (OrbitControls) must be explicitly imported from `@tresjs/cientos`
+
+**New Control Types**
+- `useBooleanParam` + `BooleanControl` for toggle switches
+- `useOptionParam` + `OptionControl` for dropdown selections
+- `useColorParam` now exposes `.color` property (Three.js Color object) directly
+
+**Renamed useParam to useNumericParam**
+- Clearer naming now that multiple param types exist (numeric, color, boolean, option)
+
 ### Historical Context
 
 **Previous Phase Completed**: LED demo projects with Perlin noise
@@ -144,4 +168,12 @@
 **Platform architecture**: @docs/context-modules/platform-specs.md
 **Success metrics**: @docs/context-modules/progress-tracking.md
 
-*Updated*: 2026-02-19
+---
+
+## Session Log
+
+| Date | Focus | Key Accomplishments |
+|------|-------|---------------------|
+| 2026-02-24 | Section 02: Scene & Renderer, Cameras & Controls | Git cleanup (deleted useCounter, .gitignore update). Renamed `useParam` → `useNumericParam`. Built scene-config demo with randomized objects, renderer controls (exposure), scene controls (background, fog), camera controls (FOV/near/far), OrbitControls. Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. `useColorParam` now exposes `.color` (Three.js Color). Discovered useTres() return types and named setter + immediate watcher pattern. Dolly zoom coded but has two known bugs. |
+
+*Updated*: 2026-02-24
