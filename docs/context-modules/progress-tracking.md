@@ -2,7 +2,7 @@
 
 ## Technical Proficiency Targets
 ```
-TresJS Integration:     [######              ] 30%
+TresJS Integration:     [########            ] 40%
 WebGPU Fundamentals:    [                    ] 0%
 TSL Shader Programming: [                    ] 0%
 GPU Computing:          [                    ] 0%
@@ -35,6 +35,10 @@ Code Display:           [                    ] 0%
 | Composable State Machines | 2026-02-24 | 2026-02-27 | Foundation | Captured state (baseDistance lazy-init), separation of concerns (watcher vs computed) |
 | Cientos Wrapper Chain | 2026-02-24 | 2026-02-27 | Foundation | `.value?.instance` is Three.js object directly, NOT `.instance.value` |
 | Pure Function Testing | 2026-02-24 | 2026-02-27 | Proficient | Extract math into dependency-free modules, property-based invariant tests |
+| Light Types (Ambient/Directional/Point/Spot) | 2026-02-24 | 2026-02-27 | Foundation | Four light types with interactive controls, color/intensity/position params |
+| Geometry vs Mesh Props | 2026-02-24 | 2026-02-27 | Foundation | Position/rotation on mesh, shape params on geometry; `:args` = constructor, props = setters |
+| TresJS :args vs Props | 2026-02-24 | 2026-02-27 | Foundation | `:args` maps to constructor arguments, props map to property setters after construction |
+| Imperative Scene Management | 2026-02-24 | 2026-02-27 | Foundation | `useLightHelper` pattern: scene.add/remove for Three.js helpers that can't be declarative |
 | WebGPU Detection | - | Pending | New | Phase 1 |
 | Compute Shaders | - | Pending | New | Phase 2 |
 | Buffer Management | - | Pending | New | Phase 2 |

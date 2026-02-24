@@ -29,8 +29,10 @@ const {
 
 const directionalLight = ref(null)
 useLightHelper(directionalLight, directionalHelper, DirectionalLightHelper)
+
 const pointLight = ref(null)
 useLightHelper(pointLight, pointHelper, PointLightHelper)
+
 const spotLight = ref(null)
 useLightHelper(spotLight, spotHelper, SpotLightHelper)
 

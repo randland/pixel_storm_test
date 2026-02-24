@@ -3,7 +3,7 @@
 ## Current Status
 - **Phase**: Section 01 complete, Section 04 nearly complete, Section 02 in progress
 - **Branch**: `learn/nick`
-- **Focus**: Scene fundamentals — renderer/scene/camera configuration, dolly zoom complete
+- **Focus**: Scene fundamentals — lighting basics in progress (light types + helpers done, shadows next)
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
@@ -13,7 +13,7 @@
 4. ~~**Section 04**: Platform Architecture (animation, color controls, auto-rendering ControlPanel)~~ ✅ Substantial progress
 5. ~~**Section 02-01**: Scene & Renderer (scene-config demo, renderer/scene controls)~~ ✅ Complete
 6. ~~**Section 02-02**: Cameras & Controls (FOV/near/far sliders, OrbitControls, dolly zoom)~~ ✅ Substantially complete
-7. **Section 02-03**: Lighting Basics ← **NEXT**
+7. **Section 02-03**: Lighting Basics ← **IN PROGRESS** (light types + helpers done, shadows next)
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -22,7 +22,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube, scene-config demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable)
+- [~] TresJS integration (hello-cube, scene-config, lighting-basics demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -173,6 +173,28 @@
 - `tan(fov/2)` approaches infinity near 180 degrees — must clamp `effectiveFov` to safe range
 - Known limitation: FOV slider change while dolly zoom active causes slight visual jump (dollyZoom resets, camera returns to baseDistance)
 
+### Lighting & Imperative Helpers (2026-02-24)
+
+**Imperative Helper Pattern for TresJS**
+- Three.js light helpers (DirectionalLightHelper, PointLightHelper, SpotLightHelper) need imperative `scene.add()`/`scene.remove()` — cannot use TresJS declarative templates
+- `useLightHelper` composable manages helper lifecycle: creates helper from light ref, toggles via boolean param, cleans up on scope dispose
+- Pattern: watch a boolean toggle → `scene.value.add(helper)` or `scene.value.remove(helper)`
+
+**Geometry vs Mesh Props**
+- Position, rotation, scale go on the **mesh** (the scene graph node), not the geometry
+- Geometry defines shape; mesh defines placement — `:args` on geometry for constructor params, props on mesh for transforms
+
+**TresJS `:args` vs Props**
+- `:args` maps to Three.js constructor arguments (e.g., `<TresSphereGeometry :args="[1, 32, 32]">`)
+- Props map to property setters after construction (e.g., `:position="[0, 1, 0]"` calls `.position.set()`)
+
+**BooleanControl Bug Fix**
+- Checkbox `$event.target.value` returns string `"on"` — must use `$event.target.checked` for boolean
+
+**useFPS Composable**
+- Singleton frame counter using rolling 500ms window for stable FPS display
+- Displayed in DemoSelector header
+
 ### Historical Context
 
 **Previous Phase Completed**: LED demo projects with Perlin noise
@@ -196,5 +218,6 @@
 | Date | Focus | Key Accomplishments |
 |------|-------|---------------------|
 | 2026-02-24 | Section 02: Scene & Renderer, Cameras & Controls | Git cleanup (deleted useCounter, .gitignore update). Renamed `useParam` → `useNumericParam`. Built scene-config demo with randomized objects, renderer controls (exposure), scene controls (background, fog), camera controls (FOV/near/far), OrbitControls. Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. `useColorParam` now exposes `.color` (Three.js Color). Discovered useTres() return types and named setter + immediate watcher pattern. Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine, Cientos wrapper chain discovery (`.instance` not `.instance.value`), cleaned up Experience.vue (~25 lines replaced with composable call). |
+| 2026-02-24 (evening) | Section 02: Lighting Basics | Built lighting-basics demo with ground plane + varied geometry (sphere, box, cone, cylinder, torus, torus knot). Four light types with full interactive controls: AmbientLight, DirectionalLight, PointLight, SpotLight. Built `useLightHelper` composable (imperative scene.add/remove toggle). Built `useFPS` composable (singleton rolling 500ms window). Fixed BooleanControl bug (`$event.target.value` → `$event.target.checked`). Added `overflow-y-auto` to ControlPanel. Learned geometry vs mesh props, `:args` vs props in TresJS, imperative helper management. |
 
 *Updated*: 2026-02-24
