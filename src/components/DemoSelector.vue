@@ -2,9 +2,11 @@
 import { useDark, useToggle } from '@vueuse/core'
 import useDemoRegistry from '@/composables/useDemoRegistry'
 import useDemoRouter from '@/composables/useDemoRouter'
+import useFPS from '@/composables/useFPS'
 
 const { demoNames } = useDemoRegistry()
 const { currentDemo } = useDemoRouter()
+const { fps } = useFPS()
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -38,4 +40,5 @@ const toggleDark = useToggle(isDark)
   >
     {{ isDark ? 'Light' : 'Dark' }}
   </button>
+  <span>{{ fps }}FPS</span>
 </template>

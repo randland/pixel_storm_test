@@ -17,7 +17,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-80 p-4">
+  <div class="w-80 p-4 overflow-y-auto">
     <component
       :is="controlMap[param.type]"
       v-for="(param, key) in controls"

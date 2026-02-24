@@ -16,9 +16,9 @@ defineProps({
         >
       </label>
       <input
-        :value="param.value"
+        :checked="param.value"
         type="checkbox"
-        @change="param.value = $event.target.value"
+        @change="param.value = $event.target.checked"
       >
     </div>
   </div>
