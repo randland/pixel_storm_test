@@ -11,6 +11,8 @@ Execute multi-step workflows in fresh context. Use when work should be **offload
 |-------|---------------|-----|
 | `git-manager.md` | Complex git (conflicts, rebase, PRs, branch strategy) | Task tool |
 | `documentation.md` | Updating docs, maintaining learning progress | Task tool |
+| `3d-math-expert.md` | Camera math, dolly zoom, projection, spatial transforms | Task tool |
+| `debugger.md` | Visual bugs, console errors, browser testing (Playwright MCP) | Task tool or Teammate |
 
 > **Git Routing**: Simple commits use `/commit` skill (has conversation context). Only delegate to git-manager for complex operations.
 
@@ -43,6 +45,12 @@ Need implementation advice for Vue code?
 
 Need implementation advice for graphics code?
   └─> CONSULT graphics-expert.md (load inline, don't delegate)
+
+Need 3D math help (camera, projection, transforms)?
+  └─> DELEGATE to 3d-math-expert.md
+
+Need to debug a visual bug or check browser state?
+  └─> DELEGATE or SPAWN TEAMMATE from debugger.md
 
 Need teaching guidance?
   └─> NOT here. Use rules in .claude/rules/learning-workflow.md
@@ -87,6 +95,32 @@ See `.claude/rules/learning-workflow.md` for complete git routing logic.
 - Maintaining curriculum completion status
 - Recording decisions and rationale
 - Coordinating doc updates with code changes
+
+### 3d-math-expert.md
+**Type**: Agent (delegate via Task tool)
+**Why Agent**: 3D math problems require focused reasoning and often involve reading code, deriving formulas, and producing corrected implementations
+
+- Camera projection math (FOV, near/far, aspect ratio)
+- Dolly zoom / vertigo effect calculations
+- Coordinate space transforms (world/local/screen)
+- Frustum calculations, interpolation, spatial transforms
+- Debugging math-heavy camera code
+
+**Don't use for**: General Three.js setup, TresJS reactivity, shaders, or performance — use graphics-expert consultant instead.
+
+### debugger.md
+**Type**: Agent (delegate via Task tool) or Teammate (spawn for collaborative sessions)
+**Why Agent/Teammate**: Debugging requires focused context — reading code, checking browser state, isolating issues. Can run as a one-shot agent or as an ongoing teammate for extended sessions.
+
+- Visual bugs (wrong rendering, broken effects)
+- Console errors in demos
+- Browser-based verification via **Playwright MCP**
+- Systematic issue isolation and minimal fixes
+- Can escalate math issues to 3d-math-expert
+
+**Playwright MCP**: Uses `browser_navigate`, `browser_snapshot`, `browser_console_messages`, `browser_take_screenshot`, `browser_evaluate` for browser-based debugging.
+
+**As Teammate**: Spawn for extended debugging sessions where back-and-forth is needed. Reports findings, proposes fixes, waits for approval.
 
 ---
 

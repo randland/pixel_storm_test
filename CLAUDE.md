@@ -11,6 +11,8 @@
 **Index**: @.claude/agents/README.md (selection guide)
 **Git**: @.claude/agents/git-manager.md (complex: conflicts, rebase, PRs)
 **Docs**: @.claude/agents/documentation.md (progress updates)
+**3D Math**: @.claude/agents/3d-math-expert.md (camera math, dolly zoom, projections, transforms)
+**Debugger**: @.claude/agents/debugger.md (visual bugs, browser testing via Playwright MCP, spawn as teammate)
 
 ## Consultants (Load inline for advice)
 **Vue Expert**: @.claude/agents/vue-expert.md (composables, reactivity)
@@ -57,15 +59,22 @@
 **Style**: Three.js examples-inspired demo platform
 **Workflow**: Subagent delegation + educational git commits
 
-## Context Management
-- Use subagents liberally to preserve main context
+## Context Management — DELEGATE AGGRESSIVELY
+**Main context fills fast.** Default to delegating work to agents/teammates rather than doing it inline.
+
+- **Any multi-step investigation** → Delegate to agent or spawn teammate
+- **3D math / camera debugging** → 3d-math-expert agent
 - **Git routing** (see rules/learning-workflow.md):
   - Read-only (status/log/diff) → Direct execution
   - Simple commits → `/commit` skill (has conversation context)
   - Complex (conflicts/rebase/PRs) → git-manager agent
-- Documentation → documentation agent
+- **Documentation** → documentation agent
+- **Research / codebase exploration** → Explore subagent
+- **Debugging sessions** → Spawn debugging teammate (fresh context, can read code + run tests)
 - Teaching protocols → rules (learning-workflow.md, always active)
 - Load context modules only as needed
+
+**Rule of thumb**: If a task will take more than 2-3 tool calls to complete, delegate it.
 
 ### Automated Workflow
 1. ✅ **Session start**: Progress auto-loaded via SessionStart hook
