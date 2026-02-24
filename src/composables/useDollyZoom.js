@@ -30,7 +30,7 @@ export default function useDollyZoom(camera, orbitControl, fov, dollyZoom) {
     const direction = camera.value.position.clone().sub(target).normalize()
 
     if (newVal !== 1.0) {
-      const newDistance = dollyZoomDistance(baseDistance, fov.value, fov.value * newVal)
+      const newDistance = dollyZoomDistance(baseDistance, fov.value, effectiveFov.value)
 
       moveCamera(target, direction, newDistance)
     } else {

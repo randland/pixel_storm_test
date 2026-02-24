@@ -1,7 +1,7 @@
 # Curriculum Outline
 
-> **Progress**: Section 01 complete, Section 04 nearly complete (animation, controls, auto-rendering panel)
-> **Last Updated**: 2026-02-19
+> **Progress**: Section 01 complete, Section 04 nearly complete, Section 02-01 and 02-02 substantially complete
+> **Last Updated**: 2026-02-24
 
 ## Learning Philosophy
 
@@ -36,8 +36,8 @@ Core Three.js/TresJS concepts. Each lesson produces a reusable composable or com
 
 | # | Lesson | Status | Artifact |
 |---|--------|--------|----------|
-| 01 | Scene & Renderer | `[ ]` | `useScene`, `BaseCanvas` |
-| 02 | Cameras & Controls | `[ ]` | `useCamera`, camera presets |
+| 01 | Scene & Renderer | `[x]` | scene-config demo, renderer/scene controls, named setter + immediate watcher pattern |
+| 02 | Cameras & Controls | `[>]` | FOV/near/far sliders, OrbitControls, `useDollyZoom` composable, `dollyZoomMath` utility |
 | 03 | Lighting Basics | `[ ]` | `useLighting`, light factories |
 | 04 | Shadows | `[ ]` | Shadow configuration patterns |
 | 05 | Geometry | `[ ]` | Geometry helper utilities |
@@ -157,6 +157,7 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-01-27 | 01 | 02-Project Setup & Tooling | TresJS 5.3.3, Three.js 0.182, ESLint flat config, Vitest with happy-dom |
 | 2026-02-12 | 01, 04 | 01-03 Hello Cube + Platform Framework | Built demo platform: UnoCSS, convention-based demo discovery (import.meta.glob), URL routing (useUrlSearchParams), dark/light mode. Composables: useDemoRegistry, useDemoRouter, useNumericParam. Components: DemoSelector, SliderControl. Hello-cube demo with Experience pattern (UI/scene separation). Co-located demo-specific composables. |
 | 2026-02-19 | 04, 05 | Animation + Control Panel System | Animation loop via TresJS `useLoop` with delta-based rotation. Built `useColorParam` composable with hex/RGB reactive conversion. `ControlPanel.vue` auto-renders controls by param type. Added `type` field to `useNumericParam` ('number') and `useColorParam` ('color'). New files: ControlPanel.vue, ColorControl.vue, useColorParam.js, colorUtils.js. Section 04 Control Panels and Navigation now complete. |
+| 2026-02-24 | 02 | Scene & Renderer + Cameras & Controls | Built scene-config demo (randomized objects, renderer/scene/camera controls, OrbitControls). Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine pattern. Learned Cientos wrapper chain (`.instance` not `.instance.value`), captured state in composables, separation of concerns (watcher vs computed). Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. |
 
 ---
 

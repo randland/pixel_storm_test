@@ -3,7 +3,7 @@
 ## Current Status
 - **Phase**: Section 01 complete, Section 04 nearly complete, Section 02 in progress
 - **Branch**: `learn/nick`
-- **Focus**: Scene fundamentals — renderer/scene/camera configuration, dolly zoom effect
+- **Focus**: Scene fundamentals — renderer/scene/camera configuration, dolly zoom complete
 - **Pattern**: Three.js examples-style demos
 
 ## Immediate Next Steps
@@ -12,7 +12,8 @@
 3. ~~**Lesson 01-03**: Hello Cube (first working demo)~~ ✅ Complete
 4. ~~**Section 04**: Platform Architecture (animation, color controls, auto-rendering ControlPanel)~~ ✅ Substantial progress
 5. ~~**Section 02-01**: Scene & Renderer (scene-config demo, renderer/scene controls)~~ ✅ Complete
-6. **Section 02-02**: Cameras & Controls (FOV/near/far sliders, OrbitControls, dolly zoom in progress) ← **IN PROGRESS**
+6. ~~**Section 02-02**: Cameras & Controls (FOV/near/far sliders, OrbitControls, dolly zoom)~~ ✅ Substantially complete
+7. **Section 02-03**: Lighting Basics ← **NEXT**
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -21,7 +22,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube, scene-config demos; useLoop animation; renderer/scene/camera controls; OrbitControls)
+- [~] TresJS integration (hello-cube, scene-config demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -152,6 +153,26 @@
 **Renamed useParam to useNumericParam**
 - Clearer naming now that multiple param types exist (numeric, color, boolean, option)
 
+### Dolly Zoom & Composable Patterns (2026-02-24)
+
+**Pure Math Utility for Testability**
+- `dollyZoomMath.js`: `dollyZoomDistance(baseDistance, baseFovDeg, newFovDeg)` — `d_new = d_base * tan(baseFov/2) / tan(newFov/2)`
+- No Three.js dependency in the math layer — testable with plain Vitest
+- 4 tests including invariant property test (identity at base FOV)
+
+**Composable State Machine (useDollyZoom)**
+- Captured state pattern: `baseDistance` lazy-initialized on first use, persists across watcher calls
+- Separation of concerns: watcher moves camera position, `effectiveFov` computed handles FOV, neither mutates the other's domain
+- Integrates with OrbitControls via Cientos wrapper chain
+
+**Cientos Wrapper Chain**
+- `orbitControls.value?.instance` — instance IS the Three.js object directly (not `.instance.value`)
+- Version-specific behavior: Cientos wraps the Three.js control, `.instance` returns the unwrapped object
+
+**FOV Clamping**
+- `tan(fov/2)` approaches infinity near 180 degrees — must clamp `effectiveFov` to safe range
+- Known limitation: FOV slider change while dolly zoom active causes slight visual jump (dollyZoom resets, camera returns to baseDistance)
+
 ### Historical Context
 
 **Previous Phase Completed**: LED demo projects with Perlin noise
@@ -174,6 +195,6 @@
 
 | Date | Focus | Key Accomplishments |
 |------|-------|---------------------|
-| 2026-02-24 | Section 02: Scene & Renderer, Cameras & Controls | Git cleanup (deleted useCounter, .gitignore update). Renamed `useParam` → `useNumericParam`. Built scene-config demo with randomized objects, renderer controls (exposure), scene controls (background, fog), camera controls (FOV/near/far), OrbitControls. Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. `useColorParam` now exposes `.color` (Three.js Color). Discovered useTres() return types and named setter + immediate watcher pattern. Dolly zoom coded but has two known bugs. |
+| 2026-02-24 | Section 02: Scene & Renderer, Cameras & Controls | Git cleanup (deleted useCounter, .gitignore update). Renamed `useParam` → `useNumericParam`. Built scene-config demo with randomized objects, renderer controls (exposure), scene controls (background, fog), camera controls (FOV/near/far), OrbitControls. Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. `useColorParam` now exposes `.color` (Three.js Color). Discovered useTres() return types and named setter + immediate watcher pattern. Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine, Cientos wrapper chain discovery (`.instance` not `.instance.value`), cleaned up Experience.vue (~25 lines replaced with composable call). |
 
 *Updated*: 2026-02-24

@@ -2,7 +2,7 @@
 
 ## Technical Proficiency Targets
 ```
-TresJS Integration:     [####                ] 20%
+TresJS Integration:     [######              ] 30%
 WebGPU Fundamentals:    [                    ] 0%
 TSL Shader Programming: [                    ] 0%
 GPU Computing:          [                    ] 0%
@@ -28,9 +28,13 @@ Code Display:           [                    ] 0%
 | Vue 3 Reactivity | - | - | Expert | Pre-existing |
 | Three.js Scene Setup | - | - | Foundation | Completed |
 | Three.js Materials | - | - | Foundation | Completed |
-| TresJS Components | 2026-02-19 | 2026-02-22 | Foundation | Hello-cube demo, animation loop, color controls |
+| TresJS Components | 2026-02-24 | 2026-02-27 | Foundation | Hello-cube demo, animation loop, color controls, camera controls, OrbitControls |
 | TresJS useLoop | 2026-02-19 | 2026-02-22 | Foundation | Delta-based animation on all 3 axes |
 | Composable Design (useColorParam) | 2026-02-19 | 2026-02-22 | Proficient | Hex/RGB reactive conversion, type-driven rendering |
+| Dolly Zoom Math | 2026-02-24 | 2026-02-27 | Foundation | `d_new = d_base * tan(baseFov/2) / tan(newFov/2)`, pure function, tan(fov/2) clamping |
+| Composable State Machines | 2026-02-24 | 2026-02-27 | Foundation | Captured state (baseDistance lazy-init), separation of concerns (watcher vs computed) |
+| Cientos Wrapper Chain | 2026-02-24 | 2026-02-27 | Foundation | `.value?.instance` is Three.js object directly, NOT `.instance.value` |
+| Pure Function Testing | 2026-02-24 | 2026-02-27 | Proficient | Extract math into dependency-free modules, property-based invariant tests |
 | WebGPU Detection | - | Pending | New | Phase 1 |
 | Compute Shaders | - | Pending | New | Phase 2 |
 | Buffer Management | - | Pending | New | Phase 2 |
