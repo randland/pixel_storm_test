@@ -1,5 +1,6 @@
 import { rgbToHex, hexToRgb } from '@/lib/colorUtils'
 import { computed, reactive } from 'vue'
+import { Color } from 'three'
 
 export default function useColorParam(value = "", opts = {}) {
   const rgb = reactive({ r: 0, g: 0, b: 0 })
@@ -12,6 +13,15 @@ export default function useColorParam(value = "", opts = {}) {
       rgb.b = tmp.b;
     }
   })
+  const color = computed({
+    get: () => new Color(rgb.r / 255, rgb.g / 255, rgb.b / 255),
+    set: (value) => {
+      rgb.r = value.r * 255
+      rgb.g = value.g * 255
+      rgb.b = value.b * 255
+    }
+  })
+  
 
   const decodeValue = () => {
     if (typeof value === 'string') {
@@ -37,6 +47,7 @@ export default function useColorParam(value = "", opts = {}) {
     ...defaults,
     rgb,
     hex,
+    color,
     reset() {
       Object.assign(this, { value, ...defaults })
       decodeValue()

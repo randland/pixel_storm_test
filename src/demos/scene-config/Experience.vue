@@ -1,11 +1,11 @@
 <script setup>
 import { watch } from 'vue'
-import { FogExp2, Color } from 'three'
+import { FogExp2 } from 'three'
 import { useTres } from '@tresjs/core'
 import { randomBetween } from '@/lib/randomUtils'
 import useControls from './useControls'
 
-const { toneMapExposure, backgroundColor, fogDensity } = useControls();
+const { toneMappingExposure, backgroundColor, fogDensity, fogColor } = useControls();
 
 const objects = Array.from({ length: 20 }, () => ({
   position: [randomBetween(-6, 6), randomBetween(0.5, 4), randomBetween(-6, 6)],
@@ -15,21 +15,15 @@ const objects = Array.from({ length: 20 }, () => ({
 }))
 
 const { renderer, scene } = useTres()
-renderer.toneMappingExposure = 1.0
-scene.value.background = new Color(backgroundColor.hex)
-scene.value.fog = new FogExp2(new Color("#ccc"), fogDensity.value);
 
-watch(toneMapExposure, (newValue) => {
-  renderer.toneMappingExposure = newValue.value;
-})
+const setToneMappingExposure = () => renderer.toneMappingExposure = toneMappingExposure.value
+watch(toneMappingExposure, setToneMappingExposure, { immediate: true })
 
-watch(backgroundColor, (newValue) => {
-  scene.value.background = new Color(newValue.hex);
-})
+const setSceneBackground = () => scene.value.background = backgroundColor.color
+watch(backgroundColor, setSceneBackground, { immediate: true })
 
-watch(fogDensity, (newValue) => {
-  scene.value.fog = new FogExp2(new Color("#ccc"), newValue.value);
-})
+const setSceneFog = () => scene.value.fog = new FogExp2(fogColor.color, fogDensity.value)
+watch([fogDensity, fogColor], setSceneFog, { immediate: true })
 </script>
 
 <template>
