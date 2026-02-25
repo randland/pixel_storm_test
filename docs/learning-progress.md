@@ -1,17 +1,17 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Sections 01, 04 complete. Section 02 nearly complete (shadows remaining).
+- **Phase**: Sections 01, 02, 04 complete. Moving to interaction & instancing.
 - **Branch**: `learn/nick`
-- **Focus**: Finishing scene fundamentals, then interaction & instancing
+- **Focus**: Interaction & instancing (Section 05), then shader foundations
 - **Pattern**: Three.js examples-style demos with forward connection to GPU work
 
 ## Immediate Next Steps
 1. ~~**Section 01**: Getting Started (3D concepts, setup, hello cube)~~ ✅ Complete
 2. ~~**Section 04**: Platform Architecture (demo pattern, control panels, routing)~~ ✅ Complete
 3. ~~**Section 02-01 to 02-03**: Scene/Renderer, Cameras, Lighting~~ ✅ Complete
-4. **Section 02-04**: Shadows & Surfaces ← **NEXT** (shadows + materials consolidated lesson)
-5. **Section 05**: Interaction & Instancing (raycasting, instanced rendering, gate prototype)
+4. ~~**Section 02-04**: Shadows & Surfaces~~ ✅ Complete
+5. **Section 05**: Interaction & Instancing ← **NEXT** (raycasting, instanced rendering, gate prototype)
 6. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
 7. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
 8. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
@@ -23,7 +23,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube, scene-config, lighting-basics demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers)
+- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -98,7 +98,7 @@
 - **GPU**: >10,000 elements, complex compute operations, parallel processing
 
 **Learning Architecture** (restructured 2026-02-24)
-1. Scene Fundamentals: Sections 01-02 (shadows & surfaces remaining)
+1. Scene Fundamentals: Sections 01-02 (complete)
 2. Interaction & Instancing: Section 05 (raycasting, instancing, gate prototype)
 3. Shader Foundations: Section 06 (GPU mindset, TSL materials, patterns, noise, displacement)
 4. GPU Compute: Section 07 (hello compute, flame fractals, Game of Life, GPU particles)
