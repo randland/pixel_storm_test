@@ -16,7 +16,7 @@ Interesting topics to explore when curiosity strikes. These are **not** curricul
 ### Graphics & Rendering
 | Priority | Topic | Why interesting | Added |
 |----------|-------|-----------------|-------|
-| `[!]` | Flame IFS Fractals | Iterated function systems with nonlinear transforms — produces stunning organic visuals, natural fit for GPU compute (each point iterates independently) | 2026-02-12 |
+| | *(Flame IFS Fractals promoted to curriculum — Section 07-02)* | | |
 
 ### Math & Algorithms
 | Priority | Topic | Why interesting | Added |

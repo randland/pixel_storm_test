@@ -1,19 +1,20 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Section 01 complete, Section 04 nearly complete, Section 02 in progress
+- **Phase**: Sections 01, 04 complete. Section 02 nearly complete (shadows remaining).
 - **Branch**: `learn/nick`
-- **Focus**: Scene fundamentals — lighting basics in progress (light types + helpers done, shadows next)
-- **Pattern**: Three.js examples-style demos
+- **Focus**: Finishing scene fundamentals, then interaction & instancing
+- **Pattern**: Three.js examples-style demos with forward connection to GPU work
 
 ## Immediate Next Steps
-1. ~~**Lesson 01-01**: 3D Graphics Concepts (mental models)~~ ✅ Complete
-2. ~~**Lesson 01-02**: Project Setup & Tooling (ESLint, Vitest, TresJS)~~ ✅ Complete
-3. ~~**Lesson 01-03**: Hello Cube (first working demo)~~ ✅ Complete
-4. ~~**Section 04**: Platform Architecture (animation, color controls, auto-rendering ControlPanel)~~ ✅ Substantial progress
-5. ~~**Section 02-01**: Scene & Renderer (scene-config demo, renderer/scene controls)~~ ✅ Complete
-6. ~~**Section 02-02**: Cameras & Controls (FOV/near/far sliders, OrbitControls, dolly zoom)~~ ✅ Substantially complete
-7. **Section 02-03**: Lighting Basics ← **IN PROGRESS** (light types + helpers done, shadows next)
+1. ~~**Section 01**: Getting Started (3D concepts, setup, hello cube)~~ ✅ Complete
+2. ~~**Section 04**: Platform Architecture (demo pattern, control panels, routing)~~ ✅ Complete
+3. ~~**Section 02-01 to 02-03**: Scene/Renderer, Cameras, Lighting~~ ✅ Complete
+4. **Section 02-04**: Shadows & Surfaces ← **NEXT** (shadows + materials consolidated lesson)
+5. **Section 05**: Interaction & Instancing (raycasting, instanced rendering, gate prototype)
+6. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
+7. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
+8. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -96,11 +97,13 @@
 - **JavaScript**: <500 elements, rapid prototyping, simple calculations
 - **GPU**: >10,000 elements, complex compute operations, parallel processing
 
-**Learning Architecture**
-1. Phase 1: TresJS + WebGPU Foundation (2-3 weeks)
-2. Phase 2: GPU Computing Introduction (3-4 weeks)
-3. Phase 3: Advanced WebGPU Graphics (4-6 weeks)
-4. Phase 4: Creative Applications (4-6 weeks)
+**Learning Architecture** (restructured 2026-02-24)
+1. Scene Fundamentals: Sections 01-02 (shadows & surfaces remaining)
+2. Interaction & Instancing: Section 05 (raycasting, instancing, gate prototype)
+3. Shader Foundations: Section 06 (GPU mindset, TSL materials, patterns, noise, displacement)
+4. GPU Compute: Section 07 (hello compute, flame fractals, Game of Life, GPU particles)
+5. Capstone: Section 08 (Logic Gate Simulator — board, GPU eval, signal propagation, polish)
+6. Creative Extensions: Section 09 (open-ended, tangent-driven)
 
 ### Demo Platform Framework (2026-02-12)
 
