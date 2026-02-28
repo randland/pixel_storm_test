@@ -15,7 +15,7 @@ const demoComponent = computed(() => {
 </script>
 
 <template>
-  <div class="app h-screen w-screen overflow-hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <div class="app h-screen w-screen overflow-hidden flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <DemoSelector />
     <component
       :is="demoComponent"
