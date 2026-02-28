@@ -7,7 +7,7 @@ import useControls from './useControls'
 import useFPS from '@/composables/useFPS'
 import useLightHelper from '@/composables/useLightHelper'
 
-const {
+const { controls: {
   ambientColor,
   ambientIntensity,
   directionalColor,
@@ -25,7 +25,7 @@ const {
   spotIntensity,
   spotPenumbra,
   spotHelper,
-} = useControls();
+} } = useControls();
 
 const directionalLight = ref(null)
 useLightHelper(directionalLight, directionalHelper, DirectionalLightHelper)

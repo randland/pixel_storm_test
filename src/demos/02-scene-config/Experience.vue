@@ -7,7 +7,7 @@ import { randomBetween } from '@/lib/randomUtils'
 import useControls from './useControls'
 import useDollyZoom from '@/composables/useDollyZoom'
 
-const {
+const { controls: {
   toneMappingExposure,
   backgroundColor,
   fogDensity,
@@ -16,7 +16,7 @@ const {
   near,
   far,
   dollyZoom,
-} = useControls();
+} } = useControls();
 
 const objects = Array.from({ length: 20 }, () => ({
   position: [randomBetween(-6, 6), randomBetween(0.5, 4), randomBetween(-6, 6)],

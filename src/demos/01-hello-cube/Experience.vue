@@ -4,7 +4,7 @@ import { useLoop } from '@tresjs/core'
 import useControls from './useControls'
 import useFPS from '@/composables/useFPS'
 
-const { ambientLight, rotationSpeedX, rotationSpeedY, rotationSpeedZ, cubeColor } = useControls();
+const { controls: { ambientLight, rotationSpeedX, rotationSpeedY, rotationSpeedZ, cubeColor } } = useControls();
 const cube = ref(null);
 
 const { update } = useFPS()

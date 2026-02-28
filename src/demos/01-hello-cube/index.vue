@@ -4,7 +4,7 @@ import ControlPanel from '@/components/ControlPanel.vue'
 import Experience from './Experience.vue'
 import useControls from './useControls'
 
-const controls = useControls()
+const demoState = useControls()
 </script>
 
 <template>
@@ -14,6 +14,6 @@ const controls = useControls()
         <Experience />
       </TresCanvas>
     </div>
-    <ControlPanel :controls="controls" />
+    <ControlPanel :controls="demoState.controls" />
   </div>
 </template>

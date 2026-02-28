@@ -5,7 +5,7 @@ import { OrbitControls, Environment } from '@tresjs/cientos'
 import useControls from './useControls'
 import useFPS from '@/composables/useFPS'
 
-const {
+const { controls: {
   shadowBias,
   shadowMapSize,
   shadowFrustum,
@@ -18,7 +18,7 @@ const {
   thickness,
   preset,
   background,
-} = useControls();
+} } = useControls();
 
 const { update } = useFPS()
 const { onBeforeRender } = useLoop()
