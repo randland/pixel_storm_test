@@ -1,7 +1,7 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) complete. Continuing interaction & instancing.
+- **Phase**: Sections 01, 02, 04 complete. Section 05-01 partially complete (TresJS events done, manual Raycaster remaining).
 - **Branch**: `learn/nick`
 - **Focus**: Interaction & instancing (Section 05), then shader foundations
 - **Pattern**: Three.js examples-style demos with forward connection to GPU work
@@ -11,7 +11,7 @@
 2. ~~**Section 04**: Platform Architecture (demo pattern, control panels, routing)~~ ✅ Complete
 3. ~~**Section 02-01 to 02-03**: Scene/Renderer, Cameras, Lighting~~ ✅ Complete
 4. ~~**Section 02-04**: Shadows & Surfaces~~ ✅ Complete
-5. **Section 05**: Interaction & Instancing (05-01 Raycasting ✅, 05-02 Instanced Rendering ← **NEXT**, 05-03 gate prototype)
+5. **Section 05**: Interaction & Instancing (05-01 Raycasting: TresJS events ✅, **manual Raycaster ← NEXT** | 05-02 Instanced Rendering, 05-03 gate prototype)
 6. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
 7. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
 8. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
