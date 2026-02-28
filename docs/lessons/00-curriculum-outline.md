@@ -1,7 +1,7 @@
 # Curriculum Outline
 
-> **Progress**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) complete. Instanced rendering next.
-> **Last Updated**: 2026-02-27
+> **Progress**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) fully complete (TresJS events + manual Raycaster). Instanced rendering next.
+> **Last Updated**: 2026-02-28
 
 ## Learning Philosophy
 
@@ -66,7 +66,7 @@ Making scenes interactive and rendering at scale. Each lesson builds skills dire
 
 | # | Lesson | Status | Artifact |
 |---|--------|--------|----------|
-| 01 | Raycasting & Object Selection | `[x]` | `object-picker` demo — click to select, hover effects via emissive, `useObject` composable, multi-intersection debounce |
+| 01 | Raycasting & Object Selection | `[x]` | `object-picker` demo (TresJS events) + manual `THREE.Raycaster` implementation. Composable chain: `useCanvas` → `useCanvasPoint` → `useScenePoint` → `use3dCanvasClick` → `useManualRaycaster`. `screenMath.js` with NDC conversion utilities (8 tests). `useObject` composable for per-object state. userData for mesh-to-object bridging. |
 | 02 | Instanced Rendering | `[ ]` | `art-grid` demo — 10k+ instances, color/scale driven by math functions + mouse position |
 | 03 | Interactive Scene Building | `[ ]` | `gate-prototype` demo — place nodes on grid, wire them, toggle states (gate sim scaffolding) |
 
@@ -155,7 +155,8 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-02-24 | 02 | Scene & Renderer + Cameras & Controls | Built scene-config demo (randomized objects, renderer/scene/camera controls, OrbitControls). Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine pattern. Learned Cientos wrapper chain (`.instance` not `.instance.value`), captured state in composables, separation of concerns (watcher vs computed). Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. |
 | 2026-02-24 | 02 | Lighting Basics (in progress) | Built lighting-basics demo with ground plane + 6 geometry types. Four light types (Ambient, Directional, Point, Spot) with full interactive controls. `useLightHelper` composable for imperative helper management. `useFPS` composable (singleton, rolling 500ms window). Fixed BooleanControl bug (value vs checked). Learned geometry vs mesh props, `:args` vs props, imperative scene management. |
 | 2026-02-24 | all | Curriculum Restructure | Compressed 26 lessons → 21. Dropped generic fundamentals (geometry, textures, responsive design). Eliminated Section 03 (Scene Organization). Promoted Flame IFS from tangent to curriculum. Restructured for faster path to GPU work: 7 lessons to shaders (was 16), 12 to compute (was 21). |
-| 2026-02-27 | 05 | 05-01 Raycasting & Object Selection | Built object-picker demo: 4x4 torus knot grid with HSL color ramp, click-to-select (emissive highlight), hover feedback (emissive intensity), `useObject` composable, time-based click debounce (50ms). Learned TresJS pointer event naming (lowercase, not kebab), scale-on-hover raycaster recursion antipattern, TresCanvas custom renderer boundary. Standardized `useControls` return pattern across all demos. |
+| 2026-02-27 | 05 | 05-01 Raycasting & Object Selection (TresJS events) | Built object-picker demo: 4x4 torus knot grid with HSL color ramp, click-to-select (emissive highlight), hover feedback (emissive intensity), `useObject` composable, time-based click debounce (50ms). Learned TresJS pointer event naming (lowercase, not kebab), scale-on-hover raycaster recursion antipattern, TresCanvas custom renderer boundary. Standardized `useControls` return pattern across all demos. |
+| 2026-02-28 | 05 | 05-01 Raycasting & Object Selection (manual Raycaster) | Built composable chain for manual raycasting: `useCanvas` (canvas ref), `useCanvasPoint` (mouse position on canvas), `useScenePoint` (NDC conversion), `use3dCanvasClick` (click hook), `useManualRaycaster` (THREE.Raycaster ray cast + intersection filtering). Extracted `screenMath.js` with 8 tests for NDC conversion, CSS vs canvas pixel handling on retina displays. Learned userData for mesh-object bridging, NDC as screen-to-world bridge, screen coordinate systems. |
 
 ---
 

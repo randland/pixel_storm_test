@@ -1,9 +1,9 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Sections 01, 02, 04 complete. Section 05-01 partially complete (TresJS events done, manual Raycaster remaining).
+- **Phase**: Sections 01, 02, 04 complete. Section 05-01 fully complete (TresJS events + manual Raycaster).
 - **Branch**: `learn/nick`
-- **Focus**: Interaction & instancing (Section 05), then shader foundations
+- **Focus**: Instanced rendering (Section 05-02), then shader foundations
 - **Pattern**: Three.js examples-style demos with forward connection to GPU work
 
 ## Immediate Next Steps
@@ -11,10 +11,12 @@
 2. ~~**Section 04**: Platform Architecture (demo pattern, control panels, routing)~~ ✅ Complete
 3. ~~**Section 02-01 to 02-03**: Scene/Renderer, Cameras, Lighting~~ ✅ Complete
 4. ~~**Section 02-04**: Shadows & Surfaces~~ ✅ Complete
-5. **Section 05**: Interaction & Instancing (05-01 Raycasting: TresJS events ✅, **manual Raycaster ← NEXT** | 05-02 Instanced Rendering, 05-03 gate prototype)
-6. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
-7. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
-8. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
+5. ~~**Section 05-01**: Raycasting & Object Selection (TresJS events + manual Raycaster)~~ ✅ Complete
+6. **Section 05-02**: Instanced Rendering (art-grid demo, 10k+ instances, mouse interaction) **← NEXT**
+7. **Section 05-03**: Interactive Scene Building (gate-prototype demo)
+8. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
+9. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
+10. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -23,7 +25,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom, object-picker demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps; raycasting + pointer events; object selection + hover feedback)
+- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom, object-picker demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps; TresJS pointer events + raycasting; object selection + hover feedback; manual THREE.Raycaster; NDC coordinates; screen-to-world pipeline; userData for mesh-object bridging)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -230,5 +232,6 @@
 | 2026-02-24 | Section 02: Scene & Renderer, Cameras & Controls | Git cleanup (deleted useCounter, .gitignore update). Renamed `useParam` → `useNumericParam`. Built scene-config demo with randomized objects, renderer controls (exposure), scene controls (background, fog), camera controls (FOV/near/far), OrbitControls. Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. `useColorParam` now exposes `.color` (Three.js Color). Discovered useTres() return types and named setter + immediate watcher pattern. Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine, Cientos wrapper chain discovery (`.instance` not `.instance.value`), cleaned up Experience.vue (~25 lines replaced with composable call). |
 | 2026-02-24 (evening) | Section 02: Lighting Basics | Built lighting-basics demo with ground plane + varied geometry (sphere, box, cone, cylinder, torus, torus knot). Four light types with full interactive controls: AmbientLight, DirectionalLight, PointLight, SpotLight. Built `useLightHelper` composable (imperative scene.add/remove toggle). Built `useFPS` composable (singleton rolling 500ms window). Fixed BooleanControl bug (`$event.target.value` → `$event.target.checked`). Added `overflow-y-auto` to ControlPanel. Learned geometry vs mesh props, `:args` vs props in TresJS, imperative helper management. |
 | 2026-02-27 | Section 05: Raycasting & Object Selection | Built object-picker demo: 4x4 grid of torus knots with HSL color ramp. Click-to-select with emissive highlight, hover via emissive intensity. `useObject` composable for per-object reactive state. Time-based click debounce (50ms) to handle multi-intersection on complex geometry. Standardized `useControls` return pattern (`{ controls, ...sceneState }`) across all demos. Header styling cleanup. Learned: TresJS pointer events use DOM-style lowercase (`@pointerenter` not `@pointer-enter`), scale-on-hover causes raycaster recursion (use emissive instead), TresCanvas custom renderer boundary prevents dynamic `<component :is>` for TresJS composables. |
+| 2026-02-28 | Section 05: Raycasting & Object Selection (manual Raycaster) | Built composable chain for manual raycasting: `useCanvas` (canvas ref), `useCanvasPoint` (mouse position on canvas, CSS vs canvas pixel distinction on retina), `useScenePoint` (NDC conversion, aspect ratio, mouse position in normalized space), `use3dCanvasClick` (click event hook), `useManualRaycaster` (THREE.Raycaster ray cast + intersection filtering). Extracted `screenMath.js` utility with pure functions for NDC conversion: `toNDC` (CSS pixels → NDC -1 to 1), `fromNDC` (NDC → world space), `screenToNDC` wrapper. 8 tests covering NDC bounds, edge cases, retina pixel doubling. Learned: userData for bridging mesh to object data (query via `intersection.object.userData`), screen coordinate systems (CSS pixels vs canvas texture pixels on high-DPI displays), NDC as the bridge between screen and world space. |
 
-*Updated*: 2026-02-27
+*Updated*: 2026-02-28
