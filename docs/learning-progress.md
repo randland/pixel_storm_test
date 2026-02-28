@@ -1,7 +1,7 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Sections 01, 02, 04 complete. Moving to interaction & instancing.
+- **Phase**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) complete. Continuing interaction & instancing.
 - **Branch**: `learn/nick`
 - **Focus**: Interaction & instancing (Section 05), then shader foundations
 - **Pattern**: Three.js examples-style demos with forward connection to GPU work
@@ -11,7 +11,7 @@
 2. ~~**Section 04**: Platform Architecture (demo pattern, control panels, routing)~~ ✅ Complete
 3. ~~**Section 02-01 to 02-03**: Scene/Renderer, Cameras, Lighting~~ ✅ Complete
 4. ~~**Section 02-04**: Shadows & Surfaces~~ ✅ Complete
-5. **Section 05**: Interaction & Instancing ← **NEXT** (raycasting, instanced rendering, gate prototype)
+5. **Section 05**: Interaction & Instancing (05-01 Raycasting ✅, 05-02 Instanced Rendering ← **NEXT**, 05-03 gate prototype)
 6. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
 7. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
 8. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
@@ -23,7 +23,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps)
+- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom, object-picker demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps; raycasting + pointer events; object selection + hover feedback)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -176,6 +176,13 @@
 - `tan(fov/2)` approaches infinity near 180 degrees — must clamp `effectiveFov` to safe range
 - Known limitation: FOV slider change while dolly zoom active causes slight visual jump (dollyZoom resets, camera returns to baseDistance)
 
+### useControls Pattern Evolution (2026-02-27)
+
+**Standardized useControls Return Pattern**
+- `useControls()` now returns `{ controls, ...sceneState }` where `controls` is the params object for ControlPanel and other properties are scene-specific reactive state
+- Enables Vue DevTools visibility at `index.vue` level — scene state is destructured and available for inspection
+- Standardized across all demos (hello-cube, scene-config, lighting-basics, material-showroom, object-picker)
+
 ### Lighting & Imperative Helpers (2026-02-24)
 
 **Imperative Helper Pattern for TresJS**
@@ -222,5 +229,6 @@
 |------|-------|---------------------|
 | 2026-02-24 | Section 02: Scene & Renderer, Cameras & Controls | Git cleanup (deleted useCounter, .gitignore update). Renamed `useParam` → `useNumericParam`. Built scene-config demo with randomized objects, renderer controls (exposure), scene controls (background, fog), camera controls (FOV/near/far), OrbitControls. Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. `useColorParam` now exposes `.color` (Three.js Color). Discovered useTres() return types and named setter + immediate watcher pattern. Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine, Cientos wrapper chain discovery (`.instance` not `.instance.value`), cleaned up Experience.vue (~25 lines replaced with composable call). |
 | 2026-02-24 (evening) | Section 02: Lighting Basics | Built lighting-basics demo with ground plane + varied geometry (sphere, box, cone, cylinder, torus, torus knot). Four light types with full interactive controls: AmbientLight, DirectionalLight, PointLight, SpotLight. Built `useLightHelper` composable (imperative scene.add/remove toggle). Built `useFPS` composable (singleton rolling 500ms window). Fixed BooleanControl bug (`$event.target.value` → `$event.target.checked`). Added `overflow-y-auto` to ControlPanel. Learned geometry vs mesh props, `:args` vs props in TresJS, imperative helper management. |
+| 2026-02-27 | Section 05: Raycasting & Object Selection | Built object-picker demo: 4x4 grid of torus knots with HSL color ramp. Click-to-select with emissive highlight, hover via emissive intensity. `useObject` composable for per-object reactive state. Time-based click debounce (50ms) to handle multi-intersection on complex geometry. Standardized `useControls` return pattern (`{ controls, ...sceneState }`) across all demos. Header styling cleanup. Learned: TresJS pointer events use DOM-style lowercase (`@pointerenter` not `@pointer-enter`), scale-on-hover causes raycaster recursion (use emissive instead), TresCanvas custom renderer boundary prevents dynamic `<component :is>` for TresJS composables. |
 
-*Updated*: 2026-02-24
+*Updated*: 2026-02-27

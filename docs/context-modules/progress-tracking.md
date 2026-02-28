@@ -39,6 +39,11 @@ Code Display:           [                    ] 0%
 | Geometry vs Mesh Props | 2026-02-24 | 2026-02-27 | Foundation | Position/rotation on mesh, shape params on geometry; `:args` = constructor, props = setters |
 | TresJS :args vs Props | 2026-02-24 | 2026-02-27 | Foundation | `:args` maps to constructor arguments, props map to property setters after construction |
 | Imperative Scene Management | 2026-02-24 | 2026-02-27 | Foundation | `useLightHelper` pattern: scene.add/remove for Three.js helpers that can't be declarative |
+| TresJS Pointer Events | 2026-02-27 | 2026-03-02 | Foundation | Use DOM-style lowercase (`@pointerenter`/`@pointerleave`), NOT kebab-case (`@pointer-enter`) — Vue compiles kebab to different prop names that TresJS custom renderer doesn't match |
+| Raycaster Multi-Intersection Debounce | 2026-02-27 | 2026-03-02 | Foundation | Single click on complex geometry (torus knot) fires 7+ events due to multiple ray-geometry intersections. Fix with time-based debounce (50ms same-object guard) |
+| Scale-on-Hover Antipattern | 2026-02-27 | 2026-03-02 | Foundation | Scaling mesh on hover changes raycaster bounds → pointer-leave → unscale → pointer-enter → infinite loop. Use emissive intensity for hover feedback instead |
+| TresCanvas Custom Renderer Boundary | 2026-02-27 | 2026-03-02 | Foundation | Components using TresJS composables (useLoop, useTres) MUST be static children inside TresCanvas render tree. Dynamic `<component :is>` inside TresCanvas breaks context provider |
+| useControls { controls, ...state } Pattern | 2026-02-27 | 2026-03-02 | Foundation | `useControls()` returns `{ controls, ...sceneState }` — controls for ControlPanel, other properties for scene-specific reactive state. Enables Vue DevTools visibility at index.vue level |
 | WebGPU Detection | - | Pending | New | Phase 1 |
 | Compute Shaders | - | Pending | New | Phase 2 |
 | Buffer Management | - | Pending | New | Phase 2 |

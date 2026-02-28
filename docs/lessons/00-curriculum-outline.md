@@ -1,7 +1,7 @@
 # Curriculum Outline
 
-> **Progress**: Section 01 complete, Section 04 nearly complete, Section 02 nearly complete (shadows remaining)
-> **Last Updated**: 2026-02-24
+> **Progress**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) complete. Instanced rendering next.
+> **Last Updated**: 2026-02-27
 
 ## Learning Philosophy
 
@@ -66,7 +66,7 @@ Making scenes interactive and rendering at scale. Each lesson builds skills dire
 
 | # | Lesson | Status | Artifact |
 |---|--------|--------|----------|
-| 01 | Raycasting & Object Selection | `[ ]` | `object-picker` demo — click to select, hover effects, TresJS events + manual Raycaster |
+| 01 | Raycasting & Object Selection | `[x]` | `object-picker` demo — click to select, hover effects via emissive, `useObject` composable, multi-intersection debounce |
 | 02 | Instanced Rendering | `[ ]` | `art-grid` demo — 10k+ instances, color/scale driven by math functions + mouse position |
 | 03 | Interactive Scene Building | `[ ]` | `gate-prototype` demo — place nodes on grid, wire them, toggle states (gate sim scaffolding) |
 
@@ -155,6 +155,7 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-02-24 | 02 | Scene & Renderer + Cameras & Controls | Built scene-config demo (randomized objects, renderer/scene/camera controls, OrbitControls). Dolly zoom refactored: pure math utility (`dollyZoomMath.js` + 4 tests), `useDollyZoom` composable with state machine pattern. Learned Cientos wrapper chain (`.instance` not `.instance.value`), captured state in composables, separation of concerns (watcher vs computed). Added `useBooleanParam`, `useOptionParam`, `BooleanControl`, `OptionControl`. |
 | 2026-02-24 | 02 | Lighting Basics (in progress) | Built lighting-basics demo with ground plane + 6 geometry types. Four light types (Ambient, Directional, Point, Spot) with full interactive controls. `useLightHelper` composable for imperative helper management. `useFPS` composable (singleton, rolling 500ms window). Fixed BooleanControl bug (value vs checked). Learned geometry vs mesh props, `:args` vs props, imperative scene management. |
 | 2026-02-24 | all | Curriculum Restructure | Compressed 26 lessons → 21. Dropped generic fundamentals (geometry, textures, responsive design). Eliminated Section 03 (Scene Organization). Promoted Flame IFS from tangent to curriculum. Restructured for faster path to GPU work: 7 lessons to shaders (was 16), 12 to compute (was 21). |
+| 2026-02-27 | 05 | 05-01 Raycasting & Object Selection | Built object-picker demo: 4x4 torus knot grid with HSL color ramp, click-to-select (emissive highlight), hover feedback (emissive intensity), `useObject` composable, time-based click debounce (50ms). Learned TresJS pointer event naming (lowercase, not kebab), scale-on-hover raycaster recursion antipattern, TresCanvas custom renderer boundary. Standardized `useControls` return pattern across all demos. |
 
 ---
 
