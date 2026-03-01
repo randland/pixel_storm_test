@@ -31,8 +31,7 @@ export const getY = (index) => {
 export const getHue = (index) => {
   const minY = -2 * controls.yScale.value
   const maxY = 2 * controls.yScale.value
-  const height = mapRange(getY(index), minY, maxY, 0, 1)
-  return 360 * height
+  return 360 * mapRange(getY(index), minY, maxY, 0, 1)
 }
 
 const color = new Color()
