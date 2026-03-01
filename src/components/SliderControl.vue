@@ -11,6 +11,7 @@ defineProps({
       <label class="control-label flex-1">
         <input
           :value="param.label"
+          :name="`${param.label}-label`"
           type="text"
           readonly
           class="control-input w-full"
@@ -19,6 +20,7 @@ defineProps({
       <label class="control-label">
         <input
           v-model.number="param.value"
+          :name="param.label"
           type="number"
           :min="param.min"
           :max="param.max"
@@ -32,24 +34,30 @@ defineProps({
     <div class="flex items-center gap-2 mb-1">
       <input
         v-model.number="param.min"
+        :name="`${param.label}-min`"
         type="number"
         :max="param.max"
         :step="param.step"
+        :aria-label="`${param.label} minimum`"
         class="control-inline w-10 text-right"
       >
       <input
         v-model.number="param.value"
+        :name="`${param.label}-range`"
         type="range"
         :min="param.min"
         :max="param.max"
         :step="param.step"
+        :aria-label="param.label"
         class="flex-1"
       >
       <input
         v-model.number="param.max"
+        :name="`${param.label}-max`"
         type="number"
         :min="param.min"
         :step="param.step"
+        :aria-label="`${param.label} maximum`"
         class="control-inline w-10"
       >
     </div>

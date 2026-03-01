@@ -10,6 +10,7 @@ defineProps({
       <label class="control-label flex-1">
         <input
           :value="param.label"
+          :name="`${param.label}-label`"
           type="text"
           readonly
           class="control-input w-full"
@@ -17,14 +18,18 @@ defineProps({
       </label>
       <input
         :value="param.hex"
+        :name="`${param.label}-hex`"
         type="text"
         maxlength="7"
+        :aria-label="`${param.label} hex`"
         class="control-input w-20 text-right font-mono"
         @change="param.hex = $event.target.value"
       >
       <input
         type="color"
+        :name="param.label"
         :value="param.hex"
+        :aria-label="param.label"
         class="h-7 w-7 cursor-pointer rounded border-0 p-0"
         @input="param.hex = $event.target.value"
       >

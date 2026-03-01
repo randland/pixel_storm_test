@@ -7,11 +7,11 @@ import useFPS from '@/composables/useFPS'
 const { controls: { ambientLight, rotationSpeedX, rotationSpeedY, rotationSpeedZ, cubeColor } } = useControls();
 const cube = ref(null);
 
-const { update } = useFPS()
+const { updateFps } = useFPS()
 const { onBeforeRender } = useLoop()
 
 onBeforeRender(({ delta }) => {
-  update(delta)
+  updateFps(delta)
 
   if (cube.value) {
     cube.value.rotation.x += delta * rotationSpeedX.value;

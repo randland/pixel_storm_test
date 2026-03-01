@@ -13,8 +13,8 @@ const { cast } = useManualRaycaster()
 use3dCanvasClick(({ position }) => {
   if (!controls.manual.value) return null
 
-  const intersects = cast(position)
-  const intersect = intersects[0]
+  const intersect = cast(position)[0]
+
   if (!intersect) return null
 
   const index = intersect.object.userData
@@ -29,11 +29,11 @@ const clickObject = (object) => {
   object.toggleSelect()
 }
 
-const { update } = useFPS()
+const { updateFps } = useFPS()
 const { onBeforeRender } = useLoop()
 
 onBeforeRender(({ delta }) => {
-  update(delta)
+  updateFps(delta)
 })
 </script>
 

@@ -6,6 +6,8 @@ import { OrbitControls } from '@tresjs/cientos'
 import { randomBetween } from '@/lib/randomUtils'
 import useControls from './useControls'
 import useDollyZoom from '@/composables/useDollyZoom'
+import useFPS from '@/composables/useFPS'
+import { useLoop } from '@tresjs/core'
 
 const { controls: {
   toneMappingExposure,
@@ -17,6 +19,13 @@ const { controls: {
   far,
   dollyZoom,
 } } = useControls();
+
+const { onBeforeRender } = useLoop()
+const { updateFps } = useFPS()
+
+onBeforeRender(({ delta }) => {
+  updateFps(delta)
+})
 
 const objects = Array.from({ length: 20 }, () => ({
   position: [randomBetween(-6, 6), randomBetween(0.5, 4), randomBetween(-6, 6)],

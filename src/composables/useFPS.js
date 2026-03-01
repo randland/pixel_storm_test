@@ -5,7 +5,7 @@ const threshold = 0.5
 let frameCount = 0
 let accumulatedTime = 0
 
-const update = (delta) =>{
+const updateFps = (delta) =>{
   frameCount++;
   accumulatedTime += delta;
 
@@ -19,6 +19,6 @@ const update = (delta) =>{
 export default function useFPS() {
   return {
     fps,
-    update,
+    updateFps,
   }
 }

@@ -36,11 +36,11 @@ useLightHelper(pointLight, pointHelper, PointLightHelper)
 const spotLight = ref(null)
 useLightHelper(spotLight, spotHelper, SpotLightHelper)
 
-const { update } = useFPS()
+const { updateFps } = useFPS()
 const { onBeforeRender } = useLoop()
 
 onBeforeRender(({ delta }) => {
-  update(delta)
+  updateFps(delta)
 })
 </script>
 

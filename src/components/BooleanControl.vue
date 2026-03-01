@@ -10,6 +10,7 @@ defineProps({
       <label class="control-label flex-1">
         <input
           :value="param.label"
+          :name="`${param.label}-label`"
           type="text"
           readonly
           class="control-input w-full"
@@ -17,7 +18,9 @@ defineProps({
       </label>
       <input
         :checked="param.value"
+        :name="param.label"
         type="checkbox"
+        :aria-label="param.label"
         @change="param.value = $event.target.checked"
       >
     </div>
