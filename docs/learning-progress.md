@@ -1,7 +1,7 @@
 # Learning Progress
 
 ## Current Status
-- **Phase**: Sections 01, 02, 04 complete. Section 05-01 fully complete (TresJS events + manual Raycaster). Section 05-02 fully complete (InstancedMesh, art-grid demo, 10k instances, 230fps).
+- **Phase**: Sections 01, 02, 04 complete. Section 05-01 fully complete (TresJS events + manual Raycaster). Section 05-02 fully complete (InstancedMesh, art-grid demo, 10k instances, 230fps). Section 05-03 in progress (foundations: gridMath, useDynamicList, useDynamicInstancedMesh).
 - **Branch**: `learn/nick`
 - **Focus**: Interactive Scene Building (Section 05-03), then shader foundations
 - **Pattern**: Three.js examples-style demos with forward connection to GPU work
@@ -13,7 +13,7 @@
 4. ~~**Section 02-04**: Shadows & Surfaces~~ ✅ Complete
 5. ~~**Section 05-01**: Raycasting & Object Selection (TresJS events + manual Raycaster)~~ ✅ Complete
 6. ~~**Section 05-02**: Instanced Rendering (art-grid demo, 10k instances, 230fps sustained)~~ ✅ Complete
-7. **Section 05-03**: Interactive Scene Building (gate-prototype demo) **← NEXT**
+7. **Section 05-03**: Interactive Scene Building (gate-prototype demo) **← IN PROGRESS**
 8. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
 9. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
 10. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
@@ -25,7 +25,7 @@
 ## Skills Status
 - [x] Vue 3 (expert)
 - [x] Three.js mental models (scene graph, transforms, geometry/material/mesh, render loop)
-- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom, object-picker, art-grid demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps; TresJS pointer events + raycasting; object selection + hover feedback; manual THREE.Raycaster; NDC coordinates; screen-to-world pipeline; userData for mesh-object bridging; InstancedMesh + Matrix4.setPosition + setColorAt; `<primitive :object>` escape hatch; no-allocation render loop; geometry.rotateX() bake; mapRange() utility)
+- [~] TresJS integration (hello-cube, scene-config, lighting-basics, material-showroom, object-picker, art-grid, gate-prototype demos; useLoop animation; renderer/scene/camera controls; OrbitControls; dolly zoom composable; light types + helpers; shadows + shadow camera; MeshStandard/PhysicalMaterial; environment maps; TresJS pointer events + raycasting; object selection + hover feedback; manual THREE.Raycaster; NDC coordinates; screen-to-world pipeline; userData for mesh-object bridging; InstancedMesh + Matrix4.setPosition + setColorAt; `<primitive :object>` escape hatch; no-allocation render loop; geometry.rotateX() bake; mapRange() utility; dynamic InstancedMesh with capacity doubling + dirty set tracking; useDynamicList swap-on-delete array; gridMath snap-to-grid; shallowRef for identity-changing Three.js objects)
 - [ ] WebGPU programming
 - [ ] TSL shaders
 
@@ -207,6 +207,25 @@
 - Singleton frame counter using rolling 500ms window for stable FPS display
 - Displayed in DemoSelector header
 
+### Dynamic Instancing Patterns (2026-03-02)
+
+**Dynamic Array Over-Allocation (useDynamicList)**
+- Swap-with-last delete for O(1) removal (order doesn't matter for InstancedMesh)
+- Dirty set tracking: only changed indices get flushed to GPU buffers
+- `markAllDirty()` for resize events when all instances need re-upload
+- Capacity vs count distinction — pre-allocate to avoid frequent resizing
+
+**Dynamic InstancedMesh Management (useDynamicInstancedMesh)**
+- Wraps Three.js InstancedMesh with add/remove/update/flush operations
+- Capacity doubling on resize: new mesh created, old mesh disposed, all instances marked dirty
+- `shallowRef` for mesh reference that changes identity on resize
+- `BufferAttribute.needsUpdate` is a write-only setter (increments `.version`, no getter)
+- VueUse `toRef` for flexible capacity input (accepts number or ref)
+
+**Grid Math (gridMath.js)**
+- Pure `snapToGrid`/`gridToWorld` functions for discrete grid placement
+- 8 tests covering snapping, world-to-grid conversion, edge cases
+
 ### Historical Context
 
 **Previous Phase Completed**: LED demo projects with Perlin noise
@@ -234,5 +253,6 @@
 | 2026-02-27 | Section 05: Raycasting & Object Selection | Built object-picker demo: 4x4 grid of torus knots with HSL color ramp. Click-to-select with emissive highlight, hover via emissive intensity. `useObject` composable for per-object reactive state. Time-based click debounce (50ms) to handle multi-intersection on complex geometry. Standardized `useControls` return pattern (`{ controls, ...sceneState }`) across all demos. Header styling cleanup. Learned: TresJS pointer events use DOM-style lowercase (`@pointerenter` not `@pointer-enter`), scale-on-hover causes raycaster recursion (use emissive instead), TresCanvas custom renderer boundary prevents dynamic `<component :is>` for TresJS composables. |
 | 2026-02-28 | Section 05: Raycasting & Object Selection (manual Raycaster) | Built composable chain for manual raycasting: `useCanvas` (canvas ref), `useCanvasPoint` (mouse position on canvas, CSS vs canvas pixel distinction on retina), `useScenePoint` (NDC conversion, aspect ratio, mouse position in normalized space), `use3dCanvasClick` (click event hook), `useManualRaycaster` (THREE.Raycaster ray cast + intersection filtering). Extracted `screenMath.js` utility with pure functions for NDC conversion: `toNDC` (CSS pixels → NDC -1 to 1), `fromNDC` (NDC → world space), `screenToNDC` wrapper. 8 tests covering NDC bounds, edge cases, retina pixel doubling. Learned: userData for bridging mesh to object data (query via `intersection.object.userData`), screen coordinate systems (CSS pixels vs canvas texture pixels on high-DPI displays), NDC as the bridge between screen and world space. |
 | 2026-03-01 | Section 05-02: Instanced Rendering | Built `art-grid` demo: 100×100 InstancedMesh (10k instances), sin/cos wave height animation, HSL color mapped via `mapRange`, sustained 230fps. Platform fixes commit: `useFPS.update()` renamed to `updateFps()`, control components got name/aria-label attributes, vite.config `isCustomElement` typo fixed (primative → primitive), vitest.config got @/ alias. 13 tests covering `getX`, `getZ`, `getY`, `getHue` using exported constants (X, Z, COUNT) instead of magic numbers. Learned: InstancedMesh = single draw call vs N meshes (the core perf win); `Matrix4.setPosition()` for per-instance position; `setColorAt()` + `instanceColor.needsUpdate` for per-instance color; `<primitive :object>` as TresJS escape hatch for arbitrary Three.js objects; no-allocation render loop (reuse Color/Matrix4 objects, never `new` inside the loop); `geometry.rotateX()` bakes rotation into shared geometry (cleaner than per-instance matrix); MeshBasicMaterial ignores lighting (correct for color-driven art); GC-inflated FPS peaks are not true sustained throughput; `mapRange()` utility for normalizing values across domains; pure function extraction pattern (getHue vs setColor). |
+| 2026-03-02 | Section 05-03: Interactive Scene Building (foundations) | Built `gridMath.js` — pure `snapToGrid`/`gridToWorld` functions (8 tests). Built `useDynamicList` composable — swap-on-delete array with dirty set tracking (16 tests). Built `useDynamicInstancedMesh` composable — wraps InstancedMesh with dynamic add/remove/update/flush, capacity doubling on resize, old mesh disposal (15 tests). Added `markAllDirty()` to useDynamicList for resize support. Scaffolded `gate-prototype` demo (index.vue, Experience.vue, useControls.js). Learned: dynamic array over-allocation pattern (capacity vs count, swap-with-last delete); dirty set tracking for efficient GPU buffer updates; InstancedMesh capacity management (resize = new mesh + dispose old + mark all dirty); `BufferAttribute.needsUpdate` is write-only setter (increments `.version`, no getter); `shallowRef` for Three.js objects that change identity on resize; VueUse `toRef` for flexible capacity input. |
 
-*Updated*: 2026-03-01
+*Updated*: 2026-03-02

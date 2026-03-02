@@ -3,6 +3,11 @@ import { reactive } from 'vue'
 export default function useDynamicList(list = []) {
   const dirty = reactive(new Set())
   const markDirty = (index) => dirty.add(index)
+  const markAllDirty = () => {
+    for (let i = 0; i < items.length; i++) {
+      dirty.add(i)
+    }
+  }
   const flush = () => dirty.clear()
 
   const items = reactive(list)
@@ -32,6 +37,7 @@ export default function useDynamicList(list = []) {
     add,
     remove,
     markDirty,
+    markAllDirty,
     flush,
   }
 }

@@ -1,7 +1,7 @@
 # Curriculum Outline
 
-> **Progress**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) and 05-02 (Instanced Rendering) fully complete. Interactive Scene Building next.
-> **Last Updated**: 2026-03-01
+> **Progress**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) and 05-02 (Instanced Rendering) fully complete. Section 05-03 (Interactive Scene Building) in progress.
+> **Last Updated**: 2026-03-02
 
 ## Learning Philosophy
 
@@ -68,7 +68,7 @@ Making scenes interactive and rendering at scale. Each lesson builds skills dire
 |---|--------|--------|----------|
 | 01 | Raycasting & Object Selection | `[x]` | `object-picker` demo (TresJS events) + manual `THREE.Raycaster` implementation. Composable chain: `useCanvas` → `useCanvasPoint` → `useScenePoint` → `use3dCanvasClick` → `useManualRaycaster`. `screenMath.js` with NDC conversion utilities (8 tests). `useObject` composable for per-object state. userData for mesh-to-object bridging. |
 | 02 | Instanced Rendering | `[x]` | `art-grid` demo — 100×100 InstancedMesh (10k instances), sin/cos wave height animation, HSL color via mapRange, 230fps sustained. `Matrix4.setPosition()` + `setColorAt()` + `instanceColor.needsUpdate`. `<primitive :object>` escape hatch. No-allocation render loop. `geometry.rotateX()` bake. 13 tests (getX, getZ, getY, getHue with exported constants). |
-| 03 | Interactive Scene Building | `[ ]` | `gate-prototype` demo — place nodes on grid, wire them, toggle states (gate sim scaffolding) |
+| 03 | Interactive Scene Building | `[>]` | `gate-prototype` demo — place nodes on grid, wire them, toggle states (gate sim scaffolding). Foundations complete: `gridMath.js` (snapToGrid/gridToWorld, 8 tests), `useDynamicList` (swap-on-delete + dirty tracking, 16 tests), `useDynamicInstancedMesh` (add/remove/update/flush + capacity doubling, 15 tests). Next: gate factory, ground plane raycasting, wiring. |
 
 > **Restructured**: Animation Loops and Reactive Bindings were dropped (already covered through existing demos). Interaction lessons are project-driven, building toward the gate simulator.
 
@@ -158,6 +158,7 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-02-27 | 05 | 05-01 Raycasting & Object Selection (TresJS events) | Built object-picker demo: 4x4 torus knot grid with HSL color ramp, click-to-select (emissive highlight), hover feedback (emissive intensity), `useObject` composable, time-based click debounce (50ms). Learned TresJS pointer event naming (lowercase, not kebab), scale-on-hover raycaster recursion antipattern, TresCanvas custom renderer boundary. Standardized `useControls` return pattern across all demos. |
 | 2026-02-28 | 05 | 05-01 Raycasting & Object Selection (manual Raycaster) | Built composable chain for manual raycasting: `useCanvas` (canvas ref), `useCanvasPoint` (mouse position on canvas), `useScenePoint` (NDC conversion), `use3dCanvasClick` (click hook), `useManualRaycaster` (THREE.Raycaster ray cast + intersection filtering). Extracted `screenMath.js` with 8 tests for NDC conversion, CSS vs canvas pixel handling on retina displays. Learned userData for mesh-object bridging, NDC as screen-to-world bridge, screen coordinate systems. |
 | 2026-03-01 | 05 | 05-02 Instanced Rendering | Built `art-grid` demo: 100×100 InstancedMesh, sin/cos wave height, HSL color via mapRange, 230fps. Platform fixes: useFPS.updateFps(), control aria-labels, vite.config isCustomElement typo, vitest @/ alias. 13 tests with exported constants. Learned: single draw call performance win, Matrix4.setPosition(), setColorAt() + needsUpdate, `<primitive :object>` escape hatch, no-allocation render loop, geometry.rotateX() bake, MeshBasicMaterial for color-driven art, GC-inflated FPS reading, mapRange() utility, pure function extraction (getHue). |
+| 2026-03-02 | 05 | 05-03 Interactive Scene Building (foundations) | Built `gridMath.js` (snapToGrid/gridToWorld, 8 tests), `useDynamicList` composable (swap-on-delete array + dirty set tracking, 16 tests), `useDynamicInstancedMesh` composable (dynamic InstancedMesh with add/remove/update/flush + capacity doubling + old mesh disposal, 15 tests). Scaffolded gate-prototype demo. Added `markAllDirty()` for resize support. Learned: dynamic array over-allocation (capacity vs count), dirty set for efficient GPU updates, InstancedMesh capacity management (resize = new mesh + dispose old), `BufferAttribute.needsUpdate` is write-only setter, `shallowRef` for identity-changing Three.js objects, VueUse `toRef` for flexible input. |
 
 ---
 
