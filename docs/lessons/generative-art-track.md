@@ -112,3 +112,15 @@ These are the rare **teach-in-the-target-stack** references (TSL/WebGPU-native, 
 1. **The real Section-06 meta-skill is translating GLSL → TSL.** Most classic references (IQ, Book of Shaders, Shadertoy) are GLSL, so you'll convert `a + b*cos(c)` into `a.add(b.mul(c.cos()))`. Heckel's Field Guide + NikLever's TSL series are the teach-in-TSL exceptions — make them the spine.
 2. **Atomics are the hard line.** Any sim where many threads write the same cell (physarum deposit, DLA sticking) needs atomics, which TSL barely supports. Those are the Section-09 boss levels, not early demos.
 3. **Native GL lines can't do width** (1px, always). Adopt `makio-meshline` or `Line2` before any path project.
+
+---
+
+## Toolset currency (2026)
+
+The ecosystem moved fast in late 2025 / early 2026 — WebGPU went cross-browser (Firefox 141 Jul 2025, Safari 26 incl. iOS Sep 2025; shipping in all major browsers, though MDN still lists it as "Limited availability," not formally Baseline as of May 2026). What this means for the projects here:
+
+- **Use the WebGPU path.** `import ... from 'three/webgpu'` + TSL from `three/tsl`. It's zero-config with automatic WebGL2 fallback (since Three.js r171), and TSL / compute shaders *only* work on this path. The docs still say "experimental" — that label is stale; it's the recommended path for new work.
+- **⚠️ TSL rename gotcha — the copy-paste trap.** Most online TSL tutorials predate mid-2025 renames and will throw or warn. Fix on paste: `three/nodes` → **`three/tsl`**; `timerGlobal`/`timerLocal` → **`time`**; `timerDelta` → **`deltaTime`**; main WebGPU import `three` → **`three/webgpu`**. (GLSL references like IQ/Shadertoy are unaffected — you're translating those to TSL by hand anyway.)
+- **Version:** bump to **r185+** before compute work (r184 fixed a large per-frame allocation problem and sped TSL compile ~3×). TSL noise nodes, `instancedArray`/`storage`/`Fn`, and steady additions keep landing release-to-release.
+- **Atomics are int32-only** in WebGPU — relevant to the physarum/DLA "boss levels" and the capstone's parallel state.
+- **TresJS v5** (current) has experimental WebGPU via a renderer-factory on `<TresCanvas>`; note it removed `useRaycaster` (your `useManualRaycaster` is the v5-aligned approach).
