@@ -36,6 +36,23 @@ These safe text corrections were applied during the audit (no code logic touched
 
 ---
 
+## Strategic plan revisions (decided 2026-07-18)
+
+A higher-level audit of the *learning plan itself* (separate from the file-level drift above) produced two decided changes and three still-open recommendations.
+
+**Decided:**
+- **Re-entry via a TSL shader generative-art win.** After the ~4.5-month gap, the actual next action is a Section 06 fragment-shader material built up as cosine color palette → animated plasma → Perlin noise field — low-friction, highly visual, and it reconnects with generative art — BEFORE circling back to finish the in-progress gate-prototype (Section 05-03). Immediate order: (a) shader generative-art taster, (b) finish 05-03 gate-prototype, (c) resume normal progression (Section 06 → 07 → 08). *(Supersedes the earlier "WebGPU hello-compute" re-entry taster, changed after generative-art research; the compute "aha" now comes slightly later via curl-noise/attractor particles in Section 07. See `docs/lessons/generative-art-track.md`.)*
+- **Capstone built CPU-first, then GPU as optimization.** The Logic Gate Simulator (Section 08) is built as a working CPU/JS simulation FIRST (DAG evaluation in JS, correctness baseline, measured performance), and THEN the hot path is ported to GPU compute as an optimization once scale justifies it — with an explicit CPU-vs-GPU comparison tied to the existing JS-vs-GPU performance thresholds. Framed as the more honest engineering story (measure, find the threshold, then reach for the GPU) and de-risks the hardest compute lesson.
+
+**Still open (decide when Section 07 is reached — do NOT apply yet):**
+- [ ] Consider demoting Flame IFS Fractals (07-02) to Section 09 creative extensions — it teaches atomics, which the capstone never needs, so it's a side quest that lengthens the runway. If demoted, Section 07 runs: hello-compute → Game of Life → GPU particles.
+- [ ] Treat Game of Life (07-03) as the key confidence milestone — it's the natural "GPU compute clicks" win, and its ping-pong pattern is the closest analog to gate signal propagation.
+- [ ] Front-load more concept-scaffolding (SIMD, shader pull-model, buffer memory layout) BEFORE hands-on coding in Sections 06-07, since GPU mental models don't emerge from typing the way Vue/Three.js APIs do.
+
+> Both decided items are also recorded in `docs/learning-progress.md` (Decisions Log) and `docs/lessons/00-curriculum-outline.md` (top callout + Section 08 reframe + Progress Log).
+
+---
+
 ## Session A — Reconcile "where am I?" (docs + one small code fix)
 
 **Why:** Three status files disagree with each other and with disk. Until they agree, you (and any agent) start every session with a wrong map. Cheap, high-value.
@@ -55,7 +72,9 @@ These safe text corrections were applied during the audit (no code logic touched
 
 ## Session B — Unblock & continue gate-prototype (Section 05-03) — TEACHING SESSION
 
-**Why:** This is your actual next lesson, and the demo is currently broken (crashes on open). This is the one session where *you write the code* with guidance.
+> **Re-entry note (2026-07-18):** Per the strategic revision above, Session B is now *preceded* by the TSL shader generative-art taster (cosine palette → animated plasma → Perlin noise field, a Section 06 fragment-shader material) — that taster is the actual first action after the gap (the re-entry momentum win). Come back to this gate-prototype session **after** the taster.
+
+**Why:** This is your gate-prototype lesson (the next action after the re-entry taster), and the demo is currently broken (crashes on open). This is the one session where *you write the code* with guidance.
 
 **Files:** `src/demos/07-gate-prototype/{useControls.js, Experience.vue, index.vue}`, `src/composables/useDynamicInstancedMesh.js`, `src/composables/useManualRaycaster.js` (+ the 05-01 chain), `src/lib/gridMath.js`
 

@@ -3,7 +3,7 @@
 ## Current Status
 - **Phase**: Sections 01, 02, 04 complete. Section 05-01 fully complete (TresJS events + manual Raycaster). Section 05-02 fully complete (InstancedMesh, art-grid demo, 10k instances, 230fps). Section 05-03 in progress (foundations: gridMath, useDynamicList, useDynamicInstancedMesh).
 - **Branch**: `learn/nick`
-- **Focus**: Interactive Scene Building (Section 05-03), then shader foundations
+- **Focus**: Re-entry via a TSL shader generative-art win — cosine color palette → animated plasma → Perlin noise field (a low-friction Section 06 fragment-shader material that reconnects with generative art and rebuilds momentum after the ~4.5-month gap), then finish Section 05-03 gate-prototype, then shader foundations. Capstone (Section 08) will be built CPU/JS-first, then ported to GPU as an optimization.
 - **Pattern**: Three.js examples-style demos with forward connection to GPU work
 
 ## Immediate Next Steps
@@ -13,10 +13,11 @@
 4. ~~**Section 02-04**: Shadows & Surfaces~~ ✅ Complete
 5. ~~**Section 05-01**: Raycasting & Object Selection (TresJS events + manual Raycaster)~~ ✅ Complete
 6. ~~**Section 05-02**: Instanced Rendering (art-grid demo, 10k instances, 230fps sustained)~~ ✅ Complete
-7. **Section 05-03**: Interactive Scene Building (gate-prototype demo) **← IN PROGRESS**
-8. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
-9. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
-10. **Section 08**: Capstone — Logic Gate Simulator (board, GPU eval, signal propagation, polish)
+7. **Re-entry win**: TSL shader generative-art taster — cosine color palette → animated plasma → Perlin noise field (a Section 06 fragment-shader material, low-friction and highly visual), to reconnect with generative art and rebuild momentum after the ~4.5-month gap **← NEXT (IN PROGRESS)**
+8. **Section 05-03**: Interactive Scene Building (gate-prototype demo) — finish after the re-entry taster
+9. **Section 06**: Shader Foundations (GPU mindset, TSL materials, patterns, noise, displacement)
+10. **Section 07**: GPU Compute (hello compute, flame fractals, Game of Life, GPU particles)
+11. **Section 08**: Capstone — Logic Gate Simulator (built CPU/JS-first, then GPU as optimization)
 
 ## Curriculum Location
 **Full outline**: `docs/lessons/00-curriculum-outline.md`
@@ -73,6 +74,19 @@
 ---
 
 ## Decisions Log
+
+### Learning-Plan Strategic Revisions (2026-07-18)
+
+A higher-level audit of the learning plan produced two decided changes plus three still-open recommendations. Full context: `docs/plans/2026-07-18-project-audit-remediation.md`.
+
+**Decided:**
+- **Re-entry via a TSL shader generative-art win** — after the ~4.5-month gap, the next work is a Section 06 fragment-shader material building up cosine color palette → animated plasma → Perlin noise field: low-friction, highly visual, and reconnects with generative art, BEFORE circling back to finish the in-progress gate-prototype (Section 05-03). Immediate order: (a) shader generative-art taster, (b) finish 05-03 gate-prototype, (c) resume normal progression (Section 06 → 07 → 08). *(Supersedes the earlier "WebGPU hello-compute" re-entry choice, changed after generative-art research — the compute "aha" now comes slightly later via curl-noise/attractor particles in Section 07. See `docs/lessons/generative-art-track.md`.)*
+- **Capstone built CPU-first, then GPU as optimization** — the Logic Gate Simulator (Section 08) is built as a working CPU/JS simulation FIRST (DAG evaluation in JS, correctness baseline, measured performance), THEN the hot path is ported to GPU compute as an optimization once scale justifies it, with an explicit CPU-vs-GPU comparison tied to the existing JS-vs-GPU performance thresholds. This is the more honest engineering story (measure, find the threshold, then reach for the GPU) and de-risks the hardest compute lesson.
+
+**Still open (to decide when Section 07 is reached — not yet applied):**
+- Consider demoting Flame IFS Fractals (07-02) to Section 09 creative extensions — it teaches atomics, which the capstone never needs, so it's a side quest that lengthens the runway. If demoted, Section 07 runs: hello-compute → Game of Life → GPU particles.
+- Treat Game of Life (07-03) as the key confidence milestone — it's the natural "GPU compute clicks" win, and its ping-pong pattern is the closest analog to gate signal propagation.
+- Front-load more concept-scaffolding (SIMD, shader pull-model, buffer memory layout) BEFORE hands-on coding in Sections 06-07, since GPU mental models don't emerge from typing the way Vue/Three.js APIs do.
 
 ### Technology Stack
 

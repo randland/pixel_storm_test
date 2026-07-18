@@ -1,7 +1,11 @@
 # Curriculum Outline
 
 > **Progress**: Sections 01, 02, 04 complete. Section 05-01 (Raycasting) and 05-02 (Instanced Rendering) fully complete. Section 05-03 (Interactive Scene Building) in progress.
-> **Last Updated**: 2026-03-02
+> **Last Updated**: 2026-07-18
+>
+> **Strategic revision (2026-07-18)**: Re-entry after the ~4.5-month gap goes through a TSL shader generative-art win — cosine color palette → animated plasma → Perlin noise field (a low-friction, highly visual Section 06 fragment-shader material that reconnects with generative art) BEFORE resuming — then finish Section 05-03, then normal progression. (This supersedes the earlier "WebGPU hello-compute" re-entry taster; the compute "aha" now comes slightly later via curl-noise/attractor particles in Section 07.) The Section 08 capstone will be built CPU/JS-first (working simulation + measured baseline), THEN ported to GPU as an optimization. Also proposed but pending a decision when Section 07 is reached: demote Flame IFS (07-02) to Section 09, reorder Section 07 (hello-compute → Game of Life → GPU particles), and a GPU teaching-method shift (front-load SIMD / pull-model / buffer-layout scaffolding before hands-on coding in Sections 06-07). See `docs/plans/2026-07-18-project-audit-remediation.md`.
+>
+> **Generative Art Track**: Optional generative-art projects that teach the same Section 06/07 skills (shaders, compute) are catalogued in `docs/lessons/generative-art-track.md` — intersperse them with the main curriculum so scene-building stays fresh.
 
 ## Learning Philosophy
 
@@ -88,6 +92,8 @@ Understanding GPU programming through TSL (Three.js Shading Language). TSL-first
 
 > **TSL-first**: Lessons teach the node-based approach directly (the tool you'll actually use) rather than starting with raw GLSL/WGSL syntax. Signed Distance Fields deferred to on-demand exploration.
 
+> **Generative-art demos** (optional — see `generative-art-track.md`): cosine palette + animated plasma + Perlin noise field map to the first material/shaping/noise lessons (06-02/03/04) and are the re-entry taster set. fBm & domain warping, truchet tiles, voronoi, and kaleidoscope reinforce the shaping/noise lessons (06-03/04). Noise vertex displacement (organic blob) is the finale for the vertex-displacement lesson (06-05). Full resource links live in the track doc.
+
 ---
 
 ## Section 07: GPU Compute
@@ -103,6 +109,8 @@ The core target — parallel computation on the GPU. Each lesson uses the most i
 
 > **Project-driven**: Flame IFS fractals are the first real compute project (pure GPU, stunning results, minimal UI overhead). Game of Life teaches ping-pong buffers (the exact pattern the gate simulator needs). GPU Particles prove the compute-to-render pipeline at scale.
 
+> **Generative-art demos** (optional — see `generative-art-track.md`): curl-noise flow-field particles and strange-attractor particles map to the GPU particles lesson (07-04) and are the gentlest real compute wins. Game of Life is the cellular-automata lesson (07-03). Reaction-diffusion (Gray-Scott) is the ping-pong "generative-art payoff" that graduates from Game of Life. Full resource links live in the track doc.
+
 ---
 
 ## Section 08: Capstone Projects
@@ -111,12 +119,12 @@ Applying everything learned to build the target project. Each lesson builds on t
 
 | # | Lesson | Status | Description |
 |---|--------|--------|-------------|
-| 01 | Logic Gate Simulator: Board & Data Model | `[ ]` | DAG representation, gate types, placement/wiring interaction, model loading |
-| 02 | Logic Gate Simulator: GPU Evaluation | `[ ]` | Compute shader for parallel gate logic, CPU vs GPU comparison |
+| 01 | Logic Gate Simulator: Board & Data Model (CPU-first) | `[ ]` | Build a WORKING CPU/JS simulation first — DAG data model, gate types, JS evaluation with a correctness baseline, placement/wiring interaction, model loading. Establish a measured performance baseline to compare against later. |
+| 02 | Logic Gate Simulator: GPU Evaluation (optimization) | `[ ]` | Port the evaluation hot path to a GPU compute shader AS AN OPTIMIZATION once scale justifies it. Explicit CPU-vs-GPU comparison measured against the JS-vs-GPU performance thresholds (Appendix A). |
 | 03 | Logic Gate Simulator: Signal Propagation | `[ ]` | Multi-layer evaluation, animated signal flow, TSL materials for state |
 | 04 | Logic Gate Simulator: Polish | `[ ]` | Post-processing (bloom), preset circuits, save/load, portfolio quality |
 
-> **Target Project**: GPU-Enhanced Logic Gate Simulator inspired by Turing Complete. The interaction layer is scaffolded in Section 05-03, GPU evaluation uses patterns from Section 07, and visual feedback combines TSL materials with compute output.
+> **Target Project**: GPU-Enhanced Logic Gate Simulator inspired by Turing Complete. Built **CPU/JS-first, then GPU as an optimization** — a working JS simulation with a measured performance baseline comes before any compute-shader port, so the GPU step is a justified optimization with an explicit CPU-vs-GPU comparison. The interaction layer is scaffolded in Section 05-03, GPU evaluation uses patterns from Section 07, and visual feedback combines TSL materials with compute output.
 
 ---
 
@@ -128,9 +136,18 @@ Open-ended section for projects that emerge from student interests. Added as dis
 |---|--------|--------|-------------|
 | 01 | Reaction-Diffusion Simulator | `[ ]` | Differential equations, pattern emergence, ping-pong buffers |
 | 02 | Fractal Explorer | `[ ]` | Mandelbrot, Julia sets, infinite zoom, GPU-computed |
+| 03 | Flow-field line art (Fidenza-style) | `[ ]` | Noise advection + stroke rendering — the generative line-art genre (needs makio-meshline/Line2) |
+| 04 | Strange attractors (point cloud → GPU) | `[ ]` | Iterative attractor math → geometry; CPU-first then port to GPU (bridges 06→07) |
+| 05 | Physarum / slime-mold | `[ ]` | Agent trails + deposit/diffuse — needs atomics (thin TSL support), a boss level |
+| 06 | Boids / flocking | `[ ]` | Neighbor reads across particles + spatial hashing |
+| 07 | N-body galaxy | `[ ]` | All-pairs / tiled particle interaction on GPU buffers |
+| 08 | Differential line growth | `[ ]` | Node insertion + neighbor repulsion (like `useDynamicList`), grown line geometry |
+| 09 | L-systems / fractal plants | `[ ]` | Grammar rewriting → turtle → line geometry |
 | ?? | *(added as discovered)* | | |
 
 > **Tangent-driven**: See `tangents-queue.md` for exploration ideas. Flame IFS fractals were promoted from tangent to curriculum (Section 07-02).
+>
+> **Generative Art Track**: Rows 03-09 are the ambitious generative-art "boss levels" and notable projects — full details, difficulty/TSL-fit flags, and resource links are in `docs/lessons/generative-art-track.md`.
 
 ---
 
@@ -159,6 +176,7 @@ Lessons suggested during learning that need to be placed in the outline.
 | 2026-02-28 | 05 | 05-01 Raycasting & Object Selection (manual Raycaster) | Built composable chain for manual raycasting: `useCanvas` (canvas ref), `useCanvasPoint` (mouse position on canvas), `useScenePoint` (NDC conversion), `use3dCanvasClick` (click hook), `useManualRaycaster` (THREE.Raycaster ray cast + intersection filtering). Extracted `screenMath.js` with 8 tests for NDC conversion, CSS vs canvas pixel handling on retina displays. Learned userData for mesh-object bridging, NDC as screen-to-world bridge, screen coordinate systems. |
 | 2026-03-01 | 05 | 05-02 Instanced Rendering | Built `art-grid` demo: 100×100 InstancedMesh, sin/cos wave height, HSL color via mapRange, 230fps. Platform fixes: useFPS.updateFps(), control aria-labels, vite.config isCustomElement typo, vitest @/ alias. 13 tests with exported constants. Learned: single draw call performance win, Matrix4.setPosition(), setColorAt() + needsUpdate, `<primitive :object>` escape hatch, no-allocation render loop, geometry.rotateX() bake, MeshBasicMaterial for color-driven art, GC-inflated FPS reading, mapRange() utility, pure function extraction (getHue). |
 | 2026-03-02 | 05 | 05-03 Interactive Scene Building (foundations) | Built `gridMath.js` (snapToGrid/gridToWorld, 12 tests), `useDynamicList` composable (swap-on-delete array + dirty set tracking, 16 tests), `useDynamicInstancedMesh` composable (dynamic InstancedMesh with add/remove/update/flush + capacity doubling + old mesh disposal, 15 tests). Scaffolded gate-prototype demo. Added `markAllDirty()` for resize support. Learned: dynamic array over-allocation (capacity vs count), dirty set for efficient GPU updates, InstancedMesh capacity management (resize = new mesh + dispose old), `BufferAttribute.needsUpdate` is write-only setter, `shallowRef` for identity-changing Three.js objects, VueUse `toRef` for flexible input. |
+| 2026-07-18 | all | Learning-plan strategic audit | Higher-level audit. Decided: re-entry via TSL shader generative-art taster (cosine palette → plasma → noise field, Section 06) then finish 05-03 — supersedes the earlier hello-compute re-entry; capstone built CPU-first then GPU-as-optimization. Proposed (pending): demote Flame IFS to Sec 09, reorder Sec 07 (hello→GoL→particles), front-load GPU concept-scaffolding in Sec 06-07. See docs/plans/2026-07-18-project-audit-remediation.md. |
 
 ---
 
