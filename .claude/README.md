@@ -17,24 +17,24 @@
 **Need to invoke a skill?** → `skills/README.md`
 **Need reference docs?** → `../docs/reference/README.md`
 
-## Hooks (Configured in settings.json)
+## Hooks (Shell scripts in `.claude/hooks/`)
 
-These are Claude Code hook system features, not separate script files:
+These are standalone executable shell scripts in `.claude/hooks/`, wired up to Claude Code hook events via `settings.local.json`:
 
-| Hook Event | Trigger | Purpose |
-|------------|---------|---------|
-| `SessionStart` | Session begins | Loads learning progress automatically |
-| `PostToolUse` | After Edit/Write on Vue/shader files | Reminds to run `/demo-test` |
-| `PreToolUse` | Before `git commit` commands | Reminds to lint/test before commits |
+| Hook Event | Script | Trigger | Purpose |
+|------------|--------|---------|---------|
+| `SessionStart` | `session-init.sh` | Session begins | Loads learning progress automatically |
+| `PostToolUse` | `auto-test-reminder.sh` | After Edit/Write | Reminds to run `/demo-test` |
+| `PreToolUse` | `pre-commit-guard.sh` | Before Bash commands | Reminds to lint/test before commits |
 
-> **Note**: Hooks are configured in `settings.json` or `settings.local.json`, not as standalone shell scripts.
+> **Note**: The hook logic lives in the `.claude/hooks/*.sh` scripts; `settings.local.json` only maps each hook event to the script that runs it.
 
 ## Configuration
 
 `settings.local.json` contains:
-- Permissions (allowed bash commands, web domains)
-- Hook configuration
-- Output style setting (`teaching-mentor`)
+- `permissions` (`defaultMode`)
+- `hooks` (maps hook events to the scripts in `.claude/hooks/`)
+- `outputStyle` (`teaching-mentor`)
 
 ## Primary Reference
 

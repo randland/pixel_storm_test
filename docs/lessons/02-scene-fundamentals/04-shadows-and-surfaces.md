@@ -1,7 +1,7 @@
 # Lesson 02-04: Shadows & Surfaces
 
 > **Section**: Scene Fundamentals
-> **Status**: `[ ]` Planned
+> **Status**: `[x]` Complete
 > **Estimated Time**: 2-3 hours
 
 ## Learning Objectives

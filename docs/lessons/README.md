@@ -6,20 +6,19 @@ This directory contains the structured curriculum for learning WebGPU, TresJS, a
 
 ```
 lessons/
-├── 00-curriculum-outline.md    # Master progress tracker
-├── tangents-queue.md           # Parking lot for exploration ideas
-├── README.md                   # This file
+├── 00-curriculum-outline.md         # Master progress tracker
+├── tangents-queue.md                # Parking lot for exploration ideas
+├── README.md                        # This file
 │
-├── 01-getting-started/         # Foundation (no artifacts)
-├── 02-scene-fundamentals/      # Core Three.js concepts
-├── 03-scene-organization/      # Structuring larger scenes
-├── 04-platform-architecture/   # Demo platform infrastructure
-├── 05-interactivity/           # User input and animation
-├── 06-visual-effects/          # Particles, post-processing
-├── 07-shader-foundations/      # GPU mindset and math
-├── 08-tsl-webgpu/              # Three.js Shading Language
-└── 09-advanced-patterns/       # Open-ended advanced topics
+├── 01-getting-started/              # Foundation (no artifacts)
+├── 02-scene-fundamentals/           # Core Three.js concepts
+├── 05-interaction-and-instancing/   # Raycasting, instancing, gate prototype
+├── 06-shader-foundations/           # GPU mindset + TSL shaders
+├── 07-gpu-compute/                  # Compute shaders, fractals, particles
+└── 08-capstone-projects/            # Logic gate simulator capstone
 ```
+
+> **Note**: Section 04 (Platform Architecture) is tracked in `00-curriculum-outline.md` but has no lesson subfolder here. Sections 03 and 09 do not exist as folders — Section 03 was eliminated and Section 09 (Creative Extensions) lives in the outline only.
 
 ## Workflow
 
@@ -57,7 +56,7 @@ If during learning you think "I wonder how X works":
 
 ```bash
 # Starting a new lesson
-git checkout learn/fresh-architecture
+git checkout learn/nick
 
 # After completing a lesson
 npm run lint && npm run test

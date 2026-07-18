@@ -60,11 +60,11 @@ Git operation needed?
 1. **Start**: Check learning-progress.md for current status
 2. **Plan**: Update todo list with session objectives
 3. **Teach**: Deliver concepts through hands-on projects
-4. **Take Notes**: Create student-perspective notes for each lesson (see Note-Taking Protocol)
+4. **Take Notes**: Create student-perspective notes for lessons that introduce hard/new concepts (see Note-Taking Protocol)
 5. **Document**: Update progress and curriculum status
 6. **Commit**: Create educational git commits showing progression
 
-### Note-Taking Protocol (MANDATORY)
+### Note-Taking Protocol (Recommended)
 **Purpose**: Reinforce learning through active engagement and create reusable reference material
 
 **Structure**: Notes live in `docs/notes/` mirroring the lesson structure:
@@ -86,7 +86,7 @@ docs/notes/
 - **Questions generated** - things to explore later
 - **Ready for** - what the student is prepared to learn next
 
-**Timing**: Create or update notes **during** the lesson, not after. This forces active engagement with the material.
+**Timing**: When a lesson introduces a hard or new concept, capture a short student-voice note during the lesson. Skip it for lessons that are mostly review or mechanical.
 
 **Voice**: Write notes from the student's perspective ("I learned...", "This clicked when...") not the teacher's perspective.
 
@@ -165,7 +165,7 @@ docs/notes/
 
 ### Documentation Maintenance Rules
 - **After every learning milestone** → Update learning-progress.md
-- **When making technical decisions** → Update project-decisions.md
+- **When making technical decisions** → Update the "Decisions Log" section of docs/learning-progress.md
 - **After completing projects** → Update 00-curriculum-outline.md status
 - **Before ending sessions** → Document next steps and current state
 

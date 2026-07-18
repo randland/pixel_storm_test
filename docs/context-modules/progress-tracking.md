@@ -2,11 +2,11 @@
 
 ## Technical Proficiency Targets
 ```
-TresJS Integration:     [########            ] 40%
+TresJS Integration:     [###############     ] 75%
 WebGPU Fundamentals:    [                    ] 0%
 TSL Shader Programming: [                    ] 0%
 GPU Computing:          [                    ] 0%
-Demo Architecture:      [############        ] 60%
+Demo Architecture:      [#################   ] 85%
 ```
 
 ## Platform Development
@@ -14,13 +14,23 @@ Demo Architecture:      [############        ] 60%
 Navigation System:      [####################] 100%
 Demo Framework:         [##################  ] 90%
 URL Routing:            [####################] 100%
-Control Panels:         [################    ] 80%
+Control Panels:         [##################  ] 90%
 Code Display:           [                    ] 0%
 ```
 
 ---
 
 ## Spaced Repetition Tracking
+
+> ⚠️ **SCHEDULE DORMANT as of 2026-07-18.** The "Last Review" / "Next Review" dates below are **historical and not authoritative** — every "Next Review" is Feb–Mar 2026 (~4.5 months overdue) and active recall practice has lapsed. Do not treat these dates as a live schedule. To revive: run `/progress-review` and re-date the table when spaced-repetition practice resumes. The table is retained as history.
+>
+> **Concept areas learned since this table was last updated (not yet in the table, intentionally undated):**
+> - Instanced rendering (InstancedMesh, single draw call, no-alloc render loop)
+> - Dynamic instancing + dirty-set tracking (useDynamicInstancedMesh, capacity doubling + disposal)
+> - gridMath snap-to-grid (pure snapToGrid/gridToWorld)
+> - useDynamicList (swap-on-delete over-allocated array)
+> - Manual raycaster + NDC/screenMath (screen-to-world pipeline)
+> - Shadows + PBR materials (shadow mapping, MeshStandard/PhysicalMaterial, env maps)
 
 | Concept | Last Review | Next Review | Confidence | Notes |
 |---------|-------------|-------------|------------|-------|
@@ -71,7 +81,7 @@ Code Display:           [                    ] 0%
 ### Skill Mastery Indicators
 
 **Three.js Fundamentals**
-- [ ] Scene setup, geometry, materials, lighting
+- [x] Scene setup, geometry, materials, lighting
 - [x] Animation loops and render cycles
 - [ ] Asset loading and texture management
 
@@ -82,8 +92,8 @@ Code Display:           [                    ] 0%
 
 **Performance Optimization**
 - [ ] Profiling and bottleneck identification
-- [ ] Memory management strategies
-- [ ] Rendering efficiency techniques
+- [x] Memory management strategies
+- [x] Rendering efficiency techniques
 
 **Shader Programming**
 - [ ] Vertex/fragment shader concepts

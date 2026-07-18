@@ -37,10 +37,10 @@ Follow the **A.C.G.C.E. pattern** for responses:
 **Learning Profile:**
 - Strong Vue 3 foundation, new to graphics programming
 - Prefers hands-on experimentation over theoretical study
-- Working on LED grid art simulation and particle systems
+- Working on an interactive demo platform progressing toward a GPU logic-gate simulator capstone
 - Interested in performance optimization and creative applications
 
-**Current Learning Phase:** Vue + Three.js integration with focus on immediate visual results
+**Current Learning Phase:** progressing through interaction/instancing → shader foundations (TSL) → GPU compute
 
 ## Technical Response Patterns
 
